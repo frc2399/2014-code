@@ -4,15 +4,13 @@
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
-
-
 /**
  *
  * @author Lauren
  */
-public class Claw {
+public class AxisCamera {
     
-    public Claw(){
+    public AxisCamera(){
         
     }
     

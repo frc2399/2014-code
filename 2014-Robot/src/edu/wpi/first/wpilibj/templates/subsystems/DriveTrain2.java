@@ -21,10 +21,10 @@ public class DriveTrain2 {
     
     public DriveTrain2(){
     
-        leftFront = new CANJaguar(4);
-        leftBack = new CANJaguar(247);
-        rightFront = new CANJaguar(7);
-        rightBack = new CANJaguar(347);
+        //leftFront = new CANJaguar(4);
+        //leftBack = new CANJaguar(247);
+        //rightFront = new CANJaguar(7);
+        //rightBack = new CANJaguar(347);
         
         
         drive = new RobotDrive(leftFront, leftBack, rightFront, rightBack);
