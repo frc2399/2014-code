@@ -25,6 +25,6 @@ public class RobotMap {
     public static final int testEncoderB = 2;
     public static final int gyro = 1;
     
-    public static final int shootmotor1 = 1;
-    public static final int shootmotor2 = 2;
+    public static final int shootMotor1 = 1;
+    public static final int shootMotor2 = 2;
 }

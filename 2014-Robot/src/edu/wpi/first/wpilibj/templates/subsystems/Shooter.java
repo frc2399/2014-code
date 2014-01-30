@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Encoder;
  *
  * @author Lauren
  */
-public class Shooter {
+public class Shooter{
     //will probably have sensors for motor force and possibly for kicker height 
     
     public CANJaguar motor1;
