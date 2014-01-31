@@ -22,3 +22,10 @@ $RECYCLE.BIN/
 *.jar
 *.war
 *.ear
+
+# compiled files
+build/
+
+# Netbeans project files
+nbproject/
+
