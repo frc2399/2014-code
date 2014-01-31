@@ -4,6 +4,9 @@
  */
 package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.templates.commands.ManClaw;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -49,8 +52,11 @@ public class OI {
     Joystick rightStick = new Joystick(2);
     Joystick driveyStick = new Joystick(3);
     
+    ManClaw manClaw = new ManClaw(); 
     
-    
+    public double getLeftStickY(){
+        return leftStick.getX();
+    }   
     public double getForwardSpeed(){
         return driveyStick.getRawAxis(2);
     }

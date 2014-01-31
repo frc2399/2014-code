@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 
 
 
@@ -38,4 +39,13 @@ public class Claw extends Subsystem{
        
     }
     
+    public void setSpeed(double speed){
+        try{
+            clawMotor.setX(speed);
+        }
+        catch( CANTimeoutException e){
+        }
+    }
+    
 }
+    

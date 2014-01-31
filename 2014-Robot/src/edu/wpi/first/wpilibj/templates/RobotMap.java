@@ -13,7 +13,7 @@ package edu.wpi.first.wpilibj.templates;
  * port numbers for motors and sensors 
  */
 public class RobotMap {
-    //NOT RIGHT NUMBeRS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //NOT RIGHT NUMBERS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public static final int driveLeftFront = 7;
     public static final int driveLeftRear = 8;
     public static final int driveRightFront = 6;
@@ -31,4 +31,6 @@ public class RobotMap {
 
     public static final int shootMotor1 = 1;
     public static final int shootMotor2 = 2;
+    
+    public static final int manClawButt = 7;
 }
