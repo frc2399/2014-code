@@ -5,6 +5,7 @@
         <group>
             <file>file:/Users/Julia/Desktop/2014-code/2014-Robot/build.xml</file>
             <file>file:/Users/Julia/Desktop/2014-code/2014-Robot/src/edu/wpi/first/wpilibj/templates/commands/JoystickDrive.java</file>
+            <file>file:/Users/Julia/Desktop/2014-code/2014-Robot/src/edu/wpi/first/wpilibj/templates/commands/FieldOrientedDrive.java</file>
             <file>file:/Users/Julia/Desktop/2014-code/2014-Robot/src/edu/wpi/first/wpilibj/templates/subsystems/DriveTrain.java</file>
         </group>
     </open-files>
