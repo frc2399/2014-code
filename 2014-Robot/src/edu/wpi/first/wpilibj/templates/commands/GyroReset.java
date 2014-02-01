@@ -24,11 +24,12 @@ public class GyroReset extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        driveTrain.resetGyro();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
     // in the old code it says that this is true. What should I do?
 
