@@ -24,8 +24,8 @@ public class Shooter{
     public Shooter(){
         
         try{
-        motor1 = new CANJaguar(RobotMap.shootmotor1);
-        motor2 = new CANJaguar(RobotMap.shootmotor2);
+        motor1 = new CANJaguar(RobotMap.shootMotor1);
+        motor2 = new CANJaguar(RobotMap.shootMotor2);
         
         }catch(Exception e){
             System.out.println(e);

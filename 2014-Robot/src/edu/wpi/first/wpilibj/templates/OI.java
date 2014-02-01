@@ -6,6 +6,7 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.templates.commands.ManClaw;
+import edu.wpi.first.wpilibj.templates.commands.ClawCatch;
 
 
 /**
@@ -53,6 +54,18 @@ public class OI {
     Joystick driveyStick = new Joystick(3);
     
     ManClaw manClaw = new ManClaw(); 
+    ClawCatch clawCatch = new ClawCatch();
+     
+    public static int clawCatchButtNum = 2; //will be changed 
+    
+    private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
+    
+    
+    
+    public OI(){
+            clawCatchButt.whenPressed(clawCatch);
+            
+    }
     
     public double getLeftStickY(){
         return leftStick.getX();

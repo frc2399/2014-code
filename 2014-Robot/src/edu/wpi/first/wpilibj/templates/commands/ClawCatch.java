@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.templates.subsystems.Claw;
  *
  * @author Lauren
  */
-public class Catch extends CommandBase{
+public class ClawCatch extends CommandBase{
     
-    public Catch(){
+    public ClawCatch(){
         requires(claw);
     }
 
@@ -22,8 +22,15 @@ public class Catch extends CommandBase{
     }
 
     // Called repeatedly when this Command is scheduled to run
+    /*
+     * if the limit switch is not triggered move the claw backwards
+     * if it is trigered do nothing 
+     */
     protected void execute() {
-        
+       
+        if( claw.clawLimitSwitch.get() == false){
+                    claw.setSpeed(-.5); //check to make sure this is negative 
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

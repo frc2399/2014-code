@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 
 
@@ -22,7 +23,7 @@ public class Claw extends Subsystem{
     //Encoder testEncoder = new Encoder(RobotMap.clawEncoderA, RobotMap.clawEncoderB);
     //the encoder will most likley be plugged into the jag; therefore it does not need to be constructed
     //finalize with the mechies
-
+     public DigitalInput clawLimitSwitch = new DigitalInput(RobotMap.clawLimitSwitch);
     
     public Claw(){
         try{
