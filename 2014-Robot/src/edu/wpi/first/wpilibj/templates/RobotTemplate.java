@@ -9,6 +9,7 @@ package edu.wpi.first.wpilibj.templates;
 
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -38,6 +39,7 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void teleopPeriodic() {
         //always cancel autonomous command 
+        Scheduler.getInstance().run();
         
     }
     
