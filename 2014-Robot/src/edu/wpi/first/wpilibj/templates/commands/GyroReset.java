@@ -14,10 +14,12 @@ public class GyroReset extends CommandBase {
     public GyroReset() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires (driveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        driveTrain.resetGyro();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -28,6 +30,7 @@ public class GyroReset extends CommandBase {
     protected boolean isFinished() {
         return false;
     }
+    // in the old code it says that this is true. What should I do?
 
     // Called once after isFinished returns true
     protected void end() {
