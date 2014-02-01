@@ -23,7 +23,6 @@ public class JoystickDrive extends CommandBase{
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        System.out.println("is running joystickDrive");
         driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), 0);
         
     }

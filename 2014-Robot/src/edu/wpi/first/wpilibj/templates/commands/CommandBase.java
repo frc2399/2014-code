@@ -33,7 +33,7 @@ public abstract class CommandBase extends Command {
         // news. Don't move it.
         
         driveTrain = new DriveTrain();
-        shooter = new Shooter();
+        //shooter = new Shooter();
         claw = new Claw();
         
         //leave oi at the bottom and apart from the other initialized things
