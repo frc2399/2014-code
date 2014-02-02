@@ -22,4 +22,10 @@ $RECYCLE.BIN/
 *.jar
 *.war
 *.ear
-/2014-Robot/build/
+
+# compiled files
+build/
+
+# Netbeans project files
+nbproject/
+
