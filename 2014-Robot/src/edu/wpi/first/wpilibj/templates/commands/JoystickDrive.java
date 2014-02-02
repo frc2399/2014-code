@@ -25,7 +25,8 @@ public class JoystickDrive extends CommandBase{
     protected void execute() {
         if (oi.shouldStrafe()) {
             // TODO make this use gyro?
-            driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(),0, oi.getTwistSpeed(), 0);     
+            driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(),0, oi.getTwistSpeed(), driveTrain.getGyroAngle());
+            System.out.println(driveTrain.getGyroAngle());
         } else {
             driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), 0);
         }
