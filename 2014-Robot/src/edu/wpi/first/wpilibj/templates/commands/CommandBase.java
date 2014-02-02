@@ -38,7 +38,7 @@ public abstract class CommandBase extends Command {
         //those are not fun
         //please leave it here
         oi = new OI();
-
+        SmartDashboard.putData(driveTrain);
     }
 
     public CommandBase(String name) {
