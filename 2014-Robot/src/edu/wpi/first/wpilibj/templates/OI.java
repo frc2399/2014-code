@@ -52,6 +52,7 @@ public class OI {
     Joystick driveyStick = new Joystick(3);
     
     Button strafeButt = new JoystickButton(driveyStick, 3);//TODO- get actual button number
+    Button fieldOrientedButt = new JoystickButton(driveyStick, 11); // added button for field oriented drive
     
     
     public double getForwardSpeed(){
