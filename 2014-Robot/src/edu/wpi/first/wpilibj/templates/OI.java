@@ -4,6 +4,8 @@
  */
 package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -49,6 +51,8 @@ public class OI {
     Joystick rightStick = new Joystick(2);
     Joystick driveyStick = new Joystick(3);
     
+    Button strafeButt = new JoystickButton(driveyStick, 3);//TODO- get actual button number
+    Button fieldOrientedButt = new JoystickButton(driveyStick, 11); // added button for field oriented drive
     
     
     public double getForwardSpeed(){
@@ -73,5 +77,14 @@ public class OI {
     
     public double getRightStickThrottle(){
         return rightStick.getRawAxis(3);
+    }
+    
+    public boolean shouldStrafe() {
+      if (strafeButt.get()==true)  {
+          return true;
+         
+      } else {
+          return false;
+      }
     }
 }

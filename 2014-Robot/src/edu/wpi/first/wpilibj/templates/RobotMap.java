@@ -23,7 +23,7 @@ public class RobotMap {
     //NOT RIGHT NUMBERS!!!!!!!!!!
     public static final int testEncoderA = 1;
     public static final int testEncoderB = 2;
-    public static final int gyro = 1;
+    public static final int gyro = 2;
     
     public static final int clawMotor = 5;
     public static final int clawEncoderA = 9;
