@@ -52,8 +52,13 @@ public class OI {
     Joystick driveyStick = new Joystick(3);
     
     Button strafeButt = new JoystickButton(driveyStick, 3);//TODO- get actual button number
-    Button fieldOrientedButt = new JoystickButton(driveyStick, 11); // added button for field oriented drive
+    //Button fieldOrientedButt = new JoystickButton(driveyStick, 11); // added button for field oriented drive
     
+    public boolean shouldFOD = false;
+    
+    public OI(){
+        //fieldOrientedButt.whenPressed(this.changeFOD());
+    }
     
     public double getForwardSpeed(){
         return driveyStick.getRawAxis(2);
@@ -87,4 +92,11 @@ public class OI {
           return false;
       }
     }
+    
+    /*
+    public boolean changeFOD(){
+        shouldFOD = !shouldFOD;
+        return shouldFOD;
+    }
+    */
 }
