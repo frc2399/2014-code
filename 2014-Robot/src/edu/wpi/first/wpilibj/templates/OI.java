@@ -80,6 +80,22 @@ public class OI {
         return leftStick.getRawAxis(3);
     }
     
+    public double getLeftStickY(){
+        return leftStick.getY();
+    }
+    
+    public double getLeftStickX(){
+        return leftStick.getX();
+    }
+    
+    public double getRightStickY(){
+        return rightStick.getY();
+    }
+    
+    public double getRightStickX(){
+        return rightStick.getX();
+    }
+    
     public double getRightStickThrottle(){
         return rightStick.getRawAxis(3);
     }

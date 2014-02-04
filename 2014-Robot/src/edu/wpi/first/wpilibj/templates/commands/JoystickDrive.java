@@ -23,10 +23,11 @@ public class JoystickDrive extends CommandBase {
     protected void execute() {
         if (oi.shouldStrafe()) {
             // gyro-based
-            driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), 0, oi.getTwistSpeed(), driveTrain.getGyroAngle());
+            driveTrain.drive.mecanumDrive_Cartesian(oi.getRightStickX(), 0, oi.getTwistSpeed(), driveTrain.getGyroAngle());
         } else {
             // robot-oriented
-            driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), 0);
+            //@param side speed, forward speed, twist speed, gyro
+            driveTrain.drive.mecanumDrive_Cartesian(oi.getRightStickX(), oi.getRightStickY(), oi.getLeftStickX(), 0);
 
             // field-oriented
             // driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), driveTrain.getGyroAngle());
