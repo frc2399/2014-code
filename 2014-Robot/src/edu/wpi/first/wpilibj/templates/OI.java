@@ -87,7 +87,7 @@ public class OI {
     public double getTwistSpeed(){
         return driveyStick.getRawAxis(3); 
     }
-
+    
     public double getDriveyStickThrottle(){
         return driveyStick.getRawAxis(4);
     }
@@ -101,7 +101,7 @@ public class OI {
     }
     
     public double getLeftStickX(){
-        return leftStick.getX();
+        return (leftStick.getX())*(leftStick.getX())*(leftStick.getX());
     }
     
     public double getRightStickY(){
