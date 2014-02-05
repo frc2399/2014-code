@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Encoder;
  *
  * @author Lauren
  */
-public class Shooter{
+public class Kicker{
     //will probably have sensors for motor force and possibly for kicker height 
     
     public CANJaguar motor1;
@@ -21,7 +21,7 @@ public class Shooter{
 
     
     
-    public Shooter(){
+    public Kicker(){
         
         try{
         motor1 = new CANJaguar(RobotMap.shootMotor1);

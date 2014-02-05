@@ -3,12 +3,13 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
+import edu.wpi.first.wpilibj.templates.subsystems.Kicker;
+
 
 /**
  *
- * @author Lauren
- * only applies if kicker
+ * @author Amanda Merritt and Lauren Egts
  */
-public class ResetShooter {
+public class Kick {
     
 }
