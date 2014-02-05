@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.templates.commands.ManClaw;
 import edu.wpi.first.wpilibj.templates.commands.ClawCatch;
 import edu.wpi.first.wpilibj.templates.commands.JoystickDrive;
-
+import edu.wpi.first.wpilibj.buttons.Button;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -68,10 +68,13 @@ public class OI {
             clawCatchButt.whenPressed(clawCatch);
             
     }
+      
+
+    Button strafeButt = new JoystickButton(driveyStick, 3);//TODO- get actual button number
+    //Button fieldOrientedButt = new JoystickButton(driveyStick, 11); // added button for field oriented drive
     
-    public double getLeftStickY(){
-        return leftStick.getX();
-    }   
+    public boolean shouldFOD = false;
+    
     
     public double getForwardSpeed(){
         return driveyStick.getRawAxis(2);
@@ -93,7 +96,39 @@ public class OI {
         return leftStick.getRawAxis(3);
     }
     
+    public double getLeftStickY(){
+        return leftStick.getY();
+    }
+    
+    public double getLeftStickX(){
+        return leftStick.getX();
+    }
+    
+    public double getRightStickY(){
+        return rightStick.getY();
+    }
+    
+    public double getRightStickX(){
+        return rightStick.getX();
+    }
+    
     public double getRightStickThrottle(){
         return rightStick.getRawAxis(3);
     }
+    
+    public boolean shouldStrafe() {
+      if (strafeButt.get()==true)  {
+          return true;
+         
+      } else {
+          return false;
+      }
+    }
+    
+    /*
+    public boolean changeFOD(){
+        shouldFOD = !shouldFOD;
+        return shouldFOD;
+    }
+    */
 }

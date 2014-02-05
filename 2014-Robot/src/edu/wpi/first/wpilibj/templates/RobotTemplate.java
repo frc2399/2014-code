@@ -37,6 +37,8 @@ public class RobotTemplate extends IterativeRobot {
 
         // Initialize all subsystems
         CommandBase.init();
+        
+        
     }
 
     public void autonomousInit() {

@@ -17,7 +17,7 @@ public class Shooter{
     public CANJaguar motor1;
     public CANJaguar motor2;
     
-    Encoder testEncoder = new Encoder(2,3); //CHANGE NUMBERS NOT CORRECT
+    //Encoder testEncoder = new Encoder(2,3); //CHANGE NUMBERS NOT CORRECT
 
     
     
