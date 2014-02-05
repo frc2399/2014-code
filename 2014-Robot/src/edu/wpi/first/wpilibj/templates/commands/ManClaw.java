@@ -23,7 +23,14 @@ public class ManClaw extends CommandBase{
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        claw.setSpeed(oi.getLeftStickY());
+        if(claw.clawLimitSwitchTop.get() == false && (oi.getDriveyStickY() > 0)){
+            claw.setSpeed(oi.getDriveyStickY());
+        } else if (claw.clawLimitSwitchBottom.get() == false && (oi.getDriveyStickY() < 0)){
+            claw.setSpeed(oi.getDriveyStickY());
+        }
+        
+        // if top switch is triggered only allow downward movement
+        //if bottom switch is triggered only allow upward movement 
         
     }
 

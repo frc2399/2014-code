@@ -28,7 +28,9 @@ public class RobotMap {
     public static final int clawMotor = 5;  //change
     public static final int clawEncoderA = 9; //change
     public static final int clawEncoderB = 10; //change
-    public static final int clawLimitSwitch = 4; //change
+    
+    public static final int clawLimitSwitchTop = 4; //change
+    public static final int clawLimitSwitchBottom = 4; //change
 
     
     public static final int manClawButt = 7;

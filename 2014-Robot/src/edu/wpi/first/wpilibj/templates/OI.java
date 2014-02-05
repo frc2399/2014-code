@@ -64,6 +64,7 @@ public class OI {
     
     
     
+    
     public OI(){
             clawCatchButt.whenPressed(clawCatch);
             
@@ -82,6 +83,14 @@ public class OI {
     
     public double getSideSpeed(){
         return driveyStick.getRawAxis(1);
+    }
+    
+    public double getDriveyStickX(){
+        return driveyStick.getX();
+    }
+    
+    public double getDriveyStickY(){
+        return driveyStick.getY();
     }
     
     public double getTwistSpeed(){
