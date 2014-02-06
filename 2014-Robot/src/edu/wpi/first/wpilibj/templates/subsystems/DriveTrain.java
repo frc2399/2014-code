@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.commands.FieldOrientedDrive;
 /**
  *
@@ -72,7 +73,8 @@ public class DriveTrain extends Subsystem{
     }
 
     public double getGyroAngle() {
-        return gyro.getAngle();
+        SmartDashboard.putNumber("Gyro", -gyro.getAngle());
+        return -gyro.getAngle();
     }
 
     public void resetGyro() {
