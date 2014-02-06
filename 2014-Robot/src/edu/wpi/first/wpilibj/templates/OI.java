@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.templates.commands.*;
 
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -53,6 +54,7 @@ public class OI {
     ClawClose clawClose = new ClawClose();
     ClawPickUp clawPickUp = new ClawPickUp();
     AutoPosition autoPosition = new AutoPosition(72); //not final number
+    Kick kick = new Kick();
      
     public static int clawCatchButtNum = 2; //will be changed 
     
@@ -71,6 +73,8 @@ public class OI {
     PiShutdown piShutdown = new PiShutdown();
 
     Button strafeButt = new JoystickButton(leftStick, 3);
+    
+    Button kickButt = new JoystickButton(extremeStick, 2);//NOT THE RIGHT NUMBER!!!!!!!!!
 
     Button turnLeftButt = new JoystickButton(rightStick, 4);
     Button turnRightButt = new JoystickButton(rightStick, 5);
@@ -81,6 +85,7 @@ public class OI {
     Button robotOrientButt = new JoystickButton(leftStick, 5);
     Button resetGyroButt = new JoystickButton(leftStick, 2);
     Button autoPositionButt = new JoystickButton (extremeStick, 9);
+   
     
     Button shutdownButt = new JoystickButton(rightStick, 6);
 
@@ -105,6 +110,8 @@ public class OI {
         manButt.toggleWhenPressed(manClaw);
         
         autoPositionButt.whenPressed(autoPosition);
+        
+        kickButt.whenPressed(kick);//lauren the Elder will fix this later
     }
 
 

@@ -39,4 +39,7 @@ public class Kicker extends Subsystem{
     public void initDefaultCommand() {
        
     }
+    public void setSpeed(double speed) {
+        
+    }
 }
