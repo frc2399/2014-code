@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.templates.commands.FieldOrientedDrive;
 /**
  *
  * @author Lauren Dierker 
@@ -58,7 +59,7 @@ public class DriveTrain extends Subsystem{
     }
 
     public void initDefaultCommand() {
-        this.setDefaultCommand(new JoystickDrive());
+        this.setDefaultCommand(new FieldOrientedDrive());
 
     }
 
