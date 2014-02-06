@@ -42,6 +42,7 @@ public abstract class CommandBase extends Command {
         kicker = new Kicker();
         
         
+        
         //leave oi at the bottom and apart from the other initialized things
         //if it is initialized before the subsytems, it throws some null pointer exceptions
         //those are not fun
