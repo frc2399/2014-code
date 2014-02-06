@@ -44,9 +44,9 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-    Joystick leftStick = new Joystick(1);
-    Joystick rightStick = new Joystick(2);
-    Joystick driveyStick = new Joystick(3);
+    Joystick rightStick = new Joystick(1);
+    Joystick leftStick = new Joystick(2);
+    Joystick extremeStick = new Joystick(3);
 
     ManClaw manClaw = new ManClaw();
     ClawCatch clawCatch = new ClawCatch();
@@ -61,25 +61,25 @@ public class OI {
 
     }
 
-    Button strafeButt = new JoystickButton(driveyStick, 3);//TODO- get actual button number
-    //Button fieldOrientedButt = new JoystickButton(driveyStick, 11); // added button for field oriented drive
+    Button strafeButt = new JoystickButton(extremeStick, 3);//TODO- get actual button number
+    //Button fieldOrientedButt = new JoystickButton(extremeStick, 11); // added button for field oriented drive
 
     public boolean shouldFOD = false;
 
     public double getForwardSpeed() {
-        return driveyStick.getRawAxis(2);
+        return extremeStick.getRawAxis(2);
     }
 
     public double getSideSpeed() {
-        return driveyStick.getRawAxis(1);
+        return extremeStick.getRawAxis(1);
     }
 
     public double getTwistSpeed() {
-        return driveyStick.getRawAxis(3);
+        return extremeStick.getRawAxis(3);
     }
 
-    public double getDriveyStickThrottle() {
-        return driveyStick.getRawAxis(4);
+    public double getextremeStickThrottle() {
+        return extremeStick.getRawAxis(4);
     }
 
     public double getLeftStickThrottle() {
