@@ -5,6 +5,7 @@
 package edu.wpi.first.wpilibj.templates.commands;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 
 
 
@@ -16,8 +17,8 @@ import edu.wpi.first.wpilibj.Encoder;
 public class Kick extends CommandBase{
     
     public Kick() {
-        
         requires(kicker);
+        
     }
 
     protected void initialize() {

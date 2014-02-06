@@ -6,12 +6,13 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
  * @author Lauren
  */
-public class Kicker{
+public class Kicker extends Subsystem{
     //will probably have sensors for motor force and possibly for kicker height 
     
     public CANJaguar motor1;
