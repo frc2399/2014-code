@@ -23,33 +23,16 @@ public class JoystickDrive extends CommandBase {
     protected void execute() {
         if (oi.shouldStrafe()) {
             // gyro-based
-            driveTrain.drive.mecanumDrive_Cartesian(oi.getRightStickX(), 0, oi.getTwistSpeed(), driveTrain.getGyroAngle());
+            driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), 0, oi.getTwistSpeed(), driveTrain.getGyroAngle());
         } else {
             // robot-oriented
             //@param side speed, forward speed, twist speed, gyro
-            driveTrain.drive.mecanumDrive_Cartesian(oi.getRightStickX(), oi.getRightStickY(), oi.getLeftStickX(), 0);
+            driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), 0);
 
             // field-oriented
             // driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), driveTrain.getGyroAngle());
         }
         
-        /*
-        if (oi.getForwardSpeed() > 0.15) {
-            System.out.println("backward");
-        }
-        if (oi.getForwardSpeed() < -0.15) {
-            System.out.println("foreward");
-        }
-        if (oi.getSideSpeed() > 0.15) {
-            System.out.println("strafe rt");
-        }
-        if (oi.getSideSpeed() < -0.15) {
-            System.out.println("strafe lt");
-        }
-        
-        System.out.println("gyro: " + driveTrain.getGyroAngle());
-        System.out.println("X: " + oi.getSideSpeed()  + "\t Y: " + oi.getForwardSpeed() + "\tZ: " + oi.getTwistSpeed());
-        */
 
     }
 

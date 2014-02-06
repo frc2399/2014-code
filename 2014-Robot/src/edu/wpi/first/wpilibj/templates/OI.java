@@ -61,37 +61,35 @@ public class OI {
 
     }
 
-    Button strafeButt = new JoystickButton(extremeStick, 3);//TODO- get actual button number
+    Button strafeButt1 = new JoystickButton(leftStick, 3);
+    Button strafeButt2 = new JoystickButton(leftStick, 4);
+    Button strafeButt3 = new JoystickButton(leftStick, 5);
     //Button fieldOrientedButt = new JoystickButton(extremeStick, 11); // added button for field oriented drive
 
     public boolean shouldFOD = false;
 
-    public double getForwardSpeed() {
+    public double getClawSpeed() {
         return extremeStick.getRawAxis(2);
     }
 
-    public double getSideSpeed() {
-        return extremeStick.getRawAxis(1);
-    }
-
-    public double getTwistSpeed() {
-        return extremeStick.getRawAxis(3);
-    }
-
-    public double getextremeStickThrottle() {
+    /*public double getextremeStickThrottle() {
         return extremeStick.getRawAxis(4);
     }
 
     public double getLeftStickThrottle() {
         return leftStick.getRawAxis(3);
-    }
+    }*/
 
-    public double getLeftStickY() {
+    public double getForwardSpeed() {
         return leftStick.getY();
     }
 
-    public double getLeftStickX() {
-        double x = leftStick.getX();
+     public double getSideSpeed() {
+        return leftStick.getX();
+     }
+     
+    public double getTwistSpeed() {
+        double x = rightStick.getX();
         if (x > 0) {
             return x * x;
         } else {
@@ -99,20 +97,8 @@ public class OI {
         }
     }
 
-    public double getRightStickY() {
-        return rightStick.getY();
-    }
-
-    public double getRightStickX() {
-        return rightStick.getX();
-    }
-
-    public double getRightStickThrottle() {
-        return rightStick.getRawAxis(3);
-    }
-
     public boolean shouldStrafe() {
-        if (strafeButt.get() == true) {
+        if (strafeButt1.get() == true || strafeButt2.get() == true || strafeButt3.get() == true) {
             return true;
 
         } else {

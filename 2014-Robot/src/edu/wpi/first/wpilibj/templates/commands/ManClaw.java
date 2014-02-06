@@ -23,7 +23,7 @@ public class ManClaw extends CommandBase{
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        claw.setSpeed(oi.getLeftStickY());
+        claw.setSpeed(oi.getClawSpeed());
         
     }
 
