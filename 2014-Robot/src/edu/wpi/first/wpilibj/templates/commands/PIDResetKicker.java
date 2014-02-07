@@ -9,8 +9,14 @@ package edu.wpi.first.wpilibj.templates.commands;
  * @author Lauren
  */
 public class PIDResetKicker extends CommandBase{
+    
+    //set PID in CANJag
+    //position reference in CANJag
+    //config/disable soft position limits in CANJag
+    //get position 
+    //setX -- in position mode in rotations
 
-    public PIDResetKicker(double angle, boolean isDriverControlled, boolean killPitch) {
+    public PIDResetKicker() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(kicker);
