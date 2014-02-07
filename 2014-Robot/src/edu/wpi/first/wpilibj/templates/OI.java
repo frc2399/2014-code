@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.templates.commands.JoystickDrive;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.templates.commands.FieldOrientedDrive;
 import edu.wpi.first.wpilibj.templates.commands.GyroReset;
+import edu.wpi.first.wpilibj.templates.commands.SetDirection;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -55,14 +56,22 @@ public class OI {
     JoystickDrive robotDrive = new JoystickDrive();
     FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
     GyroReset gyroReset = new GyroReset();
+    SetDirection setDirectionLeft = new SetDirection(270);
+    SetDirection setDirectionRight = new SetDirection(90);
+    SetDirection setDirectionFront = new SetDirection(0);
+    SetDirection setDirectionBack = new SetDirection(180);
     
     Button strafeButt = new JoystickButton(leftStick, 3);  
 
+    Button turnLeftButt = new JoystickButton(rightStick, 4); 
+    Button turnRightButt = new JoystickButton(rightStick, 5);
+    Button turnBackButt = new JoystickButton(rightStick, 2);
+    Button turnFrontButt = new JoystickButton(rightStick, 3);
+    
     Button fieldOrientButt = new JoystickButton(leftStick, 4); 
     Button robotOrientButt = new JoystickButton(leftStick,5);
     Button resetGyroButt = new JoystickButton(rightStick, 2);
-    //these are random numbers and almost definitely not correct!
-    
+        
     JoystickButton clawCatchButt = new JoystickButton(extremeStick, 2); //change number
     
     public boolean shouldFOD = false;
@@ -76,6 +85,11 @@ public class OI {
         robotOrientButt.cancelWhenPressed(fieldDrive);
         fieldOrientButt.whenPressed(fieldDrive);
         fieldOrientButt.cancelWhenPressed(robotDrive);
+        
+        turnLeftButt.whenPressed(setDirectionLeft);
+        turnRightButt.whenPressed(setDirectionRight);
+        turnBackButt.whenPressed(setDirectionBack);
+        turnFrontButt.whenPressed(setDirectionFront);
     }
     
    
