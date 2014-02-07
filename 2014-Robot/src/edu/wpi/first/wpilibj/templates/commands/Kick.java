@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.Timer;
-
+import edu.wpi.first.wpilibj.templates.subsystems.Kicker;
 
 
 /**
@@ -28,7 +28,7 @@ public class Kick extends CommandBase{
     protected void execute() {
         //wait until timer is 2 seconds then do stuff
         if(timeLord.get()<=2000){
-            
+            kicker.setSpeed(.95);//numbers may change, check direction
         }
     }
 

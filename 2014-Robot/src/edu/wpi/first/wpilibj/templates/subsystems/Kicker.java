@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 
 /**
  *
@@ -40,6 +41,15 @@ public class Kicker extends Subsystem{
        
     }
     public void setSpeed(double speed) {
+        try{
+        motor1.setX(speed); //numbers might change
+        motor2.setX(speed); //numbers might change
+        }
         
+        catch(CANTimeoutException e){
+            System.out.println(e);
+            System.out.println(motor1);
+            System.out.println(motor2);
+        }
     }
 }
