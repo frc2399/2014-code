@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.templates.commands.ManClaw;
 import edu.wpi.first.wpilibj.templates.commands.ClawCatch;
 import edu.wpi.first.wpilibj.templates.commands.JoystickDrive;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.templates.commands.FieldOrientedDrive;
+import edu.wpi.first.wpilibj.templates.commands.GyroReset;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -50,23 +52,33 @@ public class OI {
 
     ManClaw manClaw = new ManClaw();
     ClawCatch clawCatch = new ClawCatch();
-    JoystickDrive drive = new JoystickDrive();
+    JoystickDrive robotDrive = new JoystickDrive();
+    FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
+    GyroReset gyroReset = new GyroReset();
+    
+    Button strafeButt = new JoystickButton(leftStick, 3);  
 
-    public static int clawCatchButtNum = 2; //will be changed 
-
-    private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
-
+    Button fieldOrientButt = new JoystickButton(leftStick, 4); 
+    Button robotOrientButt = new JoystickButton(leftStick,5);
+    Button resetGyroButt = new JoystickButton(rightStick, 2);
+    //these are random numbers and almost definitely not correct!
+    
+    JoystickButton clawCatchButt = new JoystickButton(extremeStick, 2); //change number
+    
+    public boolean shouldFOD = false;
+    
     public OI() {
         clawCatchButt.whenPressed(clawCatch);
-
+        
+        resetGyroButt.whenPressed(gyroReset);
+        
+        robotOrientButt.whenPressed(robotDrive);
+        robotOrientButt.cancelWhenPressed(fieldDrive);
+        fieldOrientButt.whenPressed(fieldDrive);
+        fieldOrientButt.cancelWhenPressed(robotDrive);
     }
-
-    Button strafeButt1 = new JoystickButton(leftStick, 3);
-    Button strafeButt2 = new JoystickButton(leftStick, 4);
-    Button strafeButt3 = new JoystickButton(leftStick, 5);
-    //Button fieldOrientedButt = new JoystickButton(extremeStick, 11); // added button for field oriented drive
-
-    public boolean shouldFOD = false;
+    
+   
 
     public double getClawSpeed() {
         return extremeStick.getRawAxis(2);
@@ -98,7 +110,7 @@ public class OI {
     }
 
     public boolean shouldStrafe() {
-        if (strafeButt1.get() == true || strafeButt2.get() == true || strafeButt3.get() == true) {
+        if (strafeButt.get() == true) {
             return true;
 
         } else {

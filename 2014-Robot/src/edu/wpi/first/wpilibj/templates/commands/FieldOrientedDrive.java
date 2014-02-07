@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
-
+import edu.wpi.first.wpilibj.templates.OI;
 /**
  *
- * @author Julia
+ * @author Arielle
  */
 public class FieldOrientedDrive extends JoystickDrive {
     
@@ -24,7 +24,8 @@ public class FieldOrientedDrive extends JoystickDrive {
 
             // field-oriented
             // driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), driveTrain.getGyroAngle());
-        }
+        
+         }
     }
   
 }
