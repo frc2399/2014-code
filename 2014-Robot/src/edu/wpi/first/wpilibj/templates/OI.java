@@ -60,7 +60,7 @@ public class OI {
 
     Button fieldOrientButt = new JoystickButton(leftStick, 4); 
     Button robotOrientButt = new JoystickButton(leftStick,5);
-    Button resetGyroButt = new JoystickButton(rightStick, 2);
+    Button resetGyroButt = new JoystickButton(leftStick, 2);
     //these are random numbers and almost definitely not correct!
     
     JoystickButton clawCatchButt = new JoystickButton(extremeStick, 2); //change number
