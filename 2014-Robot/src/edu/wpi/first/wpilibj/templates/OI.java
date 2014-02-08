@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.templates.commands.*;
 
-
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -42,7 +41,8 @@ public class OI {
     // button.whileHeld(new ExampleCommand());
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
-    // button.whenReleased(new ExampleCommand());
+    // button.whenReleased(new ExampleCommand());\
+    
     Joystick rightStick = new Joystick(1);
     Joystick leftStick = new Joystick(2);
     Joystick extremeStick = new Joystick(3);
@@ -55,6 +55,8 @@ public class OI {
     ClawPickUp clawPickUp = new ClawPickUp();
     AutoPosition autoPosition = new AutoPosition(72); //not final number
     Kick kick = new Kick();
+    ResetKicker resetKicker = new ResetKicker();
+
      
     public static int clawCatchButtNum = 2; //will be changed 
     
@@ -73,8 +75,8 @@ public class OI {
     PiShutdown piShutdown = new PiShutdown();
 
     Button strafeButt = new JoystickButton(leftStick, 3);
-    
-    Button kickButt = new JoystickButton(extremeStick, 2);//NOT THE RIGHT NUMBER!!!!!!!!!
+    Button kickButt = new JoystickButton(extremeStick, 4);//NOT THE RIGHT NUMBER!!!!!!!!!
+    Button resetKickerButt = new JoystickButton(extremeStick, 2); //this will be in EXTREMESTICK
 
     Button turnLeftButt = new JoystickButton(rightStick, 4);
     Button turnRightButt = new JoystickButton(rightStick, 5);
@@ -112,6 +114,7 @@ public class OI {
         autoPositionButt.whenPressed(autoPosition);
         
         kickButt.whenPressed(kick);//lauren the Elder will fix this later
+        resetKickerButt.whenPressed(resetKicker);
     }
 
 

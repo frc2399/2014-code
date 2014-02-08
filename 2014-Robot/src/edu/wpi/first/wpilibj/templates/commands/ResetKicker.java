@@ -25,6 +25,7 @@ public class ResetKicker extends CommandBase {
     }
 
     protected void execute() {
+        kicker.usePIDOutput(0); //placeholder number 
         
     }
 

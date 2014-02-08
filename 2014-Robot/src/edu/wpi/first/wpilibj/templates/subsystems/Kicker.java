@@ -68,7 +68,7 @@ public class Kicker extends PIDSubsystem{
         return channel.getAverageVoltage();
     }
     
-    protected void usePIDOutput(double output){
+    public void usePIDOutput(double output){
         try{
             motor1.changeControlMode( CANJaguar.ControlMode.kPosition );
             motor2.changeControlMode( CANJaguar.ControlMode.kPosition );
