@@ -3,13 +3,14 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.templates.commands.ManClaw;
+import edu.wpi.first.wpilibj.*;
 
 
 
@@ -17,7 +18,7 @@ import edu.wpi.first.wpilibj.templates.commands.ManClaw;
  *
  * @author Lauren
  */
-public class Claw extends Subsystem{
+public class Claw extends PIDSubsystem{
     
     public CANJaguar clawMotor; 
     
@@ -26,8 +27,11 @@ public class Claw extends Subsystem{
     //finalize with the mechies
      public DigitalInput clawLimitSwitchTop = new DigitalInput(RobotMap.clawLimitSwitchTop);
      public DigitalInput clawLimitSwitchBottom = new DigitalInput(RobotMap.clawLimitSwitchBottom);
+     
+     AnalogChannel clawEncoder = new AnalogChannel(4);
     
     public Claw(){
+        super("Claw",0,0,0);
         try{
             clawMotor = new CANJaguar(RobotMap.clawMotor);
             
@@ -48,6 +52,19 @@ public class Claw extends Subsystem{
             clawMotor.setX(speed);
         }
         catch( CANTimeoutException e){
+        }
+    }
+    
+    protected double returnPIDInput(){
+        return clawEncoder.getAverageVoltage();
+    }
+    
+    protected void usePIDOutput(double output){
+        try{
+        clawMotor.setX(output);
+        } catch( CANTimeoutException e){
+            System.out.println(e);
+            System.out.println(clawMotor);
         }
     }
     
