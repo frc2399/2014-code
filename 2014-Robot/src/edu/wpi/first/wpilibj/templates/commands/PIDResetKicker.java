@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
+import edu.wpi.first.wpilibj.can.CANTimeoutException;
 
 /**
  *
@@ -25,11 +26,33 @@ public class PIDResetKicker extends CommandBase{
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        try{
+            kicker.motor1.enableControl();
+            kicker.motor2.enableControl();
+            
+            //this sets the P, I, and D values 
+            kicker.motor1.setPID(0.0, 0.0, 0.0);//NOT CORRECT NUMBERS 
+            kicker.motor2.setPID(0.0, 0.0, 0.0);//NOT CORRECT NUMBERS
+            
+        } catch( CANTimeoutException e){
+            System.out.println(e);
+            System.out.println(kicker.motor1);
+            System.out.println(kicker.motor2);
+        }
 
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        try{
+            kicker.motor1.setX(0); //sets position 
+            kicker.motor2.setX(0); //sets position 
+
+        } catch( CANTimeoutException e){
+            System.out.println(e);
+            System.out.println(kicker.motor1);
+            System.out.println(kicker.motor2);
+        }
        
     }
 
