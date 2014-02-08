@@ -59,7 +59,7 @@ public class OI {
 
      
     public static int clawCatchButtNum = 2; //will be changed 
-    
+
     private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
     private final JoystickButton clawOpenButt = new JoystickButton(extremeStick, 11);
     private final JoystickButton clawCloseButt = new JoystickButton(extremeStick, 12);
@@ -77,7 +77,8 @@ public class OI {
     Button strafeButt = new JoystickButton(leftStick, 3);
     Button kickButt = new JoystickButton(extremeStick, 4);//NOT THE RIGHT NUMBER!!!!!!!!!
     Button resetKickerButt = new JoystickButton(extremeStick, 2); //this will be in EXTREMESTICK
-
+    Button fire = new JoystickButton(extremeStick, 1); //this will be ExtremeStick
+    
     Button turnLeftButt = new JoystickButton(rightStick, 4);
     Button turnRightButt = new JoystickButton(rightStick, 5);
     Button turnBackButt = new JoystickButton(rightStick, 2);
@@ -115,6 +116,7 @@ public class OI {
         
         kickButt.whenPressed(kick);//lauren the Elder will fix this later
         resetKickerButt.whenPressed(resetKicker);
+        fire.whenPressed(kick);
     }
 
 
