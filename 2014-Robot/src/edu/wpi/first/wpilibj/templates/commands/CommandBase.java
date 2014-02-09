@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.templates.subsystems.Claw;
 //import edu.wpi.first.wpilibj.templates.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
-import edu.wpi.first.wpilibj.templates.subsystems.AxisCamera;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -22,7 +21,6 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     public static DriveTrain driveTrain;
     public static Shooter shooter;
-    public static Vision vision;
     public static Claw claw;
 
     public static void init() {

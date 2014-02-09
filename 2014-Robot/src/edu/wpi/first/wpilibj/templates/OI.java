@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.templates.commands.ManClaw;
 import edu.wpi.first.wpilibj.templates.commands.ClawCatch;
 import edu.wpi.first.wpilibj.templates.commands.JoystickDrive;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.templates.commands.PiShutdown;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -51,6 +52,7 @@ public class OI {
     ManClaw manClaw = new ManClaw();
     ClawCatch clawCatch = new ClawCatch();
     JoystickDrive drive = new JoystickDrive();
+    PiShutdown piShutdown = new PiShutdown();
 
     public static int clawCatchButtNum = 2; //will be changed 
 
@@ -58,12 +60,14 @@ public class OI {
 
     public OI() {
         clawCatchButt.whenPressed(clawCatch);
+        shutdownButt.whenPressed(piShutdown);
 
     }
 
     Button strafeButt1 = new JoystickButton(leftStick, 3);
     Button strafeButt2 = new JoystickButton(leftStick, 4);
     Button strafeButt3 = new JoystickButton(leftStick, 5);
+    Button shutdownButt = new JoystickButton(rightStick, 6);
     //Button fieldOrientedButt = new JoystickButton(extremeStick, 11); // added button for field oriented drive
 
     public boolean shouldFOD = false;
