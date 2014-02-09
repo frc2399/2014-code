@@ -25,8 +25,12 @@ public class ManClaw extends CommandBase{
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {     
-
-        
+        if( clawPitch.getPosition() < clawPitch.maxPosition && oi.getDriveyStickY() > 0){
+            clawPitch.setSpeed(oi.getDriveyStickY());
+        } else if( clawPitch.getPosition() > clawPitch.minPosition  && oi.getDriveyStickY() < 0){
+            clawPitch.setSpeed(oi.getDriveyStickY());
+        }
+            
     }
 
     // Make this return true when this Command no longer needs to run execute()

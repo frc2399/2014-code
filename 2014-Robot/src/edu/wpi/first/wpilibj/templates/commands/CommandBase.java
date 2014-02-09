@@ -31,7 +31,7 @@ public abstract class CommandBase extends Command {
         
         driveTrain = new DriveTrain();
         //shooter = new Shooter();
-        clawPitch = new ClawPitch();
+        clawPitch = new ClawPitch(0,0); //change this
         grabber = new Grabber();
         
         //leave oi at the bottom and apart from the other initialized things

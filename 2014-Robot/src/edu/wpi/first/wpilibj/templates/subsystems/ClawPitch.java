@@ -4,11 +4,8 @@
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.templates.commands.ManClaw;
 import edu.wpi.first.wpilibj.*;
 /**
@@ -21,11 +18,15 @@ public class ClawPitch extends PIDSubsystem{
     
 
     public CANJaguar clawPitchMotor; 
+    public final double maxPosition;
+    public final double minPosition;
      
     AnalogChannel clawPitchEncoder = new AnalogChannel(RobotMap.clawPitchEncoder);//fix this port num
     
-    public ClawPitch(){
-        super("ClawPitch",0,0,0);
+    public ClawPitch( double maxPosition, double minPosition){
+        super(0,0,0);
+        this.maxPosition = maxPosition;
+        this.minPosition = minPosition;
         try{
             clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
         }catch(Exception e){
@@ -40,6 +41,8 @@ public class ClawPitch extends PIDSubsystem{
     
     public void setSpeed(double speed){
         try{
+            clawPitchMotor.changeControlMode( CANJaguar.ControlMode.kSpeed );
+            clawPitchMotor.enableControl();
             clawPitchMotor.setX(speed);
         }
         catch( CANTimeoutException e){
@@ -56,6 +59,8 @@ public class ClawPitch extends PIDSubsystem{
      */
     protected void usePIDOutput(double output){
         try{
+            clawPitchMotor.changeControlMode( CANJaguar.ControlMode.kPosition );
+            clawPitchMotor.enableControl();  
             clawPitchMotor.setX(output);
         } catch( CANTimeoutException e){
             System.out.println(e);

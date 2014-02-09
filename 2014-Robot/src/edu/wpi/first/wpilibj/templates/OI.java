@@ -64,12 +64,14 @@ public class OI {
     private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
     private final JoystickButton clawOpenButt = new JoystickButton(driveyStick, 11);
     private final JoystickButton clawCloseButt = new JoystickButton(driveyStick, 12);
+    private final JoystickButton manClawButt = new JoystickButton(driveyStick, 10);
     
     
     public OI(){
             clawCatchButt.whenPressed(clawCatch);
             clawOpenButt.whenPressed(clawOpen);
             clawCloseButt.whenPressed(clawClose);
+            manClawButt.toggleWhenPressed(manClaw);
     }
       
 
