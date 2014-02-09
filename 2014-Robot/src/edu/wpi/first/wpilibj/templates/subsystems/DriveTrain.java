@@ -32,7 +32,7 @@ public class DriveTrain extends Subsystem{
 
         try {
 
-            leftFront = new CANJaguar(RobotMap.driveLeftFront);//change these numbers
+            leftFront = new CANJaguar(RobotMap.driveLeftFront);
             leftRear = new CANJaguar(RobotMap.driveLeftRear);
             rightFront = new CANJaguar(RobotMap.driveRightFront);
             rightRear = new CANJaguar(RobotMap.driveRightRear);

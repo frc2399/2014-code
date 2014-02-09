@@ -11,6 +11,11 @@ import edu.wpi.first.wpilibj.templates.commands.ClawCatch;
 import edu.wpi.first.wpilibj.templates.commands.JoystickDrive;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.templates.commands.PiShutdown;
+import edu.wpi.first.wpilibj.templates.commands.FieldOrientedDrive;
+import edu.wpi.first.wpilibj.templates.commands.GyroReset;
+import edu.wpi.first.wpilibj.templates.commands.SetDirection;
+
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -51,47 +56,62 @@ public class OI {
 
     ManClaw manClaw = new ManClaw();
     ClawCatch clawCatch = new ClawCatch();
-    JoystickDrive drive = new JoystickDrive();
+
+    JoystickDrive robotDrive = new JoystickDrive();
+    FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
+    GyroReset gyroReset = new GyroReset();
+    SetDirection setDirectionLeft = new SetDirection(270);
+    SetDirection setDirectionRight = new SetDirection(90);
+    SetDirection setDirectionFront = new SetDirection(0);
+    SetDirection setDirectionBack = new SetDirection(180);
     PiShutdown piShutdown = new PiShutdown();
 
-    public static int clawCatchButtNum = 2; //will be changed 
+    Button strafeButt = new JoystickButton(leftStick, 3);
 
-    private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
+    Button turnLeftButt = new JoystickButton(rightStick, 4);
+    Button turnRightButt = new JoystickButton(rightStick, 5);
+    Button turnBackButt = new JoystickButton(rightStick, 2);
+    Button turnFrontButt = new JoystickButton(rightStick, 3);
+
+    Button fieldOrientButt = new JoystickButton(leftStick, 4);
+    Button robotOrientButt = new JoystickButton(leftStick, 5);
+    Button resetGyroButt = new JoystickButton(leftStick, 2);
+
+    JoystickButton clawCatchButt = new JoystickButton(extremeStick, 2); //change number
+    
+    Button shutdownButt = new JoystickButton(leftStick, 6);
 
     public OI() {
         clawCatchButt.whenPressed(clawCatch);
-        shutdownButt.whenPressed(piShutdown);
 
+        resetGyroButt.whenPressed(gyroReset);
+
+        robotOrientButt.whenPressed(robotDrive);
+        robotOrientButt.cancelWhenPressed(fieldDrive);
+        fieldOrientButt.whenPressed(fieldDrive);
+        fieldOrientButt.cancelWhenPressed(robotDrive);
+
+        turnLeftButt.whenPressed(setDirectionLeft);
+        turnRightButt.whenPressed(setDirectionRight);
+        turnBackButt.whenPressed(setDirectionBack);
+        turnFrontButt.whenPressed(setDirectionFront);
+
+        shutdownButt.whenPressed(piShutdown);
     }
 
-    Button strafeButt1 = new JoystickButton(leftStick, 3);
-    Button strafeButt2 = new JoystickButton(leftStick, 4);
-    Button strafeButt3 = new JoystickButton(leftStick, 5);
-    Button shutdownButt = new JoystickButton(rightStick, 6);
-    //Button fieldOrientedButt = new JoystickButton(extremeStick, 11); // added button for field oriented drive
-
-    public boolean shouldFOD = false;
 
     public double getClawSpeed() {
         return extremeStick.getRawAxis(2);
     }
 
-    /*public double getextremeStickThrottle() {
-        return extremeStick.getRawAxis(4);
-    }
-
-    public double getLeftStickThrottle() {
-        return leftStick.getRawAxis(3);
-    }*/
-
     public double getForwardSpeed() {
         return leftStick.getY();
     }
 
-     public double getSideSpeed() {
+    public double getSideSpeed() {
         return leftStick.getX();
-     }
-     
+    }
+
     public double getTwistSpeed() {
         double x = rightStick.getX();
         if (x > 0) {
@@ -102,7 +122,7 @@ public class OI {
     }
 
     public boolean shouldStrafe() {
-        if (strafeButt1.get() == true || strafeButt2.get() == true || strafeButt3.get() == true) {
+        if (strafeButt.get() == true) {
             return true;
 
         } else {
@@ -110,10 +130,5 @@ public class OI {
         }
     }
 
-    /*
-     public boolean changeFOD(){
-     shouldFOD = !shouldFOD;
-     return shouldFOD;
-     }
-     */
+
 }
