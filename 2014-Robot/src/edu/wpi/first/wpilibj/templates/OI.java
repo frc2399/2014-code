@@ -79,7 +79,7 @@ public class OI {
 
     JoystickButton clawCatchButt = new JoystickButton(extremeStick, 2); //change number
     
-    Button shutdownButt = new JoystickButton(leftStick, 6);
+    Button shutdownButt = new JoystickButton(rightStick, 6);
 
     public OI() {
         clawCatchButt.whenPressed(clawCatch);

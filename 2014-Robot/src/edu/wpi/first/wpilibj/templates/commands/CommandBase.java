@@ -3,6 +3,7 @@ package edu.wpi.first.wpilibj.templates.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.OI;
+import edu.wpi.first.wpilibj.templates.Vision;
 import edu.wpi.first.wpilibj.templates.subsystems.Claw;
 //import edu.wpi.first.wpilibj.templates.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
@@ -33,6 +34,8 @@ public abstract class CommandBase extends Command {
         driveTrain = new DriveTrain();
         //shooter = new Shooter();
         claw = new Claw();
+        
+        Vision.initialize();
         
         //leave oi at the bottom and apart from the other initialized things
         //if it is initialized before the subsytems, it throws some null pointer exceptions
