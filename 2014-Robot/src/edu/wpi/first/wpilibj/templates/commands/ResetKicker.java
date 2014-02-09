@@ -18,15 +18,12 @@ public class ResetKicker extends CommandBase {
         requires(kicker);
     }
     
-    
-    
     protected void initialize() {
        
     }
 
     protected void execute() {
-        kicker.usePIDOutput(0); //placeholder number 
-        
+        kicker.setSetpoint(kicker.topPoint);
     }
 
     protected boolean isFinished() {

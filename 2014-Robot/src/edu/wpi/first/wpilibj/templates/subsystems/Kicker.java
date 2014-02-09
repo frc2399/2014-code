@@ -25,14 +25,13 @@ public class Kicker extends PIDSubsystem{
     public CANJaguar motor2;
     
     
+    public static final double topPoint = 4;
+    
     public Kicker(){
-        
         super("Kicker", 0, 0, 0); //use these to set P, I, and Ds
-        
         try{
-        motor1 = new CANJaguar(RobotMap.shootMotor1);
-        motor2 = new CANJaguar(RobotMap.shootMotor2);
-        
+            motor1 = new CANJaguar(RobotMap.shootMotor1);
+            motor2 = new CANJaguar(RobotMap.shootMotor2);
         }catch(Exception e){
             System.out.println(e);
             System.out.println(motor1);
