@@ -11,62 +11,52 @@ import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.templates.commands.ManClaw;
 import edu.wpi.first.wpilibj.*;
-
-
-
 /**
  *
  * @author Lauren
  */
-public class Claw extends PIDSubsystem{
+public class ClawPitch extends PIDSubsystem{
     
-    public CANJaguar clawMotor; 
-    
-    //Encoder testEncoder = new Encoder(RobotMap.clawEncoderA, RobotMap.clawEncoderB);
-    //the encoder will most likley be plugged into the jag; therefore it does not need to be constructed
-    //finalize with the mechies
-     public DigitalInput clawLimitSwitchTop = new DigitalInput(RobotMap.clawLimitSwitchTop);
-     public DigitalInput clawLimitSwitchBottom = new DigitalInput(RobotMap.clawLimitSwitchBottom);
+
+    public CANJaguar clawPitchMotor; 
      
-     AnalogChannel clawEncoder = new AnalogChannel(4);
+    AnalogChannel clawPitchEncoder = new AnalogChannel(RobotMap.clawPitchEncoder);//fix this port num
     
-    public Claw(){
-        super("Claw",0,0,0);
+    public ClawPitch(){
+        super("ClawPitch",0,0,0);
         try{
-            clawMotor = new CANJaguar(RobotMap.clawMotor);
-            
+            clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
         }catch(Exception e){
             System.out.println(e);
-            System.out.println(clawMotor);
+            System.out.println(clawPitchMotor);
         }
-        
     }
     
     public void initDefaultCommand() {
         setDefaultCommand(new ManClaw());
-       
     }
     
     public void setSpeed(double speed){
         try{
-            clawMotor.setX(speed);
+            clawPitchMotor.setX(speed);
         }
         catch( CANTimeoutException e){
         }
     }
     
     protected double returnPIDInput(){
-        return clawEncoder.getAverageVoltage();
+        return clawPitchEncoder.getAverageVoltage();
     }
     
     protected void usePIDOutput(double output){
         try{
-        clawMotor.setX(output);
+            clawPitchMotor.setX(output);
         } catch( CANTimeoutException e){
             System.out.println(e);
-            System.out.println(clawMotor);
+            System.out.println(clawPitchMotor);
         }
     }
     
 }
     
+

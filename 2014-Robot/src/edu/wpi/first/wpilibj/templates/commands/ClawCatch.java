@@ -4,7 +4,6 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 import edu.wpi.first.wpilibj.CANJaguar;
-import edu.wpi.first.wpilibj.templates.subsystems.Claw;
 /**
  *
  * @author Lauren
@@ -18,7 +17,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.Claw;
 public class ClawCatch extends CommandBase{
     
     public ClawCatch(){
-        requires(claw);
+        requires(clawPitch);
     }
 
 
@@ -28,15 +27,7 @@ public class ClawCatch extends CommandBase{
     }
 
     // Called repeatedly when this Command is scheduled to run
-    /*
-     * if the limit switch is not triggered move the claw backwards
-     * if it is trigered do nothing 
-     */
     protected void execute() {
-       
-        if( claw.clawLimitSwitchTop.get() == false){
-                    claw.setSpeed(-.25); //check to make sure this is negative 
-        }
 
     }
 

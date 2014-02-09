@@ -3,26 +3,28 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
-import edu.wpi.first.wpilibj.CANJaguar;
+
+
 /**
  *
  * @author Lauren
  */
-public class ManClaw extends CommandBase{
-    public ManClaw(){
-        requires(clawPitch);
+public class ClawClose extends CommandBase{
+    
+    public ClawClose(){
+        requires(grabber);
     }
-
-
-    // Called just before this Command runs the first time
+    
     protected void initialize() {
         
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {     
-
+    protected void execute() {
         
+        if(grabber.clawLimitSwitchCloseLimit.get() == false){
+            grabber.setSpeed(-0.25);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -38,5 +40,4 @@ public class ManClaw extends CommandBase{
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-    
 }

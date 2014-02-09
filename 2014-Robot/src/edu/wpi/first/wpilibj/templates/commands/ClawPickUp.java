@@ -3,8 +3,6 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
-import edu.wpi.first.wpilibj.templates.subsystems.Claw;
-
 
 /**
  *
@@ -13,7 +11,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.Claw;
 public class ClawPickUp extends CommandBase{
     
     public ClawPickUp(){
-        requires(claw);
+        requires(clawPitch);
     }
 
 
@@ -23,16 +21,7 @@ public class ClawPickUp extends CommandBase{
     }
 
     // Called repeatedly when this Command is scheduled to run
-    /*
-     * if the limit switch is not triggered move the claw backwards
-     * if it is trigered do nothing 
-     * 
-     * @author Arielle
-     */
     protected void execute() {
-           if(claw.clawLimitSwitchBottom.get() == false) {
-               claw.setSpeed(0.25);
-           }
 
     }
 

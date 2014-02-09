@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.templates.commands.ManClaw;
 import edu.wpi.first.wpilibj.templates.commands.ClawCatch;
 import edu.wpi.first.wpilibj.templates.commands.JoystickDrive;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.templates.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -57,17 +58,20 @@ public class OI {
     ManClaw manClaw = new ManClaw(); 
     ClawCatch clawCatch = new ClawCatch();
     JoystickDrive drive = new JoystickDrive();
+    ClawOpen clawOpen = new ClawOpen();
+    ClawClose clawClose = new ClawClose();
      
     public static int clawCatchButtNum = 2; //will be changed 
     
     private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
-    
-    
+    private final JoystickButton clawOpenButt = new JoystickButton(driveyStick, 11);
+    private final JoystickButton clawCloseButt = new JoystickButton(driveyStick, 12);
     
     
     public OI(){
             clawCatchButt.whenPressed(clawCatch);
-            
+            clawOpenButt.whenPressed(clawOpen);
+            clawCloseButt.whenPressed(clawClose);
     }
       
 
