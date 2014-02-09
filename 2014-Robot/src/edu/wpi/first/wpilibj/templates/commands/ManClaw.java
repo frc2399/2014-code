@@ -3,9 +3,13 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
-import edu.wpi.first.wpilibj.CANJaguar;
-/**
- *
+
+/** 
+ * this class is used for manual control of the claw
+ * 
+ * We need to find PID values for limit for each end. 
+ * This code will make sure the claw stays within these limits
+ * 
  * @author Lauren
  */
 public class ManClaw extends CommandBase{

@@ -6,7 +6,8 @@ package edu.wpi.first.wpilibj.templates.commands;
 
 
 /**
- *
+ * This class closes the claw using limit switches as reference for position 
+ * The current speed is set at .25, check this to make sure it is the best fit 
  * @author Lauren
  */
 public class ClawClose extends CommandBase{

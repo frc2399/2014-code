@@ -12,7 +12,9 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.templates.commands.ManClaw;
 import edu.wpi.first.wpilibj.*;
 /**
- *
+ * This class control the up and down movement, i.e. the pitch of the claw subsystem 
+ * It uses an encoder and PID to control movement 
+ * 
  * @author Lauren
  */
 public class ClawPitch extends PIDSubsystem{
@@ -48,6 +50,10 @@ public class ClawPitch extends PIDSubsystem{
         return clawPitchEncoder.getAverageVoltage();
     }
     
+    /*
+     * This method uses the setX method in the position control mode 
+     * @param the position to move claw to 
+     */
     protected void usePIDOutput(double output){
         try{
             clawPitchMotor.setX(output);

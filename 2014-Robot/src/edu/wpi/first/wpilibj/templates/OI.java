@@ -5,9 +5,6 @@
 package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.templates.commands.ManClaw;
-import edu.wpi.first.wpilibj.templates.commands.ClawCatch;
-import edu.wpi.first.wpilibj.templates.commands.JoystickDrive;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.templates.commands.*;
 
@@ -60,6 +57,7 @@ public class OI {
     JoystickDrive drive = new JoystickDrive();
     ClawOpen clawOpen = new ClawOpen();
     ClawClose clawClose = new ClawClose();
+    ClawPickUp clawPickUp = new ClawPickUp();
      
     public static int clawCatchButtNum = 2; //will be changed 
     
