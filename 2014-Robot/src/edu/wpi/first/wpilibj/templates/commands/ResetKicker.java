@@ -3,9 +3,6 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
-import edu.wpi.first.wpilibj.CANJaguar;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 
 /**
  *
