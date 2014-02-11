@@ -31,7 +31,7 @@ public abstract class CommandBase extends Command {
         
         driveTrain = new DriveTrain();
         //shooter = new Shooter();
-        clawPitch = new ClawPitch(0,0); //change this
+        clawPitch = new ClawPitch(); //change this
         grabber = new Grabber();
         
         //leave oi at the bottom and apart from the other initialized things
@@ -41,6 +41,7 @@ public abstract class CommandBase extends Command {
         oi = new OI();
 
         SmartDashboard.putData(driveTrain);
+        SmartDashboard.putData(clawPitch);
     }
 
     public CommandBase(String name) {

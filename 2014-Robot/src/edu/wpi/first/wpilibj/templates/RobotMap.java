@@ -28,8 +28,8 @@ public class RobotMap {
     public static final int gyro = 1;
     
     //claw Pitch ports
-    public static final int clawPitchMotor = 5;  //change
-    public static final int clawPitchEncoder = 4; //CHANGE
+    public static final int clawPitchMotor = 3;  //otto value
+    public static final int clawPitchEncoder = 3; //otto value
 
     //grabber ports
     public static final int clawLimitSwitchOpenLimit = 4; //change

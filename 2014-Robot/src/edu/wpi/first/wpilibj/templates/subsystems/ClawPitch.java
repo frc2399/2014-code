@@ -23,10 +23,10 @@ public class ClawPitch extends PIDSubsystem{
      
     AnalogChannel clawPitchEncoder = new AnalogChannel(RobotMap.clawPitchEncoder);//fix this port num
     
-    public ClawPitch( double maxPosition, double minPosition){
+    public ClawPitch(){
         super(0,0,0);
-        this.maxPosition = maxPosition;
-        this.minPosition = minPosition;
+        maxPosition = 0;
+        minPosition = 0;
         try{
             clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
         }catch(Exception e){
