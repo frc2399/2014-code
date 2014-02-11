@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.templates.commands.FieldOrientedDrive;
 /**
  *
  * @author Lauren Dierker 
@@ -30,7 +32,7 @@ public class DriveTrain extends Subsystem{
 
         try {
 
-            leftFront = new CANJaguar(RobotMap.driveLeftFront);//change these numbers
+            leftFront = new CANJaguar(RobotMap.driveLeftFront);
             leftRear = new CANJaguar(RobotMap.driveLeftRear);
             rightFront = new CANJaguar(RobotMap.driveRightFront);
             rightRear = new CANJaguar(RobotMap.driveRightRear);
@@ -58,7 +60,7 @@ public class DriveTrain extends Subsystem{
     }
 
     public void initDefaultCommand() {
-        this.setDefaultCommand(new JoystickDrive());
+        this.setDefaultCommand(new FieldOrientedDrive());
 
     }
 
@@ -71,7 +73,8 @@ public class DriveTrain extends Subsystem{
     }
 
     public double getGyroAngle() {
-        return gyro.getAngle();
+        SmartDashboard.putNumber("Gyro", -gyro.getAngle());
+        return -gyro.getAngle();
     }
 
     public void resetGyro() {

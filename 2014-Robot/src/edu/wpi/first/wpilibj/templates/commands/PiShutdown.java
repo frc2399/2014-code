@@ -5,16 +5,18 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.Vision;
+
+
 /**
  *
- * @author Julia
+ * @author jallen
  */
-public class GyroReset extends CommandBase {
+public class PiShutdown extends CommandBase {
     
-    public GyroReset() {
+    public PiShutdown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires (driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -23,14 +25,14 @@ public class GyroReset extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        driveTrain.resetGyro();
+        
+        Vision.shutdown();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return true;
     }
-    // in the old code it says that this is true. What should I do?
 
     // Called once after isFinished returns true
     protected void end() {

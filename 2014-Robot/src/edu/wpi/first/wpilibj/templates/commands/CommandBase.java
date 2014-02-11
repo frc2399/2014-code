@@ -18,7 +18,6 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     public static DriveTrain driveTrain;
     public static Shooter shooter;
-    public static Vision vision;
     public static ClawPitch clawPitch;
     public static Grabber grabber;
 

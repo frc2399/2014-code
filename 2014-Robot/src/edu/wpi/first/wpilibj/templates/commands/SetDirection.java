@@ -7,14 +7,15 @@ package edu.wpi.first.wpilibj.templates.commands;
 
 /**
  *
- * @author Julia
+ * @author Arielle
  */
-public class GyroReset extends CommandBase {
-    
-    public GyroReset() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires (driveTrain);
+public class SetDirection extends CommandBase {
+
+    double direction;
+
+    public SetDirection(double targetDirection) {
+        this.direction = targetDirection;
+        requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -23,14 +24,24 @@ public class GyroReset extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        driveTrain.resetGyro();
+        double gyroAngle = driveTrain.getGyroAngle();
+        if (direction > gyroAngle) {
+            driveTrain.drive.mecanumDrive_Cartesian(0, 0, 0.5, 0);
+        } else if (direction < gyroAngle) {
+            driveTrain.drive.mecanumDrive_Cartesian(0, 0, -0.5, 0);
+        }
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        double gyroAngle = driveTrain.getGyroAngle();
+        if (Math.abs(direction - gyroAngle) < 2) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    // in the old code it says that this is true. What should I do?
 
     // Called once after isFinished returns true
     protected void end() {

@@ -12,8 +12,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
+
+import edu.wpi.first.wpilibj.templates.Vision;
 
 
 /**
@@ -67,7 +70,8 @@ public class RobotTemplate extends IterativeRobot {
     public void teleopPeriodic() {
         //always cancel autonomous command 
         Scheduler.getInstance().run();
-        
+        // SmartDashboard.putNumber("distance", Vision.getDistance());
+        // System.out.println("Distance: " + Vision.getDistance()); 
     }
     
     /**
