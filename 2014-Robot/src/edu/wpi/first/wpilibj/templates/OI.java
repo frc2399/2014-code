@@ -6,16 +6,8 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.templates.commands.ManClaw;
-import edu.wpi.first.wpilibj.templates.commands.ClawCatch;
-import edu.wpi.first.wpilibj.templates.commands.JoystickDrive;
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.templates.commands.PiShutdown;
-import edu.wpi.first.wpilibj.templates.commands.FieldOrientedDrive;
-import edu.wpi.first.wpilibj.templates.commands.GyroReset;
-import edu.wpi.first.wpilibj.templates.commands.SetDirection;
-
-
+import edu.wpi.first.wpilibj.templates.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -56,7 +48,17 @@ public class OI {
 
     ManClaw manClaw = new ManClaw();
     ClawCatch clawCatch = new ClawCatch();
-    Vision vision = new Vision();
+    JoystickDrive drive = new JoystickDrive();
+    ClawOpen clawOpen = new ClawOpen();
+    ClawClose clawClose = new ClawClose();
+    ClawPickUp clawPickUp = new ClawPickUp();
+     
+    public static int clawCatchButtNum = 2; //will be changed 
+    
+    private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
+    private final JoystickButton clawOpenButt = new JoystickButton(extremeStick, 11);
+    private final JoystickButton clawCloseButt = new JoystickButton(extremeStick, 12);
+    private final JoystickButton manClawButt = new JoystickButton(extremeStick, 10);
 
     JoystickDrive robotDrive = new JoystickDrive();
     FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
@@ -78,12 +80,11 @@ public class OI {
     Button robotOrientButt = new JoystickButton(leftStick, 5);
     Button resetGyroButt = new JoystickButton(leftStick, 2);
 
-    JoystickButton clawCatchButt = new JoystickButton(extremeStick, 2); //change number
+
     
     Button shutdownButt = new JoystickButton(rightStick, 6);
 
     public OI() {
-        clawCatchButt.whenPressed(clawCatch);
 
         resetGyroButt.whenPressed(gyroReset);
 
@@ -98,6 +99,10 @@ public class OI {
         turnFrontButt.whenPressed(setDirectionFront);
 
         shutdownButt.whenPressed(piShutdown);
+        clawCatchButt.whenPressed(clawCatch);
+        clawOpenButt.whenPressed(clawOpen);
+        clawCloseButt.whenPressed(clawClose);
+        manClawButt.toggleWhenPressed(manClaw);
     }
 
 

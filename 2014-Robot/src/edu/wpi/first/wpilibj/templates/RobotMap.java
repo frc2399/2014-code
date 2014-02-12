@@ -13,6 +13,8 @@ package edu.wpi.first.wpilibj.templates;
  * port numbers for motors and sensors 
  */
 public class RobotMap {
+    
+    //driveTrain motors
     //NOT RIGHT NUMBERS!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public static final int driveLeftFront = 7;
     public static final int driveLeftRear = 8;
@@ -25,14 +27,17 @@ public class RobotMap {
     public static final int testEncoderB = 2;
     public static final int gyro = 1;
     
-    public static final int clawMotor = 5;  //change
-    public static final int clawEncoderA = 9; //change
-    public static final int clawEncoderB = 10; //change
-    public static final int clawLimitSwitch = 4; //change
+    //claw Pitch ports
+    public static final int clawPitchMotor = 3;  //otto value
+    public static final int clawPitchEncoder = 3; //otto value
 
+    //grabber ports
+    public static final int clawLimitSwitchOpenLimit = 4; //change
+    public static final int clawLimitSwitchCloseLimit= 5; //change
+    public static final int grabMotor = 7; //change
     
-    public static final int manClawButt = 7;
-
+    //kicker ports 
     public static final int shootMotor1 = 11;
     public static final int shootMotor2 = 12;
+    
 }

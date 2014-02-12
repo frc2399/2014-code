@@ -4,45 +4,44 @@
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
-import edu.wpi.first.wpilibj.DigitalInput;
-
-
+import edu.wpi.first.wpilibj.templates.commands.ManClaw;
+import edu.wpi.first.wpilibj.*;
 
 /**
  *
  * @author Lauren
  */
-public class Claw extends Subsystem{
+public class Grabber extends Subsystem{
     
-    public CANJaguar clawMotor; 
+    public CANJaguar grabMotor; 
     
     //Encoder testEncoder = new Encoder(RobotMap.clawEncoderA, RobotMap.clawEncoderB);
     //the encoder will most likley be plugged into the jag; therefore it does not need to be constructed
     //finalize with the mechies
-     public DigitalInput clawLimitSwitch = new DigitalInput(RobotMap.clawLimitSwitch);
-    
-    public Claw(){
+     public DigitalInput clawLimitSwitchOpenLimit = new DigitalInput(RobotMap.clawLimitSwitchOpenLimit);
+     public DigitalInput clawLimitSwitchCloseLimit = new DigitalInput(RobotMap.clawLimitSwitchCloseLimit);
+         
+    public Grabber(){
         try{
-            clawMotor = new CANJaguar(RobotMap.clawMotor);
+            grabMotor = new CANJaguar(RobotMap.grabMotor);
             
         }catch(Exception e){
             System.out.println(e);
-            System.out.println(clawMotor);
+            System.out.println(grabMotor);
         }
         
     }
     
     public void initDefaultCommand() {
+        setDefaultCommand(new ManClaw());
        
     }
     
     public void setSpeed(double speed){
         try{
-            clawMotor.setX(speed);
+            grabMotor.setX(speed);
         }
         catch( CANTimeoutException e){
         }

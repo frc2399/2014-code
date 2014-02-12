@@ -4,16 +4,13 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
-/** 
- * this class is used for manual control of the claw
- * 
- * We need to find PID values for limit for each end. 
- * This code will make sure the claw stays within these limits
- * 
+/**
+ *
  * @author Lauren
  */
-public class ManClaw extends CommandBase{
-    public ManClaw(){
+public class ClawPickUp extends CommandBase{
+    
+    public ClawPickUp(){
         requires(clawPitch);
     }
 
@@ -24,15 +21,11 @@ public class ManClaw extends CommandBase{
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {     
-        if( clawPitch.getPosition() < clawPitch.maxPosition && oi.getClawSpeed() > 0){
-            clawPitch.setSpeed(oi.getClawSpeed());
-            //clawPitch.setSetpointRelative(oi.getClawSpeed());
-        } else if( clawPitch.getPosition() > clawPitch.minPosition  && oi.getClawSpeed() < 0){
-            clawPitch.setSpeed(oi.getClawSpeed());
-            //clawPitch.setSetpointRelative(oi.getClawSpeed());
-        }
+    protected void execute() {
+        if( clawPitch.getPosition() > clawPitch.minPosition){
             
+        }
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -48,5 +41,4 @@ public class ManClaw extends CommandBase{
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-    
 }
