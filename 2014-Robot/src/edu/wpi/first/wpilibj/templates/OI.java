@@ -56,6 +56,7 @@ public class OI {
 
     ManClaw manClaw = new ManClaw();
     ClawCatch clawCatch = new ClawCatch();
+    Vision vision = new Vision();
 
     JoystickDrive robotDrive = new JoystickDrive();
     FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
