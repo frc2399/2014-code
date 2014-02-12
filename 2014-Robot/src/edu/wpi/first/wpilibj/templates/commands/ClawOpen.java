@@ -3,32 +3,28 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
-import edu.wpi.first.wpilibj.CANJaguar;
+import edu.wpi.first.wpilibj.templates.commands.CommandBase;
+
 /**
  *
  * @author Lauren
- * 
- * This class moves the claw from its current position into catching position, i.e. the very top of the robot. 
- * To do this, the claw moves backward until the top limit switch is triggered 
- * 
- * While this command only applies to one position at the moment; this could be used to move to the half way point, 
- * bottom, etc.
  */
-public class ClawCatch extends CommandBase{
+public class ClawOpen extends CommandBase{
     
-    public ClawCatch(){
-        requires(clawPitch);
+    public ClawOpen(){
+        requires(grabber);
     }
-
-
-    // Called just before this Command runs the first time
+    
     protected void initialize() {
         
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-
+        
+        if(grabber.clawLimitSwitchOpenLimit.get() == false){
+            grabber.setSpeed(0.25);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

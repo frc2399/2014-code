@@ -1,8 +1,6 @@
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.templates.commands.JoystickDrive;
-import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
@@ -44,17 +42,14 @@ public class DriveTrain extends Subsystem{
             drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
             drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
             
+            System.out.println("Adding actuators for DriveTrain to LiveWIndow");
             LiveWindow.addActuator("DriveTrain", "leftFront", leftFront);
             LiveWindow.addActuator("DriveTrain", "leftRear", leftRear);
             LiveWindow.addActuator("DriveTrain", "rightFront", rightFront);
             LiveWindow.addActuator("DriveTrain", "rightRear", rightRear);
             
         } catch (Exception e) {
-            System.out.println(e);
-            System.out.println(leftFront);
-            System.out.println(leftRear);
-            System.out.println(rightFront);
-            System.out.println(rightRear);
+            e.printStackTrace();
         }
 
     }

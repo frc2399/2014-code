@@ -3,20 +3,19 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
-import edu.wpi.first.wpilibj.CANJaguar;
-import edu.wpi.first.wpilibj.templates.subsystems.Claw;
+
+
 /**
- *
+ * This class closes the claw using limit switches as reference for position 
+ * The current speed is set at .25, check this to make sure it is the best fit 
  * @author Lauren
  */
-public class Catch extends CommandBase{
+public class ClawClose extends CommandBase{
     
-    public Catch(){
-        requires(claw);
+    public ClawClose(){
+        requires(grabber);
     }
-
-
-    // Called just before this Command runs the first time
+    
     protected void initialize() {
         
     }
@@ -24,6 +23,9 @@ public class Catch extends CommandBase{
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         
+        if(grabber.clawLimitSwitchCloseLimit.get() == false){
+            grabber.setSpeed(-0.25);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
