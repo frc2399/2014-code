@@ -10,35 +10,38 @@ import edu.wpi.first.wpilibj.templates.Vision;
  *
  * @author Lauren
  */
-public class AutonomousKick {
+public class AutonomousKick extends CommandBase{
     
     Timer timer;
+    Timer timer2;
+    boolean isDone = false;
     
     public AutonomousKick(Timer timer){
         //requires(kicker); i think kicker exists in other branch
         this.timer = timer;
+        this.timer2 = new Timer();
     }
     
     protected void initialize() {
-
+        timer.reset();
+        timer2.reset();
      }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        while(timer.get() <= 5){
-            if( Vision.isHot()){ //look for target, if past 5 seconds shoot 
-            //addSequential(new Kick());
-                break;
-            }
+        
+        if(Vision.isHot() || timer.get() >= 5){
+            if(timer2.get() < 2){
+                    kicker.setSpeed(); //this exists in al
+                }
+            isDone = true;
         }
-        if( Vision.isHot()){ //look for target, if past 5 seconds shoot 
-          //addSequential(new Kick());
-        }
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isDone;
     }
 
     // Called once after isFinished returns true
