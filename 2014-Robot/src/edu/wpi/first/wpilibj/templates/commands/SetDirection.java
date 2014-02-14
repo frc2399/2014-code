@@ -24,19 +24,25 @@ public class SetDirection extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        double gyroAngle = driveTrain.getGyroAngle();
-        if (direction > gyroAngle) {
-            driveTrain.drive.mecanumDrive_Cartesian(0, 0, 0.5, 0);
-        } else if (direction < gyroAngle) {
-            driveTrain.drive.mecanumDrive_Cartesian(0, 0, -0.5, 0);
+        double gyroAngle = (driveTrain.getGyroAngle()) % 360;
+        if (gyroAngle < 0) {
+            gyroAngle = gyroAngle + 360;
+        }
+        if ((direction - gyroAngle) > 0 && (direction - gyroAngle) <= 180) {
+            driveTrain.drive.mecanumDrive_Cartesian(0, 0, 0.35, 0);
+        } else {
+            driveTrain.drive.mecanumDrive_Cartesian(0, 0, -0.35, 0);
         }
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        double gyroAngle = driveTrain.getGyroAngle();
-        if (Math.abs(direction - gyroAngle) < 2) {
+       double gyroAngle = (driveTrain.getGyroAngle()) % 360;
+        if (gyroAngle < 0) {
+            gyroAngle = gyroAngle + 360;
+        }
+        if (Math.abs(direction - gyroAngle) <= 10) {
             return true;
         } else {
             return false;

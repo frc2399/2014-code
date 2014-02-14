@@ -10,7 +10,14 @@ import edu.wpi.first.wpilibj.templates.OI;
  * @author Arielle
  */
 public class FieldOrientedDrive extends JoystickDrive {
+    private boolean hasBeenReset = false;
     
+    protected void initalize() {
+        if (!hasBeenReset) {
+            driveTrain.resetGyro();
+            hasBeenReset = true;
+        }
+    }
    
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -22,7 +29,7 @@ public class FieldOrientedDrive extends JoystickDrive {
             //@param side speed, forward speed, twist speed, gyro
             driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), driveTrain.getGyroAngle());
 
-            // field-oriented
+            // field-oriented 
             // driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), driveTrain.getGyroAngle());
         
          }
