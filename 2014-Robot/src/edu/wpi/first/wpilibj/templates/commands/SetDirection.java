@@ -28,10 +28,10 @@ public class SetDirection extends CommandBase {
         if (gyroAngle < 0) {
             gyroAngle = gyroAngle + 360;
         }
-        if (direction > gyroAngle) {
-            driveTrain.drive.mecanumDrive_Cartesian(0, 0, 0.2, 0);
-        } else if (direction < gyroAngle) {
-            driveTrain.drive.mecanumDrive_Cartesian(0, 0, -0.2, 0);
+        if ((direction - gyroAngle) > 0 && (direction - gyroAngle) <= 180) {
+            driveTrain.drive.mecanumDrive_Cartesian(0, 0, 0.35, 0);
+        } else {
+            driveTrain.drive.mecanumDrive_Cartesian(0, 0, -0.35, 0);
         }
 
     }
