@@ -52,7 +52,7 @@ public class OI {
     ClawOpen clawOpen = new ClawOpen();
     ClawClose clawClose = new ClawClose();
     ClawPickUp clawPickUp = new ClawPickUp();
-    AutoPosition autoPosition = new AutoPosition(120); //not final number
+    AutoPosition autoPosition = new AutoPosition(72); //not final number
      
     public static int clawCatchButtNum = 2; //will be changed 
     

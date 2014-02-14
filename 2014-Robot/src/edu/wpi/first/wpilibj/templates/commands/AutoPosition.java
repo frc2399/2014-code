@@ -21,6 +21,7 @@ public class AutoPosition extends CommandBase {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(driveTrain);
+        targetDistance = desiredDistance;
     }
 
     // Called just before this Command runs the first time
@@ -33,9 +34,9 @@ public class AutoPosition extends CommandBase {
         // use Vision.getDistance() to retrieve the current distance in inches
         travelDistance = (Vision.getDistance() - targetDistance);
         if (travelDistance > 0) {
-            driveTrain.drive.mecanumDrive_Cartesian(0, 0.5, 0, 0);
+            driveTrain.drive.mecanumDrive_Cartesian(0, -0.2, 0, 0);
         } else if (travelDistance < 0) {
-            driveTrain.drive.mecanumDrive_Cartesian(0, -0.5, 0, 0);
+            driveTrain.drive.mecanumDrive_Cartesian(0, 0.2, 0, 0);
         }
     }
 
