@@ -35,7 +35,6 @@ public class Grabber extends Subsystem{
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new ManClaw());
        
     }
     
