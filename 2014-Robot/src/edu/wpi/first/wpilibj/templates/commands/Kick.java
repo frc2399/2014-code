@@ -23,6 +23,7 @@ public class Kick extends CommandBase{
 
     protected void initialize() {
        timeLord.reset();
+       timeLord.start();
     }
 
     protected void execute() {
