@@ -38,12 +38,40 @@ public class ShooterWheel extends Subsystem {
             //LiveWindow.addActuator("ShooterWheel", "ShooterWheelMotor", shooterWheelMotor);
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
-        }
-        
+        }   
     }
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    public void setSpeed(double speed) {
+        try {
+            shooterWheelMotor.setX(speed);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public double getSpeed(){
+        try {
+            return shooterWheelMotor.getSpeed();
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+            return -1.0;
+        }
+    }
+    public void enable(){
+        try {
+            shooterWheelMotor.enableControl(0);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void disable(){
+        try {
+            shooterWheelMotor.disableControl();
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
     }
 }

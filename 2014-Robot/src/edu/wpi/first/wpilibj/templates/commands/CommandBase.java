@@ -21,6 +21,7 @@ public abstract class CommandBase extends Command {
     public static Shooter shooter;
     public static ClawPitch clawPitch;
     public static Grabber grabber;
+    public static ShooterWheel shooterWheel;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -33,6 +34,7 @@ public abstract class CommandBase extends Command {
         //shooter = new Shooter();
         clawPitch = new ClawPitch();
         grabber = new Grabber();
+        shooterWheel = new ShooterWheel();
         
         Vision.initialize();
         
@@ -44,6 +46,7 @@ public abstract class CommandBase extends Command {
 
         SmartDashboard.putData("DriveTrain", driveTrain);
         SmartDashboard.putData("ClawPitch", clawPitch);
+        SmartDashboard.putData("Shooter Wheel", shooterWheel);
     }
 
     public CommandBase(String name) {
