@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.templates.commands.ManClaw;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.templates.CANJaguarEncoderSensor;
+import edu.wpi.first.wpilibj.templates.CANJaguarPositionSensor;
 import edu.wpi.first.wpilibj.templates.CANJaguarPIDActuator;
 
 /**
@@ -43,7 +43,7 @@ public class ClawPitch extends Subsystem {
 
             System.out.println("Adding actuators for ClawPitch to LiveWIndow");
             LiveWindow.addActuator("ClawPitch", "CanJaguarPID", new CANJaguarPIDActuator(clawPitchMotor));
-            LiveWindow.addSensor("ClawPitch", "CanJaguarEncoder", new CANJaguarEncoderSensor(clawPitchMotor));
+            LiveWindow.addSensor("ClawPitch", "CanJaguarEncoder", new CANJaguarPositionSensor(clawPitchMotor));
             // LiveWindow.addActuator("ClawPitch", "Motor", clawPitchMotor);
             //LiveWindow.addActuator("ClawPitch", "PID Controller", getPIDController());
             //LiveWindow.addSensor("ClawPitch", "Encoder", clawPitchEncoder);
