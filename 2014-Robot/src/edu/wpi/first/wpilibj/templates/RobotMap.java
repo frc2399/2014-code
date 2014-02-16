@@ -40,4 +40,7 @@ public class RobotMap {
     public static final int shootMotor1 = 11;
     public static final int shootMotor2 = 12;
     
+    //shooter wheel
+    public static final int shooterWheelMotor = 9;
+    
 }
