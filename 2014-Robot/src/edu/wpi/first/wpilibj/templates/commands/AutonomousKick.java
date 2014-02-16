@@ -25,6 +25,8 @@ public class AutonomousKick extends CommandBase{
     protected void initialize() {
         timer.reset();
         timer2.reset();
+        timer.start();
+        timer2.start();
      }
 
     // Called repeatedly when this Command is scheduled to run
