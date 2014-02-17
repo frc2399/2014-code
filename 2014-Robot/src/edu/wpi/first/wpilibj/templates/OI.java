@@ -59,7 +59,7 @@ public class OI {
     private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
     private final JoystickButton clawOpenButt = new JoystickButton(extremeStick, 11);
     private final JoystickButton clawCloseButt = new JoystickButton(extremeStick, 12);
-    private final JoystickButton manClawButt = new JoystickButton(extremeStick, 10);
+    private final JoystickButton manButt = new JoystickButton(extremeStick, 10);
 
     JoystickDrive robotDrive = new JoystickDrive();
     FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
@@ -102,7 +102,7 @@ public class OI {
         clawCatchButt.whenPressed(clawCatch);
         clawOpenButt.whenPressed(clawOpen);
         clawCloseButt.whenPressed(clawClose);
-        manClawButt.toggleWhenPressed(manClaw);
+        manButt.toggleWhenPressed(manClaw);
         
         autoPositionButt.whenPressed(autoPosition);
     }
