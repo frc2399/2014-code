@@ -21,14 +21,15 @@ import edu.wpi.first.wpilibj.CANJaguar.ControlMode;
 public class Kicker extends PIDSubsystem{
     //will probably have sensors for motor force and possibly for kicker height 
     
+    //TODO do we want this to be a pidsubsystem 
     public CANJaguar motor1;
     public CANJaguar motor2;
-    
+    //TODO add 3rd motor 
     
     public static final double topPoint = 4;
     
     public Kicker(){
-        super("Kicker", 0, 0, 0); //use these to set P, I, and Ds
+        super("Kicker", 0, 0, 0); //use these to set P, I, and Ds TODO 
         try{
             motor1 = new CANJaguar(RobotMap.shootMotor1);
             motor2 = new CANJaguar(RobotMap.shootMotor2);
@@ -40,7 +41,7 @@ public class Kicker extends PIDSubsystem{
     }
     
     public void initDefaultCommand() {
-       
+       //TODO add default command 
     }
     
     public void setSpeed(double speed) {
@@ -67,7 +68,7 @@ public class Kicker extends PIDSubsystem{
         return channel.getAverageVoltage();
     }
     
-    public void usePIDOutput(double output){
+    public void usePIDOutput(double output){ //TODO do we need to change this
         try{
             motor1.changeControlMode( CANJaguar.ControlMode.kPosition );
             motor2.changeControlMode( CANJaguar.ControlMode.kPosition );

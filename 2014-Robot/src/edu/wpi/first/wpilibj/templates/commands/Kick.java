@@ -24,16 +24,19 @@ public class Kick extends CommandBase{
     protected void initialize() {
        timeLord.reset();
        timeLord.start();
+       //TODO make sure this order does not matter 
     }
 
     protected void execute() {
         //wait until timer is 2 seconds then do stuff
-        if(timeLord.get()<=2000){
+        //TODO check time, make sure milliseconds 
             kicker.setSpeed(.95);//numbers may change, check direction
-        }
     }
 
     protected boolean isFinished() {
+        if(timeLord.get() >= 2000){
+            return true;
+        }
         return false;
     }
 

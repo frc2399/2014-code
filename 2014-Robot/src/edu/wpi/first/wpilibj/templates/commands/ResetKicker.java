@@ -21,6 +21,7 @@ public class ResetKicker extends CommandBase {
 
     protected void execute() {
         kicker.setSetpoint(kicker.topPoint);
+        //TODO 
     }
 
     protected boolean isFinished() {
