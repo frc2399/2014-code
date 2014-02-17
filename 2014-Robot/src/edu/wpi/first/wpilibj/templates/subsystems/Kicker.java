@@ -5,7 +5,7 @@
 package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CANJaguar.ControlMode;
@@ -18,21 +18,21 @@ import edu.wpi.first.wpilibj.CANJaguar.ControlMode;
  * This class is controlled by a PID using a magnetic encoder
  * 
  */
-public class Kicker extends PIDSubsystem{
+public class Kicker extends Subsystem{
     //will probably have sensors for motor force and possibly for kicker height 
     
-    //TODO do we want this to be a pidsubsystem 
+    //TODO do we want this to not be a pidsubsystem 
     public CANJaguar motor1;
     public CANJaguar motor2;
     //TODO add 3rd motor 
-    
+
     public static final double topPoint = 4;
     
     public Kicker(){
-        super("Kicker", 0, 0, 0); //use these to set P, I, and Ds TODO 
         try{
             motor1 = new CANJaguar(RobotMap.shootMotor1);
             motor2 = new CANJaguar(RobotMap.shootMotor2);
+            motor2.changeControlMode(ControlMode.kVoltage);
         }catch(Exception e){
             System.out.println(e);
             System.out.println(motor1);
@@ -44,45 +44,69 @@ public class Kicker extends PIDSubsystem{
        //TODO add default command 
     }
     
-    public void setSpeed(double speed) {
-        
-        try{
-            motor1.changeControlMode( CANJaguar.ControlMode.kSpeed );
-            motor2.changeControlMode( CANJaguar.ControlMode.kSpeed );
-            
+     private void setSpeedControl() throws CANTimeoutException {
+        if (motor1.getControlMode() != CANJaguar.ControlMode.kSpeed) {
+            motor1.changeControlMode(CANJaguar.ControlMode.kSpeed);
+            motor1.setSpeedReference(CANJaguar.SpeedReference.kEncoder);
+            motor1.configPotentiometerTurns(10);
+            motor1.configNeutralMode(CANJaguar.NeutralMode.kCoast);
+            // TODO: add PID constants
             motor1.enableControl();
-            motor2.enableControl();
+        }
+    }
 
-            motor1.setX(speed); //numbers might change
-            motor2.setX(speed); //numbers might change
-        }
-        
-        catch(CANTimeoutException e){
-            System.out.println(e);
-            System.out.println(motor1);
-            System.out.println(motor2);
-        }
-    }
-    
-    protected double returnPIDInput(){
-        return channel.getAverageVoltage();
-    }
-    
-    public void usePIDOutput(double output){ //TODO do we need to change this
-        try{
-            motor1.changeControlMode( CANJaguar.ControlMode.kPosition );
-            motor2.changeControlMode( CANJaguar.ControlMode.kPosition );
-            
+    private void setPositionControl() throws CANTimeoutException {
+        if (motor1.getControlMode() != CANJaguar.ControlMode.kPosition) {
+            motor1.changeControlMode(CANJaguar.ControlMode.kPosition);
+            motor1.setPositionReference(CANJaguar.PositionReference.kPotentiometer);
+            motor1.configPotentiometerTurns(10);
+            motor1.configNeutralMode(CANJaguar.NeutralMode.kBrake);
+            // TODO: add PID constants
+            motor1.setPID(2, 0, 0);
             motor1.enableControl();
-            motor2.enableControl();
-            //setX is the same as pidWrite (depricated)
-            motor1.setX(output);
-            motor2.setX(output);
-        
-        } catch(CANTimeoutException e){
-            System.out.println(e);
-            System.out.println(motor1);
-            System.out.println(motor2);
         }
     }
+    
+     public double getPosition() {
+        try {
+            setPositionControl();
+            return motor1.getPosition();
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        } finally {
+            return 0;
+        }
+    }
+
+    public double getSpeed() {
+        try {
+            setSpeedControl();
+            return motor1.getSpeed();
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        } finally {
+            return 0;
+        }
+    }
+
+    public void setSpeed(double speed) {
+        try {
+            setSpeedControl();
+            motor1.setX(speed);
+            motor2.setX(motor1.getOutputVoltage());
+        } catch (CANTimeoutException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setPosition(double position) {
+        try {
+            setPositionControl();
+            motor1.setX(position);
+            motor2.setX(motor1.getOutputVoltage());
+        } catch (CANTimeoutException e) {
+            e.printStackTrace();
+        }
+    }
+    
 }
