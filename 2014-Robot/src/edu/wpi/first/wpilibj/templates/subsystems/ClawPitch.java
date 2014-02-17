@@ -25,17 +25,16 @@ public class ClawPitch extends Subsystem {
     public CANJaguar clawPitchMotor;
     // encoder is connected through the CAN
     
-    //CANJaguarPIDActuator pidActuator;
     
+    public final double MAX_POSITION;
+    public final double MIN_POSITION;
+    public final double TOLERANCE;
 
-    public final double maxPosition;
-    public final double minPosition;
-
-    //AnalogChannel clawPitchEncoder = new AnalogChannel(RobotMap.clawPitchEncoder);//fix this port num
     public ClawPitch() {
-        // super(0, 0, 0);
-        maxPosition = 0;
-        minPosition = 0;
+        MAX_POSITION = 0;
+        MIN_POSITION = 0; //TODO get values for these 
+        TOLERANCE = 10; // TODO this is the tolerance for position will be changed most likely 
+        
         try {
             clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
             // pidActuator = new CANJaguarPIDActuator(clawPitchMotor);
@@ -44,7 +43,7 @@ public class ClawPitch extends Subsystem {
             System.out.println("Adding actuators for ClawPitch to LiveWIndow");
             LiveWindow.addActuator("ClawPitch", "CanJaguarPID", new CANJaguarPIDActuator(clawPitchMotor));
             LiveWindow.addSensor("ClawPitch", "CanJaguarEncoder", new CANJaguarPositionSensor(clawPitchMotor));
-            // LiveWindow.addActuator("ClawPitch", "Motor", clawPitchMotor);
+            //LiveWindow.addActuator("ClawPitch", "Motor", clawPitchMotor);
             //LiveWindow.addActuator("ClawPitch", "PID Controller", getPIDController());
             //LiveWindow.addSensor("ClawPitch", "Encoder", clawPitchEncoder);
         } catch (Exception e) {

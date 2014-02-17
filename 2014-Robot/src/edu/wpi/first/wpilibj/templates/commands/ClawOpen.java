@@ -29,6 +29,9 @@ public class ClawOpen extends CommandBase{
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        if(grabber.clawLimitSwitchOpenLimit.get() == true){
+            return true;
+        }
         return false;
     }
 
