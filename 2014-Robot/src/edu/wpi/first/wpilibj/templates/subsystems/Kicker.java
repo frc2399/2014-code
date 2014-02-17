@@ -21,7 +21,6 @@ import edu.wpi.first.wpilibj.CANJaguar.ControlMode;
 public class Kicker extends Subsystem{
     //will probably have sensors for motor force and possibly for kicker height 
     
-    //TODO do we want this to not be a pidsubsystem 
     public CANJaguar motor1;
     public CANJaguar motor2;
     //TODO add 3rd motor 
@@ -41,7 +40,6 @@ public class Kicker extends Subsystem{
     }
     
     public void initDefaultCommand() {
-       //TODO add default command 
     }
     
      private void setSpeedControl() throws CANTimeoutException {
@@ -50,6 +48,7 @@ public class Kicker extends Subsystem{
             motor1.setSpeedReference(CANJaguar.SpeedReference.kEncoder);
             motor1.configPotentiometerTurns(10);
             motor1.configNeutralMode(CANJaguar.NeutralMode.kCoast);
+            motor1.setPID(2, 0, 0);
             // TODO: add PID constants
             motor1.enableControl();
         }
