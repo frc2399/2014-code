@@ -27,10 +27,11 @@ public class ShooterWheel extends Subsystem {
     public ShooterWheel() {
         try {
             shooterWheelMotor = new CANJaguar(RobotMap.shooterWheelMotor); 
-            shooterWheelMotor.changeControlMode(CANJaguar.ControlMode.kSpeed);
-            shooterWheelMotor.setSpeedReference(CANJaguar.SpeedReference.kQuadEncoder);
+            shooterWheelMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
+            shooterWheelMotor.setPositionReference(CANJaguar.PositionReference.kPotentiometer);
             shooterWheelMotor.setPID(2.0, 0.1, 0);
-            shooterWheelMotor.configEncoderCodesPerRev(256);
+            //shooterWheelMotor.configEncoderCodesPerRev(256);
+            shooterWheelMotor.configPotentiometerTurns(1);
             
             LiveWindow.addActuator("ShooterWheel", "CanJaguarPID", new CANJaguarPIDActuator(shooterWheelMotor));
             LiveWindow.addSensor("ShooterWheel", "Position", new CANJaguarPositionSensor(shooterWheelMotor));

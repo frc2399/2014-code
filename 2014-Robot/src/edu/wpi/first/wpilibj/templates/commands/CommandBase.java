@@ -22,6 +22,7 @@ public abstract class CommandBase extends Command {
     public static ClawPitch clawPitch;
     public static Grabber grabber;
     public static ShooterWheel shooterWheel;
+    public static Kicker kicker;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -38,6 +39,8 @@ public abstract class CommandBase extends Command {
         // clawPitch = new ClawPitch();
         // grabber = new Grabber();
         // shooterWheel = new ShooterWheel();
+        
+        kicker = new Kicker();
         
         // Vision.initialize();
         
