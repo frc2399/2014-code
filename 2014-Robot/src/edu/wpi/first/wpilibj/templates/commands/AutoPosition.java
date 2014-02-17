@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.templates.Vision;
  */
 public class AutoPosition extends CommandBase {
     
-    final double TOLERANCE = 15.0; // acceptable tolerance, in inches
+    final double TOLERANCE = 15.0; // acceptable tolerance, in inches TODO 
     
     double targetDistance;
     
