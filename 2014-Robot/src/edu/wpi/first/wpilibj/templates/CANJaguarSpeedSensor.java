@@ -15,10 +15,10 @@ import edu.wpi.first.wpilibj.tables.ITable;
  *
  * @author jallen
  */
-public class CANJaguarEncoderSensor implements LiveWindowSendable {
+public class CANJaguarSpeedSensor implements LiveWindowSendable {
     private CANJaguar m_jag;
     
-    public CANJaguarEncoderSensor(CANJaguar jag) {
+    public CANJaguarSpeedSensor(CANJaguar jag) {
         m_jag = jag;
     }
     
@@ -44,8 +44,8 @@ public class CANJaguarEncoderSensor implements LiveWindowSendable {
     public void updateTable() {
         if (m_table != null) {
             try {
-                m_table.putNumber("Value", m_jag.getPosition());
-            } catch (CANTimeoutException ex) {
+                m_table.putNumber("Value", m_jag.getSpeed());
+                    } catch (CANTimeoutException ex) {
                 ex.printStackTrace();
             }
         }
