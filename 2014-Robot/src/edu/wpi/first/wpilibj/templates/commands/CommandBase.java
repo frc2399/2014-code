@@ -30,13 +30,16 @@ public abstract class CommandBase extends Command {
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         
-        driveTrain = new DriveTrain();
-        //shooter = new Shooter();
-        clawPitch = new ClawPitch();
-        grabber = new Grabber();
-        shooterWheel = new ShooterWheel();
         
-        Vision.initialize();
+        // TODO: Enable pertinent subsystems
+        
+        // driveTrain = new DriveTrain();
+        // shooter = new Shooter();
+        // clawPitch = new ClawPitch();
+        // grabber = new Grabber();
+        // shooterWheel = new ShooterWheel();
+        
+        // Vision.initialize();
         
         //leave oi at the bottom and apart from the other initialized things
         //if it is initialized before the subsytems, it throws some null pointer exceptions
@@ -44,9 +47,9 @@ public abstract class CommandBase extends Command {
         //please leave it here
         oi = new OI();
 
-        SmartDashboard.putData("DriveTrain", driveTrain);
-        SmartDashboard.putData("ClawPitch", clawPitch);
-        SmartDashboard.putData("Shooter Wheel", shooterWheel);
+        // SmartDashboard.putData("DriveTrain", driveTrain);
+        // SmartDashboard.putData("ClawPitch", clawPitch);
+        // SmartDashboard.putData("Shooter Wheel", shooterWheel);
     }
 
     public CommandBase(String name) {

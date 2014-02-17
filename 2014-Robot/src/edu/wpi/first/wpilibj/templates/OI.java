@@ -45,97 +45,104 @@ public class OI {
     Joystick rightStick = new Joystick(1);
     Joystick leftStick = new Joystick(2);
     Joystick extremeStick = new Joystick(3);
-
-    ManClaw manClaw = new ManClaw();
-    ClawCatch clawCatch = new ClawCatch();
-    JoystickDrive drive = new JoystickDrive();
-    ClawOpen clawOpen = new ClawOpen();
-    ClawClose clawClose = new ClawClose();
-    ClawPickUp clawPickUp = new ClawPickUp();
-    AutoPosition autoPosition = new AutoPosition(72); //not final number
-     
-    public static int clawCatchButtNum = 2; //will be changed 
     
-    private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
-    private final JoystickButton clawOpenButt = new JoystickButton(extremeStick, 11);
-    private final JoystickButton clawCloseButt = new JoystickButton(extremeStick, 12);
-    private final JoystickButton manClawButt = new JoystickButton(extremeStick, 10);
-
-    JoystickDrive robotDrive = new JoystickDrive();
-    FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
-    GyroReset gyroReset = new GyroReset();
-    SetDirection setDirectionLeft = new SetDirection(270);
-    SetDirection setDirectionRight = new SetDirection(90);
-    SetDirection setDirectionFront = new SetDirection(0);
-    SetDirection setDirectionBack = new SetDirection(180);
-    PiShutdown piShutdown = new PiShutdown();
-
-    Button strafeButt = new JoystickButton(leftStick, 3);
-
-    Button turnLeftButt = new JoystickButton(rightStick, 4);
-    Button turnRightButt = new JoystickButton(rightStick, 5);
-    Button turnBackButt = new JoystickButton(rightStick, 2);
-    Button turnFrontButt = new JoystickButton(rightStick, 3);
-
-    Button fieldOrientButt = new JoystickButton(leftStick, 4);
-    Button robotOrientButt = new JoystickButton(leftStick, 5);
-    Button resetGyroButt = new JoystickButton(leftStick, 2);
-    Button autoPositionButt = new JoystickButton (extremeStick, 9);
+    // TODO: Enable pertinent commands
     
-    Button shutdownButt = new JoystickButton(rightStick, 6);
+//    ManClaw manClaw = new ManClaw();
+//    ClawCatch clawCatch = new ClawCatch();
+//    JoystickDrive drive = new JoystickDrive();
+//    ClawOpen clawOpen = new ClawOpen();
+//    ClawClose clawClose = new ClawClose();
+//    ClawPickUp clawPickUp = new ClawPickUp();
+//    AutoPosition autoPosition = new AutoPosition(72); //not final number
+//     
+//    public static int clawCatchButtNum = 2; //will be changed 
+//    
+//    private final JoystickButton clawCatchButt = new JoystickButton(leftStick, clawCatchButtNum);
+//    private final JoystickButton clawOpenButt = new JoystickButton(extremeStick, 11);
+//    private final JoystickButton clawCloseButt = new JoystickButton(extremeStick, 12);
+//    private final JoystickButton manClawButt = new JoystickButton(extremeStick, 10);
+//
+//    JoystickDrive robotDrive = new JoystickDrive();
+//    FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
+//    GyroReset gyroReset = new GyroReset();
+//    SetDirection setDirectionLeft = new SetDirection(270);
+//    SetDirection setDirectionRight = new SetDirection(90);
+//    SetDirection setDirectionFront = new SetDirection(0);
+//    SetDirection setDirectionBack = new SetDirection(180);
+//    PiShutdown piShutdown = new PiShutdown();
+//
+//    Button strafeButt = new JoystickButton(leftStick, 3);
+//
+//    Button turnLeftButt = new JoystickButton(rightStick, 4);
+//    Button turnRightButt = new JoystickButton(rightStick, 5);
+//    Button turnBackButt = new JoystickButton(rightStick, 2);
+//    Button turnFrontButt = new JoystickButton(rightStick, 3);
+//
+//    Button fieldOrientButt = new JoystickButton(leftStick, 4);
+//    Button robotOrientButt = new JoystickButton(leftStick, 5);
+//    Button resetGyroButt = new JoystickButton(leftStick, 2);
+//    Button autoPositionButt = new JoystickButton (extremeStick, 9);
+//    
+//    Button shutdownButt = new JoystickButton(rightStick, 6);
 
     public OI() {
-
-        resetGyroButt.whenPressed(gyroReset);
-
-        robotOrientButt.whenPressed(robotDrive);
-        robotOrientButt.cancelWhenPressed(fieldDrive);
-        fieldOrientButt.whenPressed(fieldDrive);
-        fieldOrientButt.cancelWhenPressed(robotDrive);
-
-        turnLeftButt.whenPressed(setDirectionLeft);
-        turnRightButt.whenPressed(setDirectionRight);
-        turnBackButt.whenPressed(setDirectionBack);
-        turnFrontButt.whenPressed(setDirectionFront);
-
-        shutdownButt.whenPressed(piShutdown);
-        clawCatchButt.whenPressed(clawCatch);
-        clawOpenButt.whenPressed(clawOpen);
-        clawCloseButt.whenPressed(clawClose);
-        manClawButt.toggleWhenPressed(manClaw);
-        
-        autoPositionButt.whenPressed(autoPosition);
+        // TODO: Enable pertinent commands
+//        resetGyroButt.whenPressed(gyroReset);
+//
+//        robotOrientButt.whenPressed(robotDrive);
+//        robotOrientButt.cancelWhenPressed(fieldDrive);
+//        fieldOrientButt.whenPressed(fieldDrive);
+//        fieldOrientButt.cancelWhenPressed(robotDrive);
+//
+//        turnLeftButt.whenPressed(setDirectionLeft);
+//        turnRightButt.whenPressed(setDirectionRight);
+//        turnBackButt.whenPressed(setDirectionBack);
+//        turnFrontButt.whenPressed(setDirectionFront);
+//
+//        shutdownButt.whenPressed(piShutdown);
+//        clawCatchButt.whenPressed(clawCatch);
+//        clawOpenButt.whenPressed(clawOpen);
+//        clawCloseButt.whenPressed(clawClose);
+//        manClawButt.toggleWhenPressed(manClaw);
+//        
+//        autoPositionButt.whenPressed(autoPosition);
     }
 
 
     public double getClawSpeed() {
-        return extremeStick.getRawAxis(2);
+//        return extremeStick.getRawAxis(2);
+        return 0;
     }
-
+//
     public double getForwardSpeed() {
-        return leftStick.getY();
+//        return leftStick.getY();
+        return 0;
     }
-
+//
     public double getSideSpeed() {
-        return leftStick.getX();
+//        return leftStick.getX();
+        return 0;
     }
-
+//
     public double getTwistSpeed() {
-        double x = rightStick.getX();
-        if (x > 0) {
-            return x * x;
-        } else {
-            return -(x * x);
-        }
+//        double x = rightStick.getX();
+//        if (x > 0) {
+//            return x * x;
+//        } else {
+//            return -(x * x);
+//        }
+        return 0;
     }
-
+//
     public boolean shouldStrafe() {
-        if (strafeButt.get() == true) {
-            return true;
-
-        } else {
-            return false;
-        }
+//        if (strafeButt.get() == true) {
+//            return true;
+//
+//        } else {
+//            return false;
+//        }
+        return false;
     }
 
 
