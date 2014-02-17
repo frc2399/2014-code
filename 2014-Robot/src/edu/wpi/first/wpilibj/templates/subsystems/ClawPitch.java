@@ -27,16 +27,14 @@ public class ClawPitch extends Subsystem {
     
     //CANJaguarPIDActuator pidActuator;
     
-
-    public final double maxPosition;
-    public final double minPosition; //TODO change to all caps 
+    public final double MAX_POSITION;
+    public final double MIN_POSITION;
     public final double TOLERANCE;
 
-    //AnalogChannel clawPitchEncoder = new AnalogChannel(RobotMap.clawPitchEncoder);//fix this port num
     public ClawPitch() {
         // super(0, 0, 0);
-        maxPosition = 0;
-        minPosition = 0; //TODO get values for these 
+        MAX_POSITION = 0;
+        MIN_POSITION = 0; //TODO get values for these 
         TOLERANCE = 10; // TODO this is the tolerance for position will be changed most likely 
         
         try {
