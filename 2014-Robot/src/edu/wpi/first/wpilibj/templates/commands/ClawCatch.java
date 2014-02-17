@@ -28,11 +28,17 @@ public class ClawCatch extends CommandBase{
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        if( clawPitch.getPosition() > clawPitch.minPosition){
+            clawPitch.setPosition(clawPitch.minPosition);
+        }
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+        if( clawPitch.getPosition() <= clawPitch.maxPosition + clawPitch.TOLERANCE){
+            return true;
+        }
         return false;
     }
 

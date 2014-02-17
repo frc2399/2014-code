@@ -30,12 +30,15 @@ public class ClawPitch extends Subsystem {
 
     public final double maxPosition;
     public final double minPosition;
+    public final double TOLERANCE;
 
     //AnalogChannel clawPitchEncoder = new AnalogChannel(RobotMap.clawPitchEncoder);//fix this port num
     public ClawPitch() {
         // super(0, 0, 0);
         maxPosition = 0;
         minPosition = 0;
+        TOLERANCE = 10; //this is the tolerance for position will be changed most likely 
+        
         try {
             clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
             // pidActuator = new CANJaguarPIDActuator(clawPitchMotor);
