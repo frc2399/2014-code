@@ -33,11 +33,13 @@ public class AutonomousKick extends CommandBase{
     protected void execute() {
         
         if(Vision.isHot() || timer.get() >= 5){
-            if(timer2.get() < 2){
+            timer.stop();
+            double time = timer.get();
+            if(timer2.get() < time + 2){
                     kicker.setSpeed(.95); //this exists in al
                 }
         }
-        //TODO timer stuff is wackly, fix this 
+        //TODO go through this again 
         
     }
 
