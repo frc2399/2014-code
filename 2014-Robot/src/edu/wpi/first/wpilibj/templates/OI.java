@@ -29,17 +29,16 @@ public class OI {
     ClawOpen clawOpen = new ClawOpen();
     ClawPickUp clawPickUp = new ClawPickUp();
     FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
+    Fire fire = new Fire();
     GyroReset gyroReset = new GyroReset();
     JoystickDrive drive = new JoystickDrive();
     JoystickDrive robotDrive = new JoystickDrive();
-    ManClaw manClaw = new ManClaw();
-    PiShutdown piShutdown = new PiShutdown();
-    
     Kick kick = new Kick();
-    ResetKickerGroup resetKicker = new ResetKickerGroup();
-    Fire fire = new Fire();
-   
-    
+    ManClaw manClaw = new ManClaw();
+    ManKicker manKickerForward = new ManKicker(3.5);
+    ManKicker manKickerBackward = new ManKicker(-4);
+    PiShutdown piShutdown = new PiShutdown();
+    ResetKickerGroup resetKicker = new ResetKickerGroup();    
     SetDirection setDirectionLeft = new SetDirection(270);
     SetDirection setDirectionRight = new SetDirection(90);
     SetDirection setDirectionFront = new SetDirection(0);
@@ -69,6 +68,8 @@ public class OI {
     Button kickButt = new JoystickButton(extremeStick, 4);//NOT THE RIGHT NUMBER!!!!!!!!!
     Button resetKickerButt = new JoystickButton(extremeStick, 2); //this will be in EXTREMESTICK
     Button fireButt = new JoystickButton(extremeStick, 1); //this will be ExtremeStick
+    Button manKickerForwardButt = new JoystickButton(extremeStick, 3); //TODO actual values
+    Button manKickerBackwardButt = new JoystickButton(extremeStick, 4); //TODO actual values
     
     public OI() {
 
@@ -93,8 +94,12 @@ public class OI {
         clawCloseButt.whenPressed(clawClose);
         manButt.toggleWhenPressed(manClaw);
 
+        //kicker buttons
         resetKickerButt.whenPressed(resetKicker);
         fireButt.whenPressed(fire);
+        manKickerForwardButt.whenPressed(manKickerForward);
+        manKickerBackwardButt.whenPressed(manKickerBackward);
+        
         
         SmartDashboard.putData("Reset Kicker", resetKicker);
         SmartDashboard.putData("Fire", fire);
