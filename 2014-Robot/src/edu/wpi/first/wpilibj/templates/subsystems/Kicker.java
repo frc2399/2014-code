@@ -71,8 +71,9 @@ public class Kicker extends Subsystem{
             motor1.configPotentiometerTurns(1);
             motor1.configNeutralMode(CANJaguar.NeutralMode.kBrake);
             // TODO: add PID constants
-            //motor1.setPID(2, 0, 0);
+            motor1.setPID(-220, -0.007, -0.2);
             motor1.enableControl();
+            // values only good for going from bottom to top (around the back)
         }
     }
     

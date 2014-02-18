@@ -23,7 +23,8 @@ public class ResetKicker2 extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        kicker.setPosition(.50); //TODO change position 
+        kicker.setPosition(.7); //TODO change position
+        //.7 is the top 
     }
 
     // Make this return true when this Command no longer needs to run execute()
