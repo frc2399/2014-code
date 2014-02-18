@@ -21,7 +21,6 @@ public class DriveTrain extends Subsystem {
     public CANJaguar rightFront;
     public CANJaguar rightRear;
 
-    Encoder testEncoder = new Encoder(RobotMap.testEncoderA, RobotMap.testEncoderB);
     public Gyro gyro = new Gyro(RobotMap.gyro);
 
     public RobotDrive drive;
@@ -37,8 +36,8 @@ public class DriveTrain extends Subsystem {
 
             drive = new RobotDrive(leftFront, leftRear, rightFront, rightRear);
 
-            drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
-            drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
+            // drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+            // drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
             drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
             drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 
@@ -57,14 +56,6 @@ public class DriveTrain extends Subsystem {
     public void initDefaultCommand() {
         this.setDefaultCommand(new FieldOrientedDrive());
 
-    }
-
-    public double getTestEncoder() {
-        return testEncoder.getDistance();
-    }
-
-    public void startTestEncoder() {
-        testEncoder.start();
     }
 
     public double getGyroAngle() {

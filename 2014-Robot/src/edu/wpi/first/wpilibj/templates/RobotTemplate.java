@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.templates.Vision;
+import edu.wpi.first.wpilibj.templates.commands.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,7 +33,7 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
-        // autonomousCommand = new ExampleCommand();
+        autonomousCommand = new EmptyCommand();
 
         // Initialize all subsystems
         CommandBase.init();
