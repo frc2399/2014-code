@@ -29,18 +29,18 @@ public class Kick extends CommandBase{
 
     protected void execute() {
         //wait until timer is 2 seconds then do stuff
-            kicker.setVoltage(SmartDashboard.getNumber("kickVoltage", 8.0));//TODO pick ideal kick voltage 
+            kicker.setVoltage(SmartDashboard.getNumber("kickVoltage", 11.0));//TODO pick ideal kick voltage 
     }
 
     protected boolean isFinished() {
-        if(timeLord.get() >= 2){ //seconds, test 
+        if(timeLord.get() >= .3){ //seconds, test 
             return true;
         }
         return false;
     }
 
     protected void end() {
-        
+        kicker.stop();
     }
 
     protected void interrupted() {

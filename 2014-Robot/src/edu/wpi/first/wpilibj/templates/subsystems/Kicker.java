@@ -80,7 +80,9 @@ public class Kicker extends Subsystem{
     private void setVoltageControl() throws CANTimeoutException {
         if(motor1.getControlMode() != CANJaguar.ControlMode.kVoltage){
             motor1.changeControlMode(CANJaguar.ControlMode.kVoltage);
+            motor2.changeControlMode(CANJaguar.ControlMode.kVoltage);
             motor1.enableControl();
+            motor2.enableControl();
         }
     }
     
@@ -131,6 +133,15 @@ public class Kicker extends Subsystem{
             setVoltageControl();
             motor1.setX(voltage);
             motor2.setX(voltage);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public void stop(){
+        try {
+            motor1.disableControl();
+            motor2.disableControl();
         } catch (CANTimeoutException ex) {
             ex.printStackTrace();
         }

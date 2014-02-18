@@ -35,8 +35,7 @@ public class OI {
     JoystickDrive robotDrive = new JoystickDrive();
     Kick kick = new Kick();
     ManClaw manClaw = new ManClaw();
-    ManKicker manKickerForward = new ManKicker(3.5);
-    ManKicker manKickerBackward = new ManKicker(-4);
+    //man kicker buttons are down there 
     PiShutdown piShutdown = new PiShutdown();
     ResetKickerGroup resetKicker = new ResetKickerGroup();    
     SetDirection setDirectionLeft = new SetDirection(270);
@@ -70,6 +69,9 @@ public class OI {
     Button fireButt = new JoystickButton(extremeStick, 1); //this will be ExtremeStick
     Button manKickerForwardButt = new JoystickButton(extremeStick, 3); //TODO actual values
     Button manKickerBackwardButt = new JoystickButton(extremeStick, 4); //TODO actual values
+    
+    ManKicker manKickerForward = new ManKicker(3.5, manKickerForwardButt);
+    ManKicker manKickerBackward = new ManKicker(-4, manKickerBackwardButt);
     
     public OI() {
 
