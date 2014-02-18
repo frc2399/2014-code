@@ -10,11 +10,11 @@ package edu.wpi.first.wpilibj.templates.commands;
  * @author Julia
  */
 public class GyroReset extends CommandBase {
-    
+
     public GyroReset() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires (driveTrain);
+        requires(driveTrain);
     }
 
     // Called just before this Command runs the first time

@@ -9,21 +9,21 @@ import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.commands.FieldOrientedDrive;
+
 /**
  *
- * @author Lauren Dierker 
+ * @author Lauren Dierker
  */
-public class DriveTrain extends Subsystem{
-    
-    public CANJaguar leftFront; 
-    public CANJaguar leftRear; 
-    public CANJaguar rightFront; 
-    public CANJaguar rightRear; 
-   
-    
+public class DriveTrain extends Subsystem {
+
+    public CANJaguar leftFront;
+    public CANJaguar leftRear;
+    public CANJaguar rightFront;
+    public CANJaguar rightRear;
+
     Encoder testEncoder = new Encoder(RobotMap.testEncoderA, RobotMap.testEncoderB);
     public Gyro gyro = new Gyro(RobotMap.gyro);
-    
+
     public RobotDrive drive;
 
     public DriveTrain() {
@@ -34,20 +34,20 @@ public class DriveTrain extends Subsystem{
             leftRear = new CANJaguar(RobotMap.driveLeftRear);
             rightFront = new CANJaguar(RobotMap.driveRightFront);
             rightRear = new CANJaguar(RobotMap.driveRightRear);
-            
+
             drive = new RobotDrive(leftFront, leftRear, rightFront, rightRear);
 
             drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
             drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
             drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
             drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
-            
+
             System.out.println("Adding actuators for DriveTrain to LiveWIndow");
             LiveWindow.addActuator("DriveTrain", "leftFront", leftFront);
             LiveWindow.addActuator("DriveTrain", "leftRear", leftRear);
             LiveWindow.addActuator("DriveTrain", "rightFront", rightFront);
             LiveWindow.addActuator("DriveTrain", "rightRear", rightRear);
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }

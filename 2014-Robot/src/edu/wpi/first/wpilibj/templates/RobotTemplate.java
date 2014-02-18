@@ -4,9 +4,7 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package edu.wpi.first.wpilibj.templates;
-
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -14,10 +12,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
-import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
 
 import edu.wpi.first.wpilibj.templates.Vision;
-
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,7 +24,7 @@ import edu.wpi.first.wpilibj.templates.Vision;
  */
 public class RobotTemplate extends IterativeRobot {
 
-        Command autonomousCommand;
+    Command autonomousCommand;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -36,12 +32,11 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        // autonomousCommand = new ExampleCommand();
 
         // Initialize all subsystems
         CommandBase.init();
-        
-        
+
     }
 
     public void autonomousInit() {
@@ -57,13 +52,13 @@ public class RobotTemplate extends IterativeRobot {
     }
 
     public void teleopInit() {
-	// This makes sure that the autonomous stops running when
+        // This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
         autonomousCommand.cancel();
     }
-    
+
     /**
      * This function is called periodically during operator control
      */
@@ -73,7 +68,7 @@ public class RobotTemplate extends IterativeRobot {
         // SmartDashboard.putNumber("distance", Vision.getDistance());
         // System.out.println("Distance: " + Vision.getDistance()); 
     }
-    
+
     /**
      * This function is called periodically during test mode
      */

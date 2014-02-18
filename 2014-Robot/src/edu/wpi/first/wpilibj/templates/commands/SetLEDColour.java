@@ -9,5 +9,5 @@ package edu.wpi.first.wpilibj.templates.commands;
  * @author Lauren
  */
 public class SetLEDColour {
-    
+
 }

@@ -9,11 +9,12 @@ import edu.wpi.first.wpilibj.templates.subsystems.*;
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
- * @author Lauren Dierker 
+ * subsystem elsewhere in your code in your code use
+ * CommandBase.exampleSubsystem
+ *
+ * @author Lauren Dierker
  */
 public abstract class CommandBase extends Command {
-    
 
     // Create a single static instance of all of your subsystems
     public static OI oi;
@@ -21,7 +22,6 @@ public abstract class CommandBase extends Command {
     public static Shooter shooter;
     public static ClawPitch clawPitch;
     public static Grabber grabber;
-    public static ShooterWheel shooterWheel;
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -29,15 +29,14 @@ public abstract class CommandBase extends Command {
         // which commands extend), subsystems are not guaranteed to be
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
-        
+
         driveTrain = new DriveTrain();
         //shooter = new Shooter();
         clawPitch = new ClawPitch();
         grabber = new Grabber();
-        shooterWheel = new ShooterWheel();
-        
+
         Vision.initialize();
-        
+
         //leave oi at the bottom and apart from the other initialized things
         //if it is initialized before the subsytems, it throws some null pointer exceptions
         //those are not fun
@@ -46,7 +45,6 @@ public abstract class CommandBase extends Command {
 
         SmartDashboard.putData("DriveTrain", driveTrain);
         SmartDashboard.putData("ClawPitch", clawPitch);
-        SmartDashboard.putData("Shooter Wheel", shooterWheel);
     }
 
     public CommandBase(String name) {

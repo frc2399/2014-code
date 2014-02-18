@@ -14,15 +14,15 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 public class Vision {
 
     private static final NetworkTable table = NetworkTable.getTable("Vision");
-    
+
     public static void initialize() {
         // Initialize default values
-        
+
         table.putBoolean("hot", false);
         table.putNumber("shutdown", 0);
         table.putNumber("distance", Double.NaN);
     }
-    
+
     public static boolean isHot() {
         return table.getBoolean("hot");
     }
@@ -30,7 +30,7 @@ public class Vision {
     public static double getDistance() {
         return table.getNumber("distance");
     }
-    
+
     public static void shutdown() {
         table.putNumber("shutdown", 1);
     }

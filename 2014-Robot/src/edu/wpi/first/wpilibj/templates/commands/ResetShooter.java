@@ -6,9 +6,8 @@ package edu.wpi.first.wpilibj.templates.commands;
 
 /**
  *
- * @author Lauren
- * only applies if kicker
+ * @author Lauren only applies if kicker
  */
 public class ResetShooter {
-    
+
 }

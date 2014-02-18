@@ -8,21 +8,20 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author Lauren
  */
-public class ClawPickUp extends CommandBase{
-    
-    public ClawPickUp(){
+public class ClawPickUp extends CommandBase {
+
+    public ClawPickUp() {
         requires(clawPitch);
     }
 
-
     // Called just before this Command runs the first time
     protected void initialize() {
-        
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if( clawPitch.getPosition() < clawPitch.MAX_POSITION){
+        if (clawPitch.getPosition() < clawPitch.MAX_POSITION) {
             clawPitch.setPosition(clawPitch.MAX_POSITION);
         }
 
@@ -30,7 +29,7 @@ public class ClawPickUp extends CommandBase{
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if( clawPitch.getPosition() >= clawPitch.MAX_POSITION - clawPitch.TOLERANCE){
+        if (clawPitch.getPosition() >= clawPitch.MAX_POSITION - clawPitch.TOLERANCE) {
             return true;
         }
         return false;

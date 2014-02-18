@@ -4,36 +4,36 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
-
 /**
- * This class closes the claw using limit switches as reference for position 
- * The current speed is set at .25, check this to make sure it is the best fit 
+ * This class closes the claw using limit switches as reference for position The
+ * current speed is set at .25, check this to make sure it is the best fit
+ *
  * @author Lauren
  */
-public class ClawClose extends CommandBase{
-    
-    public ClawClose(){
+public class ClawClose extends CommandBase {
+
+    public ClawClose() {
         requires(grabber);
     }
-    
+
     protected void initialize() {
-        
+
     }
 
     /**
-     * Called repeatedly when this Command is scheduled to run
-     * close claw
+     * Called repeatedly when this Command is scheduled to run close claw
      */
     protected void execute() {
-            grabber.setSpeed(-0.25);    
+        grabber.setSpeed(-0.25);
     }
 
     /**
      * Make this return true when this Command no longer needs to run execute()
-     * @return true if limit switch has been hit 
+     *
+     * @return true if limit switch has been hit
      */
     protected boolean isFinished() {
-        if(grabber.clawLimitSwitchCloseLimit.get() == true){
+        if (grabber.clawLimitSwitchCloseLimit.get() == true) {
             return true;
         }
         return false;

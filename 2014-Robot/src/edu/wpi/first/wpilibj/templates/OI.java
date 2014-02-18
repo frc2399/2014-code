@@ -15,8 +15,8 @@ import edu.wpi.first.wpilibj.templates.commands.*;
  *
  * class of buttons, button functions, and command objects
  */
-public class OI {   
-    
+public class OI {
+
     Joystick rightStick = new Joystick(1);
     Joystick leftStick = new Joystick(2);
     Joystick extremeStick = new Joystick(3);
@@ -37,7 +37,7 @@ public class OI {
     SetDirection setDirectionRight = new SetDirection(90);
     SetDirection setDirectionFront = new SetDirection(0);
     SetDirection setDirectionBack = new SetDirection(180);
-    
+
     //claw buttons
     Button clawCatchButt = new JoystickButton(leftStick, 2);
     Button clawOpenButt = new JoystickButton(extremeStick, 11);
@@ -53,8 +53,8 @@ public class OI {
     Button fieldOrientButt = new JoystickButton(leftStick, 4);
     Button robotOrientButt = new JoystickButton(leftStick, 5);
     Button resetGyroButt = new JoystickButton(leftStick, 2);
-    Button autoPositionButt = new JoystickButton (extremeStick, 9);
-    
+    Button autoPositionButt = new JoystickButton(extremeStick, 9);
+
     //vision buttons
     Button shutdownButt = new JoystickButton(rightStick, 6);
 
@@ -71,18 +71,17 @@ public class OI {
         turnBackButt.whenPressed(setDirectionBack);
         turnFrontButt.whenPressed(setDirectionFront);
         autoPositionButt.whenPressed(autoPosition);
-        
+
         //vision buttons
         shutdownButt.whenPressed(piShutdown);
-        
+
         //claw buttons
         clawCatchButt.whenPressed(clawCatch);
         clawOpenButt.whenPressed(clawOpen);
         clawCloseButt.whenPressed(clawClose);
         manButt.toggleWhenPressed(manClaw);
-        
-    }
 
+    }
 
     public double getClawSpeed() {
         return extremeStick.getRawAxis(2);
@@ -113,6 +112,5 @@ public class OI {
             return false;
         }
     }
-
 
 }

@@ -31,7 +31,6 @@ public class JoystickDrive extends CommandBase {
             // field-oriented
             // driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), driveTrain.getGyroAngle());
         }
-        
 
     }
 

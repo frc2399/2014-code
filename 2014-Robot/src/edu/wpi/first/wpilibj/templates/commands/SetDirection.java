@@ -38,7 +38,7 @@ public class SetDirection extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-       double gyroAngle = (driveTrain.getGyroAngle()) % 360;
+        double gyroAngle = (driveTrain.getGyroAngle()) % 360;
         if (gyroAngle < 0) {
             gyroAngle = gyroAngle + 360;
         }

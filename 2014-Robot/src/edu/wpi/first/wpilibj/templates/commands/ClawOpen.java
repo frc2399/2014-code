@@ -3,36 +3,37 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
+
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 
 /**
  *
  * @author Lauren
  */
-public class ClawOpen extends CommandBase{
-    
-    public ClawOpen(){
+public class ClawOpen extends CommandBase {
+
+    public ClawOpen() {
         requires(grabber);
     }
-    
+
     protected void initialize() {
-        
+
     }
 
     /**
-     * Called repeatedly when this Command is scheduled to run
-     * open claw
+     * Called repeatedly when this Command is scheduled to run open claw
      */
     protected void execute() {
-            grabber.setSpeed(0.25);
+        grabber.setSpeed(0.25);
     }
 
     /**
      * Make this return true when this Command no longer needs to run execute()
-     * @return true if open limit switch has been hit 
+     *
+     * @return true if open limit switch has been hit
      */
     protected boolean isFinished() {
-        if(grabber.clawLimitSwitchOpenLimit.get() == true){
+        if (grabber.clawLimitSwitchOpenLimit.get() == true) {
             return true;
         }
         return false;

@@ -7,13 +7,12 @@ package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.templates.Vision;
 
-
 /**
  *
  * @author jallen
  */
 public class PiShutdown extends CommandBase {
-    
+
     public PiShutdown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -25,7 +24,7 @@ public class PiShutdown extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
+
         Vision.shutdown();
     }
 

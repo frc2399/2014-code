@@ -4,24 +4,27 @@
  * and open the template in the editor.
  */
 package edu.wpi.first.wpilibj.templates.commands;
+
 import edu.wpi.first.wpilibj.templates.OI;
+
 /**
  *
  * @author Arielle
  */
 public class FieldOrientedDrive extends JoystickDrive {
+
     private boolean hasBeenReset = false;
-    
+
     protected void initalize() {
         if (!hasBeenReset) {
             driveTrain.resetGyro();
             hasBeenReset = true;
         }
     }
-   
+
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-         if (oi.shouldStrafe()) {
+        if (oi.shouldStrafe()) {
             // gyro-based
             driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), 0, oi.getTwistSpeed(), driveTrain.getGyroAngle());
         } else {
@@ -31,8 +34,7 @@ public class FieldOrientedDrive extends JoystickDrive {
 
             // field-oriented 
             // driveTrain.drive.mecanumDrive_Cartesian(oi.getSideSpeed(), oi.getForwardSpeed(), oi.getTwistSpeed(), driveTrain.getGyroAngle());
-        
-         }
+        }
     }
-  
+
 }

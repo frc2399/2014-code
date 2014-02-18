@@ -8,19 +8,20 @@ package edu.wpi.first.wpilibj.templates.commands;
 import edu.wpi.first.wpilibj.templates.Vision;
 
 /**
- * This class automatically moves the robot to the distance specified in the constructor
- * using vision code
- * 
+ * This class automatically moves the robot to the distance specified in the
+ * constructor using vision code
+ *
  * @author jallen
  */
 public class AutoPosition extends CommandBase {
-    
+
     final double TOLERANCE = 15.0; // acceptable tolerance, in inches TODO 
-    
+
     double targetDistance; //distance to move robot to 
-    
+
     /**
-     * @param desiredDistance the distance from the target that the robot will be moved to 
+     * @param desiredDistance the distance from the target that the robot will
+     * be moved to
      */
     public AutoPosition(double desiredDistance) {
         requires(driveTrain);
@@ -32,9 +33,9 @@ public class AutoPosition extends CommandBase {
     }
 
     /**
-     * Called repeatedly when this Command is scheduled to run
-     * Execute gets the distance from the vision code and moves 
-     * the robot forward or backwards accordingly 
+     * Called repeatedly when this Command is scheduled to run Execute gets the
+     * distance from the vision code and moves the robot forward or backwards
+     * accordingly
      */
     protected void execute() {
         double travelDistance;
@@ -49,10 +50,12 @@ public class AutoPosition extends CommandBase {
 
     /**
      * Make this return true when this Command no longer needs to run execute()
-     * @return true if the robot is at the desired distance or within alloted tolerance 
+     *
+     * @return true if the robot is at the desired distance or within alloted
+     * tolerance
      */
     protected boolean isFinished() {
-        if (Vision.getDistance() < (targetDistance + TOLERANCE) && Vision.getDistance() > (targetDistance - TOLERANCE)){
+        if (Vision.getDistance() < (targetDistance + TOLERANCE) && Vision.getDistance() > (targetDistance - TOLERANCE)) {
             return true;
         } else {
             return false;

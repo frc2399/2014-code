@@ -24,8 +24,7 @@ public class ClawPitch extends Subsystem {
 
     public CANJaguar clawPitchMotor;
     // encoder is connected through the CAN
-    
-    
+
     public final double MAX_POSITION;
     public final double MIN_POSITION;
     public final double TOLERANCE;
@@ -34,7 +33,7 @@ public class ClawPitch extends Subsystem {
         MAX_POSITION = 0;
         MIN_POSITION = 0; //TODO get values for these 
         TOLERANCE = 10; // TODO this is the tolerance for position will be changed most likely 
-        
+
         try {
             clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
             // pidActuator = new CANJaguarPIDActuator(clawPitchMotor);
@@ -115,7 +114,7 @@ public class ClawPitch extends Subsystem {
             e.printStackTrace();
         }
     }
-    
+
 
     /*
      protected double returnPIDInput() {
