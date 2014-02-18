@@ -54,9 +54,9 @@ public class OI {
     ClawClose clawClose = new ClawClose();
     ClawPickUp clawPickUp = new ClawPickUp();
     AutoPosition autoPosition = new AutoPosition(72); //not final number
-    Kick kick = new Kick();
+    //Kick kick = new Kick();
     ResetKicker resetKicker = new ResetKicker();
-
+    Fire fire = new Fire();
      
     public static int clawCatchButtNum = 2; //will be changed 
 
@@ -77,7 +77,7 @@ public class OI {
     Button strafeButt = new JoystickButton(leftStick, 3);
     Button kickButt = new JoystickButton(extremeStick, 4);//NOT THE RIGHT NUMBER!!!!!!!!!
     Button resetKickerButt = new JoystickButton(extremeStick, 2); //this will be in EXTREMESTICK
-    Button fire = new JoystickButton(extremeStick, 1); //this will be ExtremeStick
+    Button fireButt = new JoystickButton(extremeStick, 1); //this will be ExtremeStick
     
     Button turnLeftButt = new JoystickButton(rightStick, 4);
     Button turnRightButt = new JoystickButton(rightStick, 5);
@@ -113,10 +113,9 @@ public class OI {
         manButt.toggleWhenPressed(manClaw);
         
         autoPositionButt.whenPressed(autoPosition);
-        
-        kickButt.whenPressed(kick);//lauren the Elder will fix this later
+       
         resetKickerButt.whenPressed(resetKicker);
-        fire.whenPressed(kick);
+        fireButt.whenPressed(fire);
     }
 
 
