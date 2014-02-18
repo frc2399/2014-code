@@ -7,6 +7,7 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.templates.commands.*;
 
 /**
@@ -33,6 +34,12 @@ public class OI {
     JoystickDrive robotDrive = new JoystickDrive();
     ManClaw manClaw = new ManClaw();
     PiShutdown piShutdown = new PiShutdown();
+    
+    //Kick kick = new Kick();
+    ResetKickerGroup resetKicker = new ResetKickerGroup();
+    Fire fire = new Fire();
+    
+    
     SetDirection setDirectionLeft = new SetDirection(270);
     SetDirection setDirectionRight = new SetDirection(90);
     SetDirection setDirectionFront = new SetDirection(0);
@@ -58,6 +65,11 @@ public class OI {
     //vision buttons
     Button shutdownButt = new JoystickButton(rightStick, 6);
 
+    // kick butts
+    Button kickButt = new JoystickButton(extremeStick, 4);//NOT THE RIGHT NUMBER!!!!!!!!!
+    Button resetKickerButt = new JoystickButton(extremeStick, 2); //this will be in EXTREMESTICK
+    Button fireButt = new JoystickButton(extremeStick, 1); //this will be ExtremeStick
+    
     public OI() {
 
         //driving buttons
@@ -81,6 +93,11 @@ public class OI {
         clawCloseButt.whenPressed(clawClose);
         manButt.toggleWhenPressed(manClaw);
 
+        resetKickerButt.whenPressed(resetKicker);
+        fireButt.whenPressed(fire);
+        
+        SmartDashboard.putData("Reset Kicker", resetKicker);
+        SmartDashboard.putData("Fire", fire);
     }
 
     public double getClawSpeed() {

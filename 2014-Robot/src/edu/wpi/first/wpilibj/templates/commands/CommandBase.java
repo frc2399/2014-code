@@ -19,7 +19,7 @@ public abstract class CommandBase extends Command {
     // Create a single static instance of all of your subsystems
     public static OI oi;
     public static DriveTrain driveTrain;
-    public static Shooter shooter;
+    public static Kicker kicker;
     public static ClawPitch clawPitch;
     public static Grabber grabber;
 
@@ -31,9 +31,9 @@ public abstract class CommandBase extends Command {
         // news. Don't move it.
 
         driveTrain = new DriveTrain();
-        //shooter = new Shooter();
         clawPitch = new ClawPitch();
         grabber = new Grabber();
+        kicker = new Kicker();
 
         Vision.initialize();
 
@@ -45,6 +45,7 @@ public abstract class CommandBase extends Command {
 
         SmartDashboard.putData("DriveTrain", driveTrain);
         SmartDashboard.putData("ClawPitch", clawPitch);
+        SmartDashboard.putData("Kicker", kicker);
     }
 
     public CommandBase(String name) {
