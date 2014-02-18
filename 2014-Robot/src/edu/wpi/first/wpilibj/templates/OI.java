@@ -35,10 +35,10 @@ public class OI {
     ManClaw manClaw = new ManClaw();
     PiShutdown piShutdown = new PiShutdown();
     
-    //Kick kick = new Kick();
+    Kick kick = new Kick();
     ResetKickerGroup resetKicker = new ResetKickerGroup();
     Fire fire = new Fire();
-    
+   
     
     SetDirection setDirectionLeft = new SetDirection(270);
     SetDirection setDirectionRight = new SetDirection(90);
@@ -98,6 +98,8 @@ public class OI {
         
         SmartDashboard.putData("Reset Kicker", resetKicker);
         SmartDashboard.putData("Fire", fire);
+        SmartDashboard.putNumber("kickVoltage", 8.0);
+        SmartDashboard.putData("Kick", kick);
     }
 
     public double getClawSpeed() {

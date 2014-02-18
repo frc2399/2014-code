@@ -9,6 +9,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CANJaguar.ControlMode;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.templates.CANJaguarPositionSensor;
+import edu.wpi.first.wpilibj.templates.CANJaguarPIDActuator;
+import edu.wpi.first.wpilibj.templates.CANJaguarSpeedSensor;
 
 /**
  *
@@ -34,6 +38,10 @@ public class Kicker extends Subsystem{
             motor1.disableControl();
             motor2 = new CANJaguar(RobotMap.shootMotor2);
             motor2.changeControlMode(ControlMode.kVoltage);
+            motor1.setPID(2.0, 0.0, 0.0);
+            LiveWindow.addActuator("Kicker", "CanJaguarPID", new CANJaguarPIDActuator(motor1));
+            LiveWindow.addSensor("Kicker", "PIDPosition", new CANJaguarPositionSensor(motor1));
+            LiveWindow.addSensor("Kicker", "PIDSpeed", new CANJaguarSpeedSensor(motor1));
         }catch(Exception e){
             System.out.println(e);
             System.out.println(motor1);
@@ -63,7 +71,7 @@ public class Kicker extends Subsystem{
             motor1.configPotentiometerTurns(1);
             motor1.configNeutralMode(CANJaguar.NeutralMode.kBrake);
             // TODO: add PID constants
-            motor1.setPID(2, 0, 0);
+            //motor1.setPID(2, 0, 0);
             motor1.enableControl();
         }
     }
