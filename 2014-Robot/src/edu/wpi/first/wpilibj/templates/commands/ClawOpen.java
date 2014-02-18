@@ -19,15 +19,18 @@ public class ClawOpen extends CommandBase{
         
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Called repeatedly when this Command is scheduled to run
+     * open claw
+     */
     protected void execute() {
-        
-        if(grabber.clawLimitSwitchOpenLimit.get() == false){
             grabber.setSpeed(0.25);
-        }
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    /**
+     * Make this return true when this Command no longer needs to run execute()
+     * @return true if open limit switch has been hit 
+     */
     protected boolean isFinished() {
         if(grabber.clawLimitSwitchOpenLimit.get() == true){
             return true;

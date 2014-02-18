@@ -20,15 +20,18 @@ public class ClawClose extends CommandBase{
         
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Called repeatedly when this Command is scheduled to run
+     * close claw
+     */
     protected void execute() {
-        
-        if(grabber.clawLimitSwitchCloseLimit.get() == false){
-            grabber.setSpeed(-0.25);
-        }
+            grabber.setSpeed(-0.25);    
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    /**
+     * Make this return true when this Command no longer needs to run execute()
+     * @return true if limit switch has been hit 
+     */
     protected boolean isFinished() {
         if(grabber.clawLimitSwitchCloseLimit.get() == true){
             return true;
