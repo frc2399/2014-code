@@ -38,7 +38,7 @@ public class ClawPitch extends Subsystem {
             clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
             // pidActuator = new CANJaguarPIDActuator(clawPitchMotor);
             setPositionControl();
-
+            //clawPitchMotor.configSoftPositionLimits(MAX_POSITION, MIN_POSITION); //forward, reverse
             System.out.println("Adding actuators for ClawPitch to LiveWIndow");
             LiveWindow.addActuator("ClawPitch", "CanJaguarPID", new CANJaguarPIDActuator(clawPitchMotor));
             LiveWindow.addSensor("ClawPitch", "CanJaguarEncoder", new CANJaguarPositionSensor(clawPitchMotor));
@@ -58,7 +58,7 @@ public class ClawPitch extends Subsystem {
         if (clawPitchMotor.getControlMode() != CANJaguar.ControlMode.kSpeed) {
             clawPitchMotor.changeControlMode(CANJaguar.ControlMode.kSpeed);
             clawPitchMotor.setSpeedReference(CANJaguar.SpeedReference.kEncoder);
-            clawPitchMotor.configPotentiometerTurns(10);
+            clawPitchMotor.configPotentiometerTurns(1);
             clawPitchMotor.configNeutralMode(CANJaguar.NeutralMode.kCoast);
             // TODO: add PID constants
             clawPitchMotor.enableControl();
@@ -69,7 +69,7 @@ public class ClawPitch extends Subsystem {
         if (clawPitchMotor.getControlMode() != CANJaguar.ControlMode.kPosition) {
             clawPitchMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
             clawPitchMotor.setPositionReference(CANJaguar.PositionReference.kPotentiometer);
-            clawPitchMotor.configPotentiometerTurns(10);
+            clawPitchMotor.configPotentiometerTurns(1);
             clawPitchMotor.configNeutralMode(CANJaguar.NeutralMode.kBrake);
             // TODO: add PID constants
             clawPitchMotor.setPID(2, 0, 0);
