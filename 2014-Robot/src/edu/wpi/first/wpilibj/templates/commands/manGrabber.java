@@ -4,42 +4,49 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.buttons.Button;
+
 /**
- * this class is used for manual control of the claw
- *
- * We need to find PID values for limit for each end. This code will make sure
- * the claw stays within these limits
  *
  * @author Lauren
  */
-public class ManClaw extends CommandBase {
-
-    public ManClaw() {
-        requires(clawPitch);
+public class manGrabber extends CommandBase {
+    
+    double voltage; 
+    Button myButton;
+    
+    public manGrabber(double voltage, Button myButton) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(grabber);
+        this.voltage = voltage;
+        this.myButton = myButton;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-
+        grabber.setSpeed(voltage);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        clawPitch.setX(oi.getClawSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if(myButton.get()){
+            return false;
+        }
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        grabber.setSpeed(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-
 }

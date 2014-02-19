@@ -30,18 +30,20 @@ public class ClawPitch extends Subsystem {
     public final double TOLERANCE;
 
     public ClawPitch() {
-        MAX_POSITION = 0;
-        MIN_POSITION = 0; //TODO get values for these 
+        MAX_POSITION = 0.280; //this is pick up position 
+        MIN_POSITION = 0.50; //TODO get values for these 
         TOLERANCE = 10; // TODO this is the tolerance for position will be changed most likely 
 
         try {
             clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
             // pidActuator = new CANJaguarPIDActuator(clawPitchMotor);
-            setPositionControl();
-
-            System.out.println("Adding actuators for ClawPitch to LiveWIndow");
-            LiveWindow.addActuator("ClawPitch", "CanJaguarPID", new CANJaguarPIDActuator(clawPitchMotor));
-            LiveWindow.addSensor("ClawPitch", "CanJaguarEncoder", new CANJaguarPositionSensor(clawPitchMotor));
+            //setVoltageControl();
+            clawPitchMotor.configPotentiometerTurns(1);
+            clawPitchMotor.setPositionReference(CANJaguar.PositionReference.kPotentiometer);
+            clawPitchMotor.configSoftPositionLimits(MIN_POSITION, MAX_POSITION); //forward, reverse
+            //System.out.println("Adding actuators for ClawPitch to LiveWIndow");
+            // LiveWindow.addActuator("ClawPitch", "CanJaguarPID", new CANJaguarPIDActuator(clawPitchMotor));
+            LiveWindow.addSensor("ClawPitch", "Pot Position", new CANJaguarPositionSensor(clawPitchMotor));
             //LiveWindow.addActuator("ClawPitch", "Motor", clawPitchMotor);
             //LiveWindow.addActuator("ClawPitch", "PID Controller", getPIDController());
             //LiveWindow.addSensor("ClawPitch", "Encoder", clawPitchEncoder);
@@ -58,7 +60,7 @@ public class ClawPitch extends Subsystem {
         if (clawPitchMotor.getControlMode() != CANJaguar.ControlMode.kSpeed) {
             clawPitchMotor.changeControlMode(CANJaguar.ControlMode.kSpeed);
             clawPitchMotor.setSpeedReference(CANJaguar.SpeedReference.kEncoder);
-            clawPitchMotor.configPotentiometerTurns(10);
+            clawPitchMotor.configPotentiometerTurns(1);
             clawPitchMotor.configNeutralMode(CANJaguar.NeutralMode.kCoast);
             // TODO: add PID constants
             clawPitchMotor.enableControl();
@@ -69,10 +71,17 @@ public class ClawPitch extends Subsystem {
         if (clawPitchMotor.getControlMode() != CANJaguar.ControlMode.kPosition) {
             clawPitchMotor.changeControlMode(CANJaguar.ControlMode.kPosition);
             clawPitchMotor.setPositionReference(CANJaguar.PositionReference.kPotentiometer);
-            clawPitchMotor.configPotentiometerTurns(10);
+            clawPitchMotor.configPotentiometerTurns(1);
             clawPitchMotor.configNeutralMode(CANJaguar.NeutralMode.kBrake);
             // TODO: add PID constants
             clawPitchMotor.setPID(2, 0, 0);
+            clawPitchMotor.enableControl();
+        }
+    }
+    
+    public void setVoltageControl() throws CANTimeoutException{
+        if( clawPitchMotor.getControlMode() != CANJaguar.ControlMode.kVoltage){
+            clawPitchMotor.changeControlMode(CANJaguar.ControlMode.kVoltage);
             clawPitchMotor.enableControl();
         }
     }
@@ -112,6 +121,14 @@ public class ClawPitch extends Subsystem {
             clawPitchMotor.setX(position);
         } catch (CANTimeoutException e) {
             e.printStackTrace();
+        }
+    }
+    
+    public void setX(double x){
+        try {
+            clawPitchMotor.setX(x);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
         }
     }
 
