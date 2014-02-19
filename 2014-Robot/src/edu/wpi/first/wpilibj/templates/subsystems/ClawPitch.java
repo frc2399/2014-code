@@ -30,18 +30,18 @@ public class ClawPitch extends Subsystem {
     public final double TOLERANCE;
 
     public ClawPitch() {
-        MAX_POSITION = 0;
-        MIN_POSITION = 0; //TODO get values for these 
+        MAX_POSITION = 2.840; //this is pick up position 
+        MIN_POSITION = 5.5; //TODO get values for these 
         TOLERANCE = 10; // TODO this is the tolerance for position will be changed most likely 
 
         try {
             clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
             // pidActuator = new CANJaguarPIDActuator(clawPitchMotor);
-            setPositionControl();
-            //clawPitchMotor.configSoftPositionLimits(MAX_POSITION, MIN_POSITION); //forward, reverse
-            System.out.println("Adding actuators for ClawPitch to LiveWIndow");
-            LiveWindow.addActuator("ClawPitch", "CanJaguarPID", new CANJaguarPIDActuator(clawPitchMotor));
-            LiveWindow.addSensor("ClawPitch", "CanJaguarEncoder", new CANJaguarPositionSensor(clawPitchMotor));
+            //setVoltageControl();
+            clawPitchMotor.configSoftPositionLimits(MAX_POSITION, MIN_POSITION); //forward, reverse
+            //System.out.println("Adding actuators for ClawPitch to LiveWIndow");
+            // LiveWindow.addActuator("ClawPitch", "CanJaguarPID", new CANJaguarPIDActuator(clawPitchMotor));
+            // LiveWindow.addSensor("ClawPitch", "CanJaguarEncoder", new CANJaguarPositionSensor(clawPitchMotor));
             //LiveWindow.addActuator("ClawPitch", "Motor", clawPitchMotor);
             //LiveWindow.addActuator("ClawPitch", "PID Controller", getPIDController());
             //LiveWindow.addSensor("ClawPitch", "Encoder", clawPitchEncoder);
@@ -73,6 +73,13 @@ public class ClawPitch extends Subsystem {
             clawPitchMotor.configNeutralMode(CANJaguar.NeutralMode.kBrake);
             // TODO: add PID constants
             clawPitchMotor.setPID(2, 0, 0);
+            clawPitchMotor.enableControl();
+        }
+    }
+    
+    public void setVoltageControl() throws CANTimeoutException{
+        if( clawPitchMotor.getControlMode() != CANJaguar.ControlMode.kVoltage){
+            clawPitchMotor.changeControlMode(CANJaguar.ControlMode.kVoltage);
             clawPitchMotor.enableControl();
         }
     }
@@ -112,6 +119,14 @@ public class ClawPitch extends Subsystem {
             clawPitchMotor.setX(position);
         } catch (CANTimeoutException e) {
             e.printStackTrace();
+        }
+    }
+    
+    public void setX(double x){
+        try {
+            clawPitchMotor.setX(x);
+        } catch (CANTimeoutException ex) {
+            ex.printStackTrace();
         }
     }
 
