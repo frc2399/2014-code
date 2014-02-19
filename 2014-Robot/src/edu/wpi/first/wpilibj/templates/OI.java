@@ -95,7 +95,7 @@ public class OI {
     }
 
     public double getClawSpeed() {
-        return -extremeStick.getY();
+        return extremeStick.getY();
     }
 
     public double getForwardSpeed() {

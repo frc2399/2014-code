@@ -30,18 +30,20 @@ public class ClawPitch extends Subsystem {
     public final double TOLERANCE;
 
     public ClawPitch() {
-        MAX_POSITION = 2.840; //this is pick up position 
-        MIN_POSITION = 5.5; //TODO get values for these 
+        MAX_POSITION = 0.280; //this is pick up position 
+        MIN_POSITION = 0.50; //TODO get values for these 
         TOLERANCE = 10; // TODO this is the tolerance for position will be changed most likely 
 
         try {
             clawPitchMotor = new CANJaguar(RobotMap.clawPitchMotor);
             // pidActuator = new CANJaguarPIDActuator(clawPitchMotor);
             //setVoltageControl();
-            clawPitchMotor.configSoftPositionLimits(MAX_POSITION, MIN_POSITION); //forward, reverse
+            clawPitchMotor.configPotentiometerTurns(1);
+            clawPitchMotor.setPositionReference(CANJaguar.PositionReference.kPotentiometer);
+            clawPitchMotor.configSoftPositionLimits(MIN_POSITION, MAX_POSITION); //forward, reverse
             //System.out.println("Adding actuators for ClawPitch to LiveWIndow");
             // LiveWindow.addActuator("ClawPitch", "CanJaguarPID", new CANJaguarPIDActuator(clawPitchMotor));
-            // LiveWindow.addSensor("ClawPitch", "CanJaguarEncoder", new CANJaguarPositionSensor(clawPitchMotor));
+            LiveWindow.addSensor("ClawPitch", "Pot Position", new CANJaguarPositionSensor(clawPitchMotor));
             //LiveWindow.addActuator("ClawPitch", "Motor", clawPitchMotor);
             //LiveWindow.addActuator("ClawPitch", "PID Controller", getPIDController());
             //LiveWindow.addSensor("ClawPitch", "Encoder", clawPitchEncoder);
