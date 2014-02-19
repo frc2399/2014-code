@@ -28,8 +28,7 @@ public class Kick extends CommandBase{
     }
 
     protected void execute() {
-        //wait until timer is 2 seconds then do stuff
-            kicker.setVoltage(SmartDashboard.getNumber("kickVoltage", 11.0));//TODO pick ideal kick voltage 
+        kicker.setVoltage(SmartDashboard.getNumber("kickVoltage", 12.0));// this value is taken from the smart dashboard  
     }
 
     protected boolean isFinished() {
