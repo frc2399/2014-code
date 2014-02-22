@@ -66,8 +66,8 @@ public class OI {
     Button manGrabberOpenButt = new JoystickButton(extremeStick, 5);
     Button manGrabberCloseButt = new JoystickButton(extremeStick, 6);
     
-    manGrabber manGrabberOpen = new manGrabber(.2, manGrabberOpenButt);
-    manGrabber manGrabberClose = new manGrabber(-.2, manGrabberCloseButt);
+    manGrabber manGrabberOpen = new manGrabber(.8, manGrabberOpenButt);
+    manGrabber manGrabberClose = new manGrabber(-.8, manGrabberCloseButt);
 
     // kick butts
     Button kickButt = new JoystickButton(extremeStick, 4);//NOT THE RIGHT NUMBER!!!!!!!!!
