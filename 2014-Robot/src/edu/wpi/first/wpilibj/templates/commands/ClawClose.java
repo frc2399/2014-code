@@ -24,7 +24,7 @@ public class ClawClose extends CommandBase {
      * Called repeatedly when this Command is scheduled to run close claw
      */
     protected void execute() {
-        grabber.setSpeed(-0.25);
+        grabber.setSpeed(-0.25); //TODO up th speed a lot, way too slow as is
     }
 
     /**
