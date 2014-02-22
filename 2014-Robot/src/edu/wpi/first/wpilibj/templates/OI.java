@@ -18,32 +18,11 @@ import edu.wpi.first.wpilibj.templates.commands.*;
  */
 public class OI {
 
+    
     Joystick rightStick = new Joystick(1);
     Joystick leftStick = new Joystick(2);
     Joystick extremeStick = new Joystick(3);
-
-    //comand objects
-    AutoPosition autoPosition = new AutoPosition(72); //not final number
-    ClawCatch clawCatch = new ClawCatch();
-    ClawClose clawClose = new ClawClose();
-    ClawOpen clawOpen = new ClawOpen();
-    ClawPickUp clawPickUp = new ClawPickUp();
-    FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
-    Fire fire = new Fire();
-    GyroReset gyroReset = new GyroReset();
-    JoystickDrive drive = new JoystickDrive();
-    JoystickDrive robotDrive = new JoystickDrive();
-    Kick kick = new Kick();
-    ManClaw manClaw = new ManClaw();
-    //man kicker buttons are down there 
-    PiShutdown piShutdown = new PiShutdown();
-    ResetKickerGroup resetKicker = new ResetKickerGroup();    
-    SetDirection setDirectionLeft = new SetDirection(270);
-    SetDirection setDirectionRight = new SetDirection(90);
-    SetDirection setDirectionFront = new SetDirection(0);
-    SetDirection setDirectionBack = new SetDirection(180);
-
-    //claw buttons
+    
     Button clawCatchButt = new JoystickButton(leftStick, 2);
     Button clawOpenButt = new JoystickButton(extremeStick, 11);
     Button clawCloseButt = new JoystickButton(extremeStick, 12);
@@ -75,6 +54,30 @@ public class OI {
     Button fireButt = new JoystickButton(extremeStick, 1); //this will be ExtremeStick
     Button manKickerForwardButt = new JoystickButton(extremeStick, 3); //TODO actual values
     Button manKickerBackwardButt = new JoystickButton(extremeStick, 4); //TODO actual values
+
+    //comand objects
+    AutoPosition autoPosition = new AutoPosition(72); //not final number
+    ClawCatch clawCatch = new ClawCatch();
+    ClawClose clawClose = new ClawClose();
+    ClawOpen clawOpen = new ClawOpen();
+    ClawPickUp clawPickUp = new ClawPickUp();
+    FieldOrientedDrive fieldDrive = new FieldOrientedDrive();
+    Fire fire = new Fire();
+    GyroReset gyroReset = new GyroReset();
+    JoystickDrive drive = new JoystickDrive();
+    JoystickDrive robotDrive = new JoystickDrive();
+    Kick kick = new Kick();
+    ManClaw manClaw = new ManClaw();
+    //man kicker buttons are down there 
+    PiShutdown piShutdown = new PiShutdown();
+    ResetKickerGroup resetKicker = new ResetKickerGroup();    
+    SetDirection setDirectionLeft = new SetDirection(270);
+    SetDirection setDirectionRight = new SetDirection(90);
+    SetDirection setDirectionFront = new SetDirection(0);
+    SetDirection setDirectionBack = new SetDirection(180);
+
+    //claw buttons
+   
     
     ManKicker manKickerForward = new ManKicker(3.5, manKickerForwardButt);
     ManKicker manKickerBackward = new ManKicker(-4, manKickerBackwardButt);

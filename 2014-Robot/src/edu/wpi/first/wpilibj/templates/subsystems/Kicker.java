@@ -16,18 +16,17 @@ import edu.wpi.first.wpilibj.templates.CANJaguarSpeedSensor;
 
 /**
  *
- * @author Lauren
  * 
  * This class if for our Kicker. The kicker uses two SIM motors, controlled by Jaguars
  * This class is controlled by a PID using a magnetic encoder
  * 
+ * @author Lauren
  */
 public class Kicker extends Subsystem{
-    //will probably have sensors for motor force and possibly for kicker height 
     
     public CANJaguar motor1;
     public CANJaguar motor2;
-    //TODO add 3rd motor 
+    //might add 3rd motor 
 
     public static final double topPoint = 4;
     
@@ -38,8 +37,8 @@ public class Kicker extends Subsystem{
             motor1.disableControl();
             motor2 = new CANJaguar(RobotMap.shootMotor2);
             motor2.changeControlMode(ControlMode.kVoltage);
-            motor1.setPID(2.0, 0.0, 0.0);
-            LiveWindow.addActuator("Kicker", "CanJaguarPID", new CANJaguarPIDActuator(motor1));
+            motor1.setPID(2.0, 0.0, 0.0); //TODO get pid values fro kicker subsystem 
+            LiveWindow.addActuator("Kicker", "CanJaguarPID", new CANJaguarPIDActuator(motor1)); //these will not be needed during play, comment out or delete
             LiveWindow.addSensor("Kicker", "PIDPosition", new CANJaguarPositionSensor(motor1));
             LiveWindow.addSensor("Kicker", "PIDSpeed", new CANJaguarSpeedSensor(motor1));
         }catch(Exception e){
