@@ -18,8 +18,8 @@ import edu.wpi.first.wpilibj.templates.commands.*;
  */
 public class OI {
 
-    Joystick rightStick = new Joystick(1);
-    Joystick leftStick = new Joystick(2);
+    Joystick leftStick = new Joystick(1);
+    Joystick rightStick = new Joystick(2);
     Joystick extremeStick = new Joystick(3);
 
     //comand objects
