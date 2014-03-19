@@ -47,7 +47,7 @@ public class OI {
     Button clawCatchButt = new JoystickButton(leftStick, 2);
     Button clawOpenButt = new JoystickButton(extremeStick, 11);
     Button clawCloseButt = new JoystickButton(extremeStick, 12);
-    Button manButt = new JoystickButton(extremeStick, 10);
+    Button manButt = new JoystickButton(extremeStick, 10); //claw
 
     //driving buttons
     Button strafeButt = new JoystickButton(leftStick, 3);
@@ -61,7 +61,13 @@ public class OI {
     Button autoPositionButt = new JoystickButton(extremeStick, 9);
 
     //vision buttons
-    Button shutdownButt = new JoystickButton(rightStick, 6);
+    Button shutdownButt = new JoystickButton(rightStick, 10);
+    
+    Button manGrabberOpenButt = new JoystickButton(extremeStick, 5);
+    Button manGrabberCloseButt = new JoystickButton(extremeStick, 6);
+    
+    manGrabber manGrabberOpen = new manGrabber(.8, manGrabberOpenButt);
+    manGrabber manGrabberClose = new manGrabber(-.8, manGrabberCloseButt);
 
     // kick butts
     Button kickButt = new JoystickButton(extremeStick, 4);//NOT THE RIGHT NUMBER!!!!!!!!!
@@ -95,6 +101,10 @@ public class OI {
         clawOpenButt.whenPressed(clawOpen);
         clawCloseButt.whenPressed(clawClose);
         manButt.toggleWhenPressed(manClaw);
+        
+        manGrabberOpenButt.whenPressed(manGrabberOpen);
+        manGrabberCloseButt.whenPressed(manGrabberClose);
+        
 
         //kicker buttons
         resetKickerButt.whenPressed(resetKicker);
@@ -110,7 +120,7 @@ public class OI {
     }
 
     public double getClawSpeed() {
-        return extremeStick.getRawAxis(2);
+        return extremeStick.getY();
     }
 
     public double getForwardSpeed() {
