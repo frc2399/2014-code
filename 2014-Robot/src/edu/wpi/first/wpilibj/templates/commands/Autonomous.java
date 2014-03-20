@@ -22,7 +22,7 @@ public class Autonomous extends CommandGroup {
     Timer timer = new Timer();
 
     addSequential(new AutonomousKick(timer)); //shoot 
-    addParallel(new ResetKicker()); //this will execute and run in time with subsequent commands 
+    addParallel(new ResetKicker2()); //this will execute and run in time with subsequent commands 
     addSequential(new DriveForward(), 3); //move forwrd
     
     }

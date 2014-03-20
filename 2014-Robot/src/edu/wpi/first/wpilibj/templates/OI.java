@@ -23,9 +23,9 @@ public class OI {
     Joystick leftStick = new Joystick(2);
     Joystick extremeStick = new Joystick(3);
     
-    Button clawCatchButt = new JoystickButton(leftStick, 2);
-    Button clawOpenButt = new JoystickButton(extremeStick, 11);
-    Button clawCloseButt = new JoystickButton(extremeStick, 12);
+    Button clawCatchButt = new JoystickButton(extremeStick, 7);
+    public Button clawOpenButt = new JoystickButton(extremeStick, 6);
+    public Button clawCloseButt = new JoystickButton(extremeStick, 4);
     Button manButt = new JoystickButton(extremeStick, 10); //claw
 
     //driving buttons
@@ -43,17 +43,17 @@ public class OI {
     Button shutdownButt = new JoystickButton(rightStick, 10);
     
     Button manGrabberOpenButt = new JoystickButton(extremeStick, 5);
-    Button manGrabberCloseButt = new JoystickButton(extremeStick, 6);
+    Button manGrabberCloseButt = new JoystickButton(extremeStick, 3);
     
     manGrabber manGrabberOpen = new manGrabber(.8, manGrabberOpenButt);
     manGrabber manGrabberClose = new manGrabber(-.8, manGrabberCloseButt);
 
     // kick butts
-    Button kickButt = new JoystickButton(extremeStick, 4);//NOT THE RIGHT NUMBER!!!!!!!!!
+    Button kickButt = new JoystickButton(extremeStick, 9);//NOT THE RIGHT NUMBER!!!!!!!!!
     Button resetKickerButt = new JoystickButton(extremeStick, 2); //this will be in EXTREMESTICK
     Button fireButt = new JoystickButton(extremeStick, 1); //this will be ExtremeStick
-    Button manKickerForwardButt = new JoystickButton(extremeStick, 3); //TODO actual values
-    Button manKickerBackwardButt = new JoystickButton(extremeStick, 4); //TODO actual values
+    Button manKickerForwardButt = new JoystickButton(extremeStick, 11); //TODO actual values
+    Button manKickerBackwardButt = new JoystickButton(extremeStick, 12); //TODO actual values
 
     //comand objects
     AutoPosition autoPosition = new AutoPosition(72); //not final number

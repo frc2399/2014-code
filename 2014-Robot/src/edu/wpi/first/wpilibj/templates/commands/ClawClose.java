@@ -36,6 +36,9 @@ public class ClawClose extends CommandBase {
         if (grabber.clawLimitSwitchCloseRightLimit.get() == true && grabber.clawLimitSwitchCloseLeftLimit.get() == true) {
             return true;
         }
+        if( oi.clawCloseButt.get() != true){
+            return true;
+        }
         return false;
     }
 

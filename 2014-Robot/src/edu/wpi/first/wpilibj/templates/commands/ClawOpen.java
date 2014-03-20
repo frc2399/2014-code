@@ -36,6 +36,9 @@ public class ClawOpen extends CommandBase {
         if (grabber.clawLimitSwitchOpenRightLimit.get() == true && grabber.clawLimitSwitchOpenLeftLimit.get() == true) {
             return true;
         }
+        if(oi.clawOpenButt.get() != true){
+            return true;
+        }
         return false;
     }
 
