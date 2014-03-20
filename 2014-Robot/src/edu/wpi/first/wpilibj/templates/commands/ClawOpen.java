@@ -24,7 +24,7 @@ public class ClawOpen extends CommandBase {
      * Called repeatedly when this Command is scheduled to run open claw
      */
     protected void execute() {
-        grabber.setSpeed(0.25); //TODO we need to ramp up this speed significantly 
+        grabber.setSpeed(0.25);
     }
 
     /**
@@ -33,7 +33,7 @@ public class ClawOpen extends CommandBase {
      * @return true if open limit switch has been hit
      */
     protected boolean isFinished() {
-        if (grabber.clawLimitSwitchOpenLimit.get() == true) {
+        if (grabber.clawLimitSwitchOpenRightLimit.get() == true && grabber.clawLimitSwitchOpenLeftLimit.get() == true) {
             return true;
         }
         return false;

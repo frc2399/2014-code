@@ -21,8 +21,11 @@ public class Grabber extends Subsystem {
     //Encoder testEncoder = new Encoder(RobotMap.clawEncoderA, RobotMap.clawEncoderB);
     //the encoder will most likley be plugged into the jag; therefore it does not need to be constructed
     //finalize with the mechies
-    public DigitalInput clawLimitSwitchOpenLimit = new DigitalInput(RobotMap.clawLimitSwitchOpenLimit);
-    public DigitalInput clawLimitSwitchCloseLimit = new DigitalInput(RobotMap.clawLimitSwitchCloseLimit);
+    public DigitalInput clawLimitSwitchOpenRightLimit = new DigitalInput(RobotMap.clawLimitSwitchOpenRightLimit);
+    public DigitalInput clawLimitSwitchOpenLeftLimit = new DigitalInput(RobotMap.clawLimitSwitchOpenLeftLimit);
+    public DigitalInput clawLimitSwitchCloseRightLimit = new DigitalInput(RobotMap.clawLimitSwitchCloseRightLimit);
+    public DigitalInput clawLimitSwitchCloseLeftLimit = new DigitalInput(RobotMap.clawLimitSwitchCloseLeftLimit);
+
 
     public Grabber() {
         try {

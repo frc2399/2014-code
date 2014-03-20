@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class ResetKickerGroup extends CommandGroup {
     
     public ResetKickerGroup() {
-        addSequential(new ResetKicker1());
+        //addSequential(new ResetKicker1());
         addSequential(new ResetKicker2());
     }
 }

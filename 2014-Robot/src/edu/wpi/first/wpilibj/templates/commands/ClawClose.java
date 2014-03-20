@@ -24,7 +24,7 @@ public class ClawClose extends CommandBase {
      * Called repeatedly when this Command is scheduled to run close claw
      */
     protected void execute() {
-        grabber.setSpeed(-0.25); //TODO up th speed a lot, way too slow as is
+        grabber.setSpeed(-0.25);
     }
 
     /**
@@ -33,7 +33,7 @@ public class ClawClose extends CommandBase {
      * @return true if limit switch has been hit
      */
     protected boolean isFinished() {
-        if (grabber.clawLimitSwitchCloseLimit.get() == true) {
+        if (grabber.clawLimitSwitchCloseRightLimit.get() == true && grabber.clawLimitSwitchCloseLeftLimit.get() == true) {
             return true;
         }
         return false;
