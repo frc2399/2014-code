@@ -15,21 +15,16 @@ import edu.wpi.first.wpilibj.templates.commands.*;
  */
 public class Autonomous extends CommandGroup {
 
-    public Autonomous() {
-        ///look for target
-        //if hot or past 5 seconds, shoot
+    public Autonomous(){
+    ///look for target
+    //if hot or past 5 seconds, shoot
+        
+    Timer timer = new Timer();
 
-        Timer timer = new Timer();
-        while (timer.get() <= 5) {
-            if (Vision.isHot()) { //look for target, if past 5 seconds shoot 
-                //addSequential(new Kick());
-                break;
-            }
-        }
-        if (Vision.isHot()) { //look for target, if past 5 seconds shoot 
-            //addSequential(new Kick());
-        }
-        addSequential(new DriveForward(), 3); //move forwrd
-
+    addSequential(new AutonomousKick(timer)); //shoot 
+    addParallel(new ResetKicker()); //this will execute and run in time with subsequent commands 
+    addSequential(new DriveForward(), 3); //move forwrd
+    
     }
+    
 }
