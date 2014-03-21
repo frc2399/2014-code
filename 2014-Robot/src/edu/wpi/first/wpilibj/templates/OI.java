@@ -122,11 +122,12 @@ public class OI {
         
         SmartDashboard.putData("Reset Kicker", resetKicker);
         SmartDashboard.putData("Fire", fire);
-        SmartDashboard.putNumber("kickVoltage", 10.0);
+        SmartDashboard.putNumber("kickVoltage", 10.2); // TODO: might be 10.1?
+        // This is the ideal voltage for kicking from 113 inches away from the goal
         SmartDashboard.putData("Kick", kick);
     }
 
-    public double getClawSpeed() {
+    public double getClawPitchSpeed() {
         return -extremeStick.getY();
     }
 

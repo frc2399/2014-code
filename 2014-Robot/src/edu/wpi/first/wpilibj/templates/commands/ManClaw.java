@@ -25,7 +25,7 @@ public class ManClaw extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        clawPitch.setX(oi.getClawSpeed());
+        clawPitch.setX(oi.getClawPitchSpeed());
     }
 
     // Make this return true when this Command no longer needs to run execute()
