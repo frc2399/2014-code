@@ -33,6 +33,7 @@ public class Grabber extends Subsystem {
     public Grabber() {
         try {
             grabMotor = new CANJaguar(RobotMap.grabMotor);
+            // grabMotor.changeControlMode(CANJaguar.ControlMode.kCurrent);
 
         } catch (Exception e) {
             System.out.println(e);

@@ -31,7 +31,7 @@ public class ClawPitch extends Subsystem {
 
     public ClawPitch() {
         MAX_POSITION = 0.062; //this is pick up position 
-        MIN_POSITION = 0.305; //TODO get values for these 
+        MIN_POSITION = 0.295; //TODO get values for these 
         TOLERANCE = 10; // TODO this is the tolerance for position will be changed most likely 
 
         try {

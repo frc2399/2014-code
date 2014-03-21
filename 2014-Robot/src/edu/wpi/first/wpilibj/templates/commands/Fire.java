@@ -15,9 +15,8 @@ public class Fire extends CommandGroup{
     
     public Fire(){
         
-        if(CommandBase.grabber.clawLimitSwitchOpenLeftLimit.get() && CommandBase.grabber.clawLimitSwitchOpenRightLimit.get()){
-            addSequential(new Kick());
-        }
+        addSequential(new ClawOpen());
+        addSequential(new Kick());
         
     }
     

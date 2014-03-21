@@ -46,8 +46,8 @@ public class OI {
     Button manGrabberOpenButt = new JoystickButton(extremeStick, 5);
     Button manGrabberCloseButt = new JoystickButton(extremeStick, 3);
     
-    manGrabber manGrabberOpen = new manGrabber(.7, manGrabberOpenButt);
-    manGrabber manGrabberClose = new manGrabber(-.7, manGrabberCloseButt);
+    manGrabber manGrabberOpen = new manGrabber(.5, manGrabberOpenButt);
+    manGrabber manGrabberClose = new manGrabber(-.5, manGrabberCloseButt);
 
     // kick butts
     Button kickButt = new JoystickButton(extremeStick, 9);//NOT THE RIGHT NUMBER!!!!!!!!!
@@ -122,7 +122,7 @@ public class OI {
         
         SmartDashboard.putData("Reset Kicker", resetKicker);
         SmartDashboard.putData("Fire", fire);
-        SmartDashboard.putNumber("kickVoltage", 10.2); // TODO: might be 10.1?
+        //SmartDashboard.putNumber("kickVoltage", 10.2); // TODO: might be 10.1?
         // This is the ideal voltage for kicking from 113 inches away from the goal
         SmartDashboard.putData("Kick", kick);
     }
