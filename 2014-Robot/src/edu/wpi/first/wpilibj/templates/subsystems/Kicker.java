@@ -119,7 +119,7 @@ public class Kicker extends Subsystem{
         try {
             setPositionControl();
             motor1.setX(position);
-            motor2.setX(motor1.getOutputVoltage());
+            //motor2.setX(motor1.getOutputVoltage());
         } catch (CANTimeoutException e) {
             e.printStackTrace();
         }
