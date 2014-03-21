@@ -8,27 +8,28 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author Lauren
  */
-public class DriveForward extends CommandBase {
-
-    public DriveForward() {
-        requires(driveTrain);
+public class SetClawPitch extends CommandBase{
+    
+    double position;
+    
+    public SetClawPitch(double position){
+        this.position = position;
+        
     }
-
-    // Called just before this Command runs the first time
+    
     protected void initialize() {
-        driveTrain.resetGyro();
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        // robot-oriented
-        //@param side speed, forward speed, twist speed, gyro
-        driveTrain.drive.mecanumDrive_Cartesian(0, -.5, 0, 0); //TODO look at this value
+        CommandBase.clawPitch.setPosition(position);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
+        //TODO make sure this command is overridden by manClaw
     }
 
     // Called once after isFinished returns true
@@ -41,4 +42,5 @@ public class DriveForward extends CommandBase {
     protected void interrupted() {
 
     }
+    
 }

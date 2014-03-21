@@ -27,6 +27,7 @@ public class OI {
     public Button clawOpenButt = new JoystickButton(extremeStick, 6);
     public Button clawCloseButt = new JoystickButton(extremeStick, 4);
     Button manButt = new JoystickButton(extremeStick, 10); //claw
+    Button setKickPositionButt = new JoystickButton(extremeStick, 8);
 
     //driving buttons
     Button strafeButt = new JoystickButton(leftStick, 3);
@@ -42,11 +43,11 @@ public class OI {
     //vision buttons
     Button shutdownButt = new JoystickButton(rightStick, 10);
     
-    Button manGrabberOpenButt = new JoystickButton(extremeStick, 5);
-    Button manGrabberCloseButt = new JoystickButton(extremeStick, 3);
+    //Button manGrabberOpenButt = new JoystickButton(extremeStick, 5);
+    //Button manGrabberCloseButt = new JoystickButton(extremeStick, 3);
     
-    manGrabber manGrabberOpen = new manGrabber(.8, manGrabberOpenButt);
-    manGrabber manGrabberClose = new manGrabber(-.8, manGrabberCloseButt);
+    //manGrabber manGrabberOpen = new manGrabber(.8, manGrabberOpenButt);
+   // manGrabber manGrabberClose = new manGrabber(-.8, manGrabberCloseButt);
 
     // kick butts
     Button kickButt = new JoystickButton(extremeStick, 9);//NOT THE RIGHT NUMBER!!!!!!!!!
@@ -56,7 +57,7 @@ public class OI {
     Button manKickerBackwardButt = new JoystickButton(extremeStick, 12); //TODO actual values
 
     //comand objects
-    AutoPosition autoPosition = new AutoPosition(72); //not final number
+    AutoPosition autoPosition = new AutoPosition(113); //not final number
     ClawCatch clawCatch = new ClawCatch();
     ClawClose clawClose = new ClawClose();
     ClawOpen clawOpen = new ClawOpen();
@@ -68,6 +69,7 @@ public class OI {
     JoystickDrive robotDrive = new JoystickDrive();
     Kick kick = new Kick();
     ManClaw manClaw = new ManClaw();
+    SetClawPitch setKickPosition = new SetClawPitch( 0.295); //this is kick value
     //man kicker buttons are down there 
     PiShutdown piShutdown = new PiShutdown();
     ResetKickerGroup resetKicker = new ResetKickerGroup();    
@@ -90,10 +92,10 @@ public class OI {
         robotOrientButt.cancelWhenPressed(fieldDrive);
         fieldOrientButt.whenPressed(fieldDrive);
         fieldOrientButt.cancelWhenPressed(robotDrive);
-        turnLeftButt.whenPressed(setDirectionLeft);
-        turnRightButt.whenPressed(setDirectionRight);
-        turnBackButt.whenPressed(setDirectionBack);
-        turnFrontButt.whenPressed(setDirectionFront);
+        //turnLeftButt.whenPressed(setDirectionLeft);
+        //turnRightButt.whenPressed(setDirectionRight);
+        //turnBackButt.whenPressed(setDirectionBack);
+        //turnFrontButt.whenPressed(setDirectionFront);
         autoPositionButt.whenPressed(autoPosition);
 
         //vision buttons
@@ -104,9 +106,10 @@ public class OI {
         clawOpenButt.whenPressed(clawOpen);
         clawCloseButt.whenPressed(clawClose);
         manButt.toggleWhenPressed(manClaw);
+        setKickPositionButt.whenPressed(setKickPosition);
         
-        manGrabberOpenButt.whenPressed(manGrabberOpen);
-        manGrabberCloseButt.whenPressed(manGrabberClose);
+        //manGrabberOpenButt.whenPressed(manGrabberOpen);
+        //manGrabberCloseButt.whenPressed(manGrabberClose);
         
 
         //kicker buttons
@@ -114,6 +117,7 @@ public class OI {
         fireButt.whenPressed(fire);
         manKickerForwardButt.whenPressed(manKickerForward);
         manKickerBackwardButt.whenPressed(manKickerBackward);
+        kickButt.whenPressed(kick);
         
         
         SmartDashboard.putData("Reset Kicker", resetKicker);
@@ -123,7 +127,7 @@ public class OI {
     }
 
     public double getClawSpeed() {
-        return extremeStick.getY();
+        return -extremeStick.getY();
     }
 
     public double getForwardSpeed() {

@@ -18,12 +18,15 @@ public class Autonomous extends CommandGroup {
     public Autonomous(){
     ///look for target
     //if hot or past 5 seconds, shoot
-        
+                
     Timer timer = new Timer();
-
+    timer.reset();
+    timer.start();
+    addSequential(new SetClawPitch(0.295), 1.5);
+    addSequential( new ClawOpen(), 2);
     addSequential(new AutonomousKick(timer)); //shoot 
     addParallel(new ResetKicker2()); //this will execute and run in time with subsequent commands 
-    addSequential(new DriveForward(), 3); //move forwrd
+    addSequential(new DriveForward(), 2); //move forwrd
     
     }
     

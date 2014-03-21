@@ -24,7 +24,7 @@ public class ClawClose extends CommandBase {
      * Called repeatedly when this Command is scheduled to run close claw
      */
     protected void execute() {
-        grabber.setSpeed(-0.25);
+        grabber.setSpeed(-0.8);
     }
 
     /**
@@ -33,7 +33,9 @@ public class ClawClose extends CommandBase {
      * @return true if limit switch has been hit
      */
     protected boolean isFinished() {
-        if (grabber.clawLimitSwitchCloseRightLimit.get() == true && grabber.clawLimitSwitchCloseLeftLimit.get() == true) {
+        System.out.println("Close: Left = " + grabber.clawLimitSwitchCloseLeftLimit.get() + " Right = " + grabber.clawLimitSwitchCloseRightLimit.get());
+        System.out.println("Open: Left = " + grabber.clawLimitSwitchOpenLeftLimit.get() + " Right = " + grabber.clawLimitSwitchOpenRightLimit.get());
+        if (grabber.clawLimitSwitchCloseRightLimit.get() != true && grabber.clawLimitSwitchCloseLeftLimit.get() != true) {
             return true;
         }
         if( oi.clawCloseButt.get() != true){
@@ -44,6 +46,7 @@ public class ClawClose extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        grabber.setSpeed(0);
     }
 
     // Called when another command which requires one or more of the same

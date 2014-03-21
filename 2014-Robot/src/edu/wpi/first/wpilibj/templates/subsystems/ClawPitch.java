@@ -30,8 +30,8 @@ public class ClawPitch extends Subsystem {
     public final double TOLERANCE;
 
     public ClawPitch() {
-        MAX_POSITION = 0.280; //this is pick up position 
-        MIN_POSITION = 0.50; //TODO get values for these 
+        MAX_POSITION = 0.062; //this is pick up position 
+        MIN_POSITION = 0.305; //TODO get values for these 
         TOLERANCE = 10; // TODO this is the tolerance for position will be changed most likely 
 
         try {
@@ -40,7 +40,7 @@ public class ClawPitch extends Subsystem {
             //setVoltageControl();
             clawPitchMotor.configPotentiometerTurns(1);
             clawPitchMotor.setPositionReference(CANJaguar.PositionReference.kPotentiometer);
-            clawPitchMotor.configSoftPositionLimits(MIN_POSITION, MAX_POSITION); //forward, reverse
+            clawPitchMotor.configSoftPositionLimits(MAX_POSITION, MIN_POSITION); //forward, reverse
             //System.out.println("Adding actuators for ClawPitch to LiveWIndow");
             // LiveWindow.addActuator("ClawPitch", "CanJaguarPID", new CANJaguarPIDActuator(clawPitchMotor));
             LiveWindow.addSensor("ClawPitch", "Pot Position", new CANJaguarPositionSensor(clawPitchMotor));

@@ -59,8 +59,8 @@ public class DriveTrain extends Subsystem {
     }
 
     public double getGyroAngle() {
-        SmartDashboard.putNumber("Gyro", -gyro.getAngle());
-        return -gyro.getAngle();
+        SmartDashboard.putNumber("Gyro", gyro.getAngle());
+        return gyro.getAngle();
     }
 
     public void resetGyro() {

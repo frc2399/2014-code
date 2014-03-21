@@ -38,6 +38,7 @@ public class Kicker extends Subsystem{
             LiveWindow.addActuator("Kicker", "CanJaguarPID", new CANJaguarPIDActuator(motor1));
             LiveWindow.addSensor("Kicker", "PIDPosition", new CANJaguarPositionSensor(motor1));
             LiveWindow.addSensor("Kicker", "PIDSpeed", new CANJaguarSpeedSensor(motor1));
+            
         }catch(Exception e){
             System.out.println(e);
             System.out.println(motor1);

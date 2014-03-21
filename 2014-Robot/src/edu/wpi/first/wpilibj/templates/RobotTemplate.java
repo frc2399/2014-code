@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.templates.Vision;
 import edu.wpi.first.wpilibj.templates.commands.*;
+import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,7 +26,7 @@ import edu.wpi.first.wpilibj.templates.commands.*;
  */
 public class RobotTemplate extends IterativeRobot {
 
-    Command autonomousCommand;
+    Autonomous autonomous;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -33,16 +34,16 @@ public class RobotTemplate extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
-        autonomousCommand = new EmptyCommand();
 
         // Initialize all subsystems
         CommandBase.init();
+        autonomous = new Autonomous();
 
     }
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        autonomousCommand.start();
+        autonomous.start();
     }
 
     /**
@@ -57,7 +58,7 @@ public class RobotTemplate extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        autonomousCommand.cancel();
+        autonomous.cancel();
     }
 
     /**
@@ -66,8 +67,15 @@ public class RobotTemplate extends IterativeRobot {
     public void teleopPeriodic() {
         //always cancel autonomous command 
         Scheduler.getInstance().run();
-        // SmartDashboard.putNumber("distance", Vision.getDistance());
-        // System.out.println("Distance: " + Vision.getDistance()); 
+        SmartDashboard.putNumber("distance", Vision.getDistance());
+        String hot;
+        if(Vision.isHot()){
+            hot = "yes";
+        } else{
+            hot = "no";
+        }
+        SmartDashboard.putString("Hot", hot);
+        //System.out.println("Distance: " + Vision.getDistance()); 
     }
 
     /**

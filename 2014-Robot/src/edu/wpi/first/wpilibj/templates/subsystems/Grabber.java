@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.templates.commands.ManClaw;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.*;
 
 /**
@@ -25,6 +26,8 @@ public class Grabber extends Subsystem {
     public DigitalInput clawLimitSwitchOpenLeftLimit = new DigitalInput(RobotMap.clawLimitSwitchOpenLeftLimit);
     public DigitalInput clawLimitSwitchCloseRightLimit = new DigitalInput(RobotMap.clawLimitSwitchCloseRightLimit);
     public DigitalInput clawLimitSwitchCloseLeftLimit = new DigitalInput(RobotMap.clawLimitSwitchCloseLeftLimit);
+    
+    
 
 
     public Grabber() {
