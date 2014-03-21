@@ -12,20 +12,20 @@ import edu.wpi.first.wpilibj.buttons.Button;
  */
 public class manGrabber extends CommandBase {
     
-    double voltage; 
+    double speed; 
     Button myButton;
     
-    public manGrabber(double voltage, Button myButton) {
+    public manGrabber(double speed, Button myButton) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(grabber);
-        this.voltage = voltage;
+        this.speed = speed;
         this.myButton = myButton;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        grabber.setSpeed(voltage);
+        grabber.setSpeed(speed);
     }
 
     // Called repeatedly when this Command is scheduled to run

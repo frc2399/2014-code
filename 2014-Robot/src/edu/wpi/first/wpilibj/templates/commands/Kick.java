@@ -29,6 +29,7 @@ public class Kick extends CommandBase{
 
     protected void execute() {
         kicker.setVoltage(SmartDashboard.getNumber("kickVoltage", 12.0));// this value is taken from the smart dashboard  
+        //kicker.setVoltage(10);
     }
 
     protected boolean isFinished() {

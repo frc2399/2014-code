@@ -4,6 +4,8 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
  * This class closes the claw using limit switches as reference for position The
  * current speed is set at .25, check this to make sure it is the best fit
@@ -24,7 +26,11 @@ public class ClawClose extends CommandBase {
      * Called repeatedly when this Command is scheduled to run close claw
      */
     protected void execute() {
-        grabber.setSpeed(-0.8);
+        grabber.setSpeed(-1);
+        SmartDashboard.putBoolean("closeLeft", grabber.clawLimitSwitchCloseLeftLimit.get());
+        SmartDashboard.putBoolean("openLeft", grabber.clawLimitSwitchOpenLeftLimit.get());
+        SmartDashboard.putBoolean("closeRight", grabber.clawLimitSwitchCloseRightLimit.get());
+        SmartDashboard.putBoolean("openRight", grabber.clawLimitSwitchOpenRightLimit.get());
     }
 
     /**

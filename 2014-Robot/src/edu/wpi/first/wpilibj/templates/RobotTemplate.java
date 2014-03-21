@@ -74,6 +74,7 @@ public class RobotTemplate extends IterativeRobot {
         } else{
             hot = "no";
         }
+        
         SmartDashboard.putString("Hot", hot);
         //System.out.println("Distance: " + Vision.getDistance()); 
     }

@@ -23,10 +23,13 @@ public class Autonomous extends CommandGroup {
     timer.reset();
     timer.start();
     //addSequential(new SetClawPitch(0.295), 1.5);
-    //addSequential( new ClawOpen(), 2);
-    addSequential(new Kick()); //shoot 
+    //addSequential( new ClawOpen(), 2);\
+    addSequential(new DriveForward(), 1.8);
+    //addSequential(new ResetKicker2(), 2);
+    //addSequential(new WaitForHotTarget(timer)); // wait until we're hot or 5 secs have passed
+    addSequential(new Kick()); //shoot
     //addParallel(new ResetKicker2()); //this will execute and run in time with subsequent commands 
-    addSequential(new DriveForward(), 3.5);
+    addSequential(new DriveForward(), 1.5);
     }
     
 }

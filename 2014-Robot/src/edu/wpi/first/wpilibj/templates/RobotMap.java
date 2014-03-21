@@ -31,7 +31,7 @@ public class RobotMap {
     public static final int clawLimitSwitchCloseRightLimit = 3; //change
     public static final int clawLimitSwitchCloseLeftLimit = 2; //change
 
-    public static final int grabMotor = 5; 
+    public static final int grabMotor = 3; 
 
     //kicker ports 
     public static final int shootMotor1 = 10;
