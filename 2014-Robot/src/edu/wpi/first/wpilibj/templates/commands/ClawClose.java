@@ -26,7 +26,7 @@ public class ClawClose extends CommandBase {
      * Called repeatedly when this Command is scheduled to run close claw
      */
     protected void execute() {
-        grabber.setSpeed(-1);
+        grabber.setSpeed(-.7);
         SmartDashboard.putBoolean("closeLeft", grabber.clawLimitSwitchCloseLeftLimit.get());
         SmartDashboard.putBoolean("openLeft", grabber.clawLimitSwitchOpenLeftLimit.get());
         SmartDashboard.putBoolean("closeRight", grabber.clawLimitSwitchCloseRightLimit.get());

@@ -27,9 +27,9 @@ public class RobotMap {
 
     //grabber ports
     public static final int clawLimitSwitchOpenRightLimit = 1; //change
-    public static final int clawLimitSwitchOpenLeftLimit = 2; //change
+    public static final int clawLimitSwitchOpenLeftLimit = 4; //change
     public static final int clawLimitSwitchCloseRightLimit = 3; //change
-    public static final int clawLimitSwitchCloseLeftLimit = 4; //change
+    public static final int clawLimitSwitchCloseLeftLimit = 2; //change
 
     public static final int grabMotor = 5; 
 
