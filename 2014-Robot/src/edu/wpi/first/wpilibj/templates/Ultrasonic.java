@@ -13,8 +13,8 @@ import edu.wpi.first.wpilibj.AnalogChannel;
  * @author lauren
  */
 public class Ultrasonic {
-    public static AnalogChannel ultrasonicSensor = new AnalogChannel(4);  //TODO get right numbers
+    public static AnalogChannel ultrasonicSensor = new AnalogChannel(RobotMap.ultrasonic);
     public static double getDistance() {
-    return ultrasonicSensor.getVoltage() * 1000 / 4.9 / 2.54;
+    return ultrasonicSensor.getVoltage() * 1000 / 4.9 / 2.54;  //converts volts to inches
 }
 }

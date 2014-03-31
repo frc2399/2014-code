@@ -39,6 +39,9 @@ public class RobotMap {
 
     //shooter wheel
     //public static final int shooterWheelMotor = 9;
+    
+    //ultrasonic sensor port
+    public static final int ultrasonic = 2;
 
 
 }
