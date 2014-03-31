@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.*;
  */
 public class Grabber extends Subsystem {
 
-    public Solenoid grabberSolenoid = new Solenoid(1);
+    public Solenoid grabberSolenoid = new Solenoid(RobotMap.grabberSolenoid);
     
 
     public Grabber() {

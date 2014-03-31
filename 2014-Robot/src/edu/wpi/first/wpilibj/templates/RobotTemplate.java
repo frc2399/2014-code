@@ -40,7 +40,7 @@ public class RobotTemplate extends IterativeRobot {
         CommandBase.init();
         autonomous = new Autonomous();
         
-        Compressor c = new Compressor (1, 2);
+        Compressor c = new Compressor (RobotMap.spikeRelay, RobotMap.pressureSwitch);
         c.start();
 
     }

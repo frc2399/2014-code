@@ -25,20 +25,21 @@ public class RobotMap {
     //claw Pitch ports
     public static final int clawPitchMotor = 4;  //otto value
 
-    //grabber ports
-    public static final int clawLimitSwitchOpenRightLimit = 1; //change
-    public static final int clawLimitSwitchOpenLeftLimit = 4; //change
-    public static final int clawLimitSwitchCloseRightLimit = 3; //change
-    public static final int clawLimitSwitchCloseLeftLimit = 2; //change
-
-    public static final int grabMotor = 5; 
-
     //kicker ports 
     public static final int shootMotor1 = 10;
     public static final int shootMotor2 = 2;
 
     //shooter wheel
     //public static final int shooterWheelMotor = 9;
+    
+    //solenoid port
+    public static int grabberSolenoid = 1;
+    
+    //compressor spike port (compressor output port)
+    public static int spikeRelay = 1;
+    
+    //compressor pressure switch (compressor input port)
+    public static int pressureSwitch = 2;
 
 
 }
