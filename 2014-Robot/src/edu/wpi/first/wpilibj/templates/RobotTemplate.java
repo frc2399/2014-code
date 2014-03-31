@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Command;
@@ -38,6 +39,9 @@ public class RobotTemplate extends IterativeRobot {
         // Initialize all subsystems
         CommandBase.init();
         autonomous = new Autonomous();
+        
+        Compressor c = new Compressor (1, 2);
+        c.start();
 
     }
 

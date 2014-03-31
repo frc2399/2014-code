@@ -13,44 +13,28 @@ import edu.wpi.first.wpilibj.*;
 
 /**
  *
- * @author Lauren
+ * @author Lauren 
  */
 public class Grabber extends Subsystem {
 
-    public CANJaguar grabMotor;
-
-    //Encoder testEncoder = new Encoder(RobotMap.clawEncoderA, RobotMap.clawEncoderB);
-    //the encoder will most likley be plugged into the jag; therefore it does not need to be constructed
-    //finalize with the mechies
-    public DigitalInput clawLimitSwitchOpenRightLimit = new DigitalInput(RobotMap.clawLimitSwitchOpenRightLimit);
-    public DigitalInput clawLimitSwitchOpenLeftLimit = new DigitalInput(RobotMap.clawLimitSwitchOpenLeftLimit);
-    public DigitalInput clawLimitSwitchCloseRightLimit = new DigitalInput(RobotMap.clawLimitSwitchCloseRightLimit);
-    public DigitalInput clawLimitSwitchCloseLeftLimit = new DigitalInput(RobotMap.clawLimitSwitchCloseLeftLimit);
+    public Solenoid grabberSolenoid = new Solenoid(1);
     
-    
-
 
     public Grabber() {
-        try {
-            grabMotor = new CANJaguar(RobotMap.grabMotor);
-            // grabMotor.changeControlMode(CANJaguar.ControlMode.kCurrent);
-
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println(grabMotor);
-        }
+      
 
     }
 
     public void initDefaultCommand() {
 
     }
+public void open(){
+    grabberSolenoid.set(false);
+}
 
-    public void setSpeed(double speed) {
-        try {
-            grabMotor.setX(speed);
-        } catch (CANTimeoutException e) {
-        }
-    }
+public void close(){
+    grabberSolenoid.set(true);
+}
+   
 
 }

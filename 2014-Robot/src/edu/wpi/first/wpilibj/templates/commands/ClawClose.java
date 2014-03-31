@@ -15,15 +15,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class ClawClose extends CommandBase {
     
-    Timer timer = new Timer();
 
     public ClawClose() {
         requires(grabber);
     }
 
     protected void initialize() {
-        timer.reset();
-        timer.start();
+       
 
     }
 
@@ -31,14 +29,7 @@ public class ClawClose extends CommandBase {
      * Called repeatedly when this Command is scheduled to run close claw
      */
     protected void execute() {
-        if (grabber.clawLimitSwitchCloseRightLimit.get() != true && grabber.clawLimitSwitchCloseLeftLimit.get() != true) {
-            return;
-        }
-        if(timer.get() <= .1){
-            grabber.setSpeed(-.9);
-        } else {
-            grabber.setSpeed(-.5);
-        }
+     grabber.close();
 
     }
 
@@ -48,20 +39,11 @@ public class ClawClose extends CommandBase {
      * @return true if limit switch has been hit
      */
     protected boolean isFinished() {
-        System.out.println("Close: Left = " + grabber.clawLimitSwitchCloseLeftLimit.get() + " Right = " + grabber.clawLimitSwitchCloseRightLimit.get());
-        System.out.println("Open: Left = " + grabber.clawLimitSwitchOpenLeftLimit.get() + " Right = " + grabber.clawLimitSwitchOpenRightLimit.get());
-        if (grabber.clawLimitSwitchCloseRightLimit.get() != true && grabber.clawLimitSwitchCloseLeftLimit.get() != true) {
-            return true;
-        }
-        if( timer.get() > .75){
-            return true;
-        }
-        return false;
+      return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        grabber.setSpeed(0);
     }
 
     // Called when another command which requires one or more of the same

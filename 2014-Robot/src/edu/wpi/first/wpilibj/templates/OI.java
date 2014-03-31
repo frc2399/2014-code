@@ -43,11 +43,9 @@ public class OI {
     //vision buttons
     Button shutdownButt = new JoystickButton(rightStick, 10);
     
-    Button manGrabberOpenButt = new JoystickButton(extremeStick, 5);
-    Button manGrabberCloseButt = new JoystickButton(extremeStick, 3);
+
     
-    manGrabber manGrabberOpen = new manGrabber(.75, manGrabberOpenButt);
-    manGrabber manGrabberClose = new manGrabber(-.75, manGrabberCloseButt);
+
 
     // kick butts
     Button kickButt = new JoystickButton(extremeStick, 9);//NOT THE RIGHT NUMBER!!!!!!!!!
@@ -108,8 +106,7 @@ public class OI {
         manButt.toggleWhenPressed(manClaw);
         setKickPositionButt.whenPressed(setKickPosition);
         
-        manGrabberOpenButt.whenPressed(manGrabberOpen);
-        manGrabberCloseButt.whenPressed(manGrabberClose);
+        
         
 
         //kicker buttons
