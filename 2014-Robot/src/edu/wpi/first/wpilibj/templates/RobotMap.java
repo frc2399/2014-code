@@ -33,7 +33,8 @@ public class RobotMap {
     //public static final int shooterWheelMotor = 9;
     
     //solenoid port
-    public static int grabberSolenoid = 1;
+    public static int grabberSolenoid1= 1;
+    public static int grabberSolenoid2 = 2;
     
     //compressor spike port (compressor output port)
     public static int spikeRelay = 1;
