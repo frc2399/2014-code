@@ -41,6 +41,9 @@ public class RobotMap {
     
     //compressor pressure switch (compressor input port)
     public static int pressureSwitch = 2;
+    
+    //ultrasonic sensor port
+    public static final int ultrasonic = 2;
 
 
 }
