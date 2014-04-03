@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.*;
  */
 public class Grabber extends Subsystem {
 
-    public DoubleSolenoid grabberSolenoid = new DoubleSolenoid(RobotMap.grabberSolenoid1, RobotMap.grabberSolenoid2); //get another grabbersolenoid in robotmap
+    public DoubleSolenoid grabberSolenoid = new DoubleSolenoid(RobotMap.grabberSolenoid1, RobotMap.grabberSolenoid2);
     
 
     public Grabber() {
@@ -28,12 +28,15 @@ public class Grabber extends Subsystem {
     public void initDefaultCommand() {
 
     }
-public void open(){
-    grabberSolenoid.set(DoubleSolenoid.Value.kForward); //TODO add in a .kOff later
+public void open(){ 
+    grabberSolenoid.set(DoubleSolenoid.Value.kForward); //I think this opens the claw
 }
 
 public void close(){
     grabberSolenoid.set(DoubleSolenoid.Value.kReverse); //TODO kForward and kReverse might need to be switched
+}
+public void turnOff(){
+    grabberSolenoid.set(DoubleSolenoid.Value.kOff);
 }
    
 
