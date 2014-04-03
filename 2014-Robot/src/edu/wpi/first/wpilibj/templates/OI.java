@@ -19,8 +19,8 @@ import edu.wpi.first.wpilibj.templates.commands.*;
 public class OI {
 
     
-    Joystick rightStick = new Joystick(1);
-    Joystick leftStick = new Joystick(2);
+    Joystick rightStick = new Joystick(2);
+    Joystick leftStick = new Joystick(1);
     Joystick extremeStick = new Joystick(3);
     
     Button clawCatchButt = new JoystickButton(extremeStick, 7);
@@ -55,7 +55,7 @@ public class OI {
     Button manKickerBackwardButt = new JoystickButton(extremeStick, 12); //TODO actual values
 
     //comand objects
-    AutoPosition autoPosition = new AutoPosition(113); //not final number
+    AutoPosition autoPosition = new AutoPosition(135); //not final number
     ClawCatch clawCatch = new ClawCatch();
     ClawClose clawClose = new ClawClose();
     ClawOpen clawOpen = new ClawOpen();
