@@ -14,14 +14,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author Lauren
  */
 public class ClawClose extends CommandBase {
-    
+    Timer timer;
 
     public ClawClose() {
         requires(grabber);
+        timer = new Timer();
     }
 
     protected void initialize() {
-       
+       timer.reset();
+       timer.start();
 
     }
 
@@ -39,7 +41,10 @@ public class ClawClose extends CommandBase {
      * @return true if limit switch has been hit
      */
     protected boolean isFinished() {
-      return true;
+        if (timer.get() > .5){
+            return true;
+        }
+      return false;
     }
 
     // Called once after isFinished returns true

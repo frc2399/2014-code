@@ -13,14 +13,19 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
  * @author Lauren
  */
 public class ClawOpen extends CommandBase {
+    
+    Timer timer;
+    
 
 
     public ClawOpen() {
         requires(grabber);
+        timer = new Timer();
     }
 
     protected void initialize() {
-       
+      timer.reset();
+      timer.start();
     }
 
     /**
@@ -33,8 +38,11 @@ public class ClawOpen extends CommandBase {
 
    
     protected boolean isFinished() {
+        if (timer.get() > .5){
+            return true;
+        }
 
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
