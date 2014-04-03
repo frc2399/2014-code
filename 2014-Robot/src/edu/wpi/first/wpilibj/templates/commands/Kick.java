@@ -28,7 +28,7 @@ public class Kick extends CommandBase{
     }
 
     protected void execute() {
-        kicker.setVoltage(11); // this value is NO LONGER taken from the smart dashboard  
+        kicker.setVoltage(10.2); // this value is NO LONGER taken from the smart dashboard  
         //kicker.setVoltage(10);
     }
 
