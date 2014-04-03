@@ -28,6 +28,7 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 public class RobotTemplate extends IterativeRobot {
 
     Autonomous autonomous;
+    Compressor c;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -40,9 +41,9 @@ public class RobotTemplate extends IterativeRobot {
         CommandBase.init();
         autonomous = new Autonomous();
         
-        Compressor c = new Compressor (RobotMap.spikeRelay, RobotMap.pressureSwitch);
+        c = new Compressor (RobotMap.spikeRelay, RobotMap.pressureSwitch);
         c.start();
-
+        
     }
 
     public void autonomousInit() {
@@ -72,6 +73,8 @@ public class RobotTemplate extends IterativeRobot {
         //always cancel autonomous command 
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("distance", Vision.getDistance());
+        SmartDashboard.putBoolean("pressure switch", c.getPressureSwitchValue());
+
         String hot;
         if(Vision.isHot()){
             hot = "yes";
