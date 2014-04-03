@@ -22,6 +22,7 @@ public class Autonomous extends CommandGroup {
     addSequential(new AutoPosition(135), 3);
     addSequential(new ResetKicker2(), 1);
     addSequential(new ClawOpen());
+    addParallel( new ClawCatch());
     addSequential(new Kick()); //shoot
     //addParallel(new ResetKicker2()); //this will execute and run in time with subsequent commands 
     addSequential(new DriveForward(), 1.5);
