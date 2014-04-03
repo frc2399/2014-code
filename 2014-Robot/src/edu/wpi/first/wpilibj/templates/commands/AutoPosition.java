@@ -5,7 +5,7 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.templates.Vision;
+import edu.wpi.first.wpilibj.templates.Ultrasonic;
 
 /**
  * This class automatically moves the robot to the distance specified in the
@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.templates.Vision;
  */
 public class AutoPosition extends CommandBase {
 
-    final double TOLERANCE = 15.0; // acceptable tolerance, in inches TODO 
+    final double TOLERANCE = 5.0; // acceptable tolerance, in inches TODO 
 
     double targetDistance; //distance to move robot to 
 
@@ -40,7 +40,7 @@ public class AutoPosition extends CommandBase {
     protected void execute() {
         double travelDistance;
         // use Vision.getDistance() to retrieve the current distance in inches
-        travelDistance = (Vision.getDistance() - targetDistance);
+        travelDistance = (Ultrasonic.getDistance() - targetDistance);
         if (travelDistance > 0) {
             driveTrain.drive.mecanumDrive_Cartesian(0, -0.2, 0, 0);
         } else if (travelDistance < 0) {
@@ -55,7 +55,7 @@ public class AutoPosition extends CommandBase {
      * tolerance
      */
     protected boolean isFinished() {
-        if (Vision.getDistance() < (targetDistance + TOLERANCE) && Vision.getDistance() > (targetDistance - TOLERANCE)) {
+        if (Ultrasonic.getDistance() < (targetDistance + TOLERANCE) && Ultrasonic.getDistance() > (targetDistance - TOLERANCE)) {
             return true;
         } else {
             return false;
