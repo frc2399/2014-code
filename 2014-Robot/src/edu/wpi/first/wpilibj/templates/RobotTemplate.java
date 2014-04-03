@@ -84,6 +84,8 @@ public class RobotTemplate extends IterativeRobot {
         
         SmartDashboard.putString("Hot", hot);
         //System.out.println("Distance: " + Vision.getDistance()); 
+        
+        SmartDashboard.putNumber("distance", Ultrasonic.getDistance());
     }
 
     /**
