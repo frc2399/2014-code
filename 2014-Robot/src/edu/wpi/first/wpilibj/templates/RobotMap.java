@@ -32,7 +32,6 @@ public class RobotMap {
     //shooter wheel
     //public static final int shooterWheelMotor = 9;
     
-<<<<<<< HEAD
     //solenoid port
     public static int grabberSolenoid1= 1;
     public static int grabberSolenoid2 = 2;
@@ -43,8 +42,6 @@ public class RobotMap {
     //compressor pressure switch (compressor input port)
     public static int pressureSwitch = 2;
     
-=======
->>>>>>> e40aafa398ef31fda5687051b35618564dc96e54
     //ultrasonic sensor port
     public static final int ultrasonic = 2;
 

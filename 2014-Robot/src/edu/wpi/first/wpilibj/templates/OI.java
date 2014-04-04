@@ -38,7 +38,7 @@ public class OI {
     Button fieldOrientButt = new JoystickButton(leftStick, 4);
     Button robotOrientButt = new JoystickButton(leftStick, 5);
     Button resetGyroButt = new JoystickButton(leftStick, 2);
-    Button autoPositionButt = new JoystickButton(extremeStick, 9);
+    Button autoPositionButt = new JoystickButton(leftStick, 10);
 
     //vision buttons
     Button shutdownButt = new JoystickButton(rightStick, 10);
@@ -94,7 +94,7 @@ public class OI {
         //turnRightButt.whenPressed(setDirectionRight);
         //turnBackButt.whenPressed(setDirectionBack);
         //turnFrontButt.whenPressed(setDirectionFront);
-        autoPositionButt.whenPressed(autoPosition);
+        autoPositionButt.whileHeld(autoPosition);
 
         //vision buttons
         shutdownButt.whenPressed(piShutdown);

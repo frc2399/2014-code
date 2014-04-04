@@ -42,10 +42,9 @@ public class AutoPosition extends CommandBase {
         // use Vision.getDistance() to retrieve the current distance in inches
         travelDistance = (Ultrasonic.getDistance() - targetDistance);
         if (travelDistance > 0) {
-            driveTrain.drive.mecanumDrive_Cartesian(0, -0.5, 0, 0);
-        } else if (travelDistance < 0) {
-            driveTrain.drive.mecanumDrive_Cartesian(0, 0.5, 0, 0);
-        }
+            double dist = -power((travelDistance/60), 1.5);
+            driveTrain.drive.mecanumDrive_Cartesian(0, dist, 0, 0);
+        } 
     }
 
     /**
@@ -69,5 +68,21 @@ public class AutoPosition extends CommandBase {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    }
+    
+    private double calcSpeed(){
+        double distance = Ultrasonic.getDistance();
+        double speed = (distance/60)*(distance/60);
+        return speed;
+    }
+    
+    private double power(final double a, final double b){
+        final int x = (int) (Double.doubleToLongBits(a) >> 32);
+        final int y = (int) (b*(x- 1072632447) + 1072632447);
+        double dist = Double.longBitsToDouble(((long) y) << 32);
+        if( dist > 0){
+            return dist;
+        }
+        return 0;
     }
 }
