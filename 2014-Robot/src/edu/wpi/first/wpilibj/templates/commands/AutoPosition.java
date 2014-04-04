@@ -41,10 +41,13 @@ public class AutoPosition extends CommandBase {
         double travelDistance;
         // use Vision.getDistance() to retrieve the current distance in inches
         travelDistance = (Ultrasonic.getDistance() - targetDistance);
+        // TODO: what if we overshoot?
         if (travelDistance > 0) {
-            double dist = -power((travelDistance/60), 1.5);
+            double dist = -power((travelDistance/60), 1.5) * .8;
             driveTrain.drive.mecanumDrive_Cartesian(0, dist, 0, 0);
-        } 
+        } else{
+            driveTrain.drive.mecanumDrive_Cartesian(0, 0, 0, 0);
+        }
     }
 
     /**
