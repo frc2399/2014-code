@@ -27,10 +27,11 @@ public class ClawCatch extends CommandBase {
      * Called repeatedly when this Command is scheduled to run if the position
      * is greater than or equal to the minimum position set position to Minimum
      * position
-     */
+     */ 
     protected void execute() {
-        if (clawPitch.getPosition() > clawPitch.MIN_POSITION) {
-            clawPitch.setPosition(clawPitch.MIN_POSITION);
+        if (clawPitch.getPosition() < clawPitch.UP_POSITION) {
+            clawPitch.setX(-.5);
+            //speed
         }
 
     }
@@ -41,7 +42,7 @@ public class ClawCatch extends CommandBase {
      * @return true if position is within tolerance
      */
     protected boolean isFinished() {
-        if (clawPitch.getPosition() <= clawPitch.MIN_POSITION + clawPitch.TOLERANCE) {
+        if (clawPitch.getPosition() >= clawPitch.UP_POSITION) {
             return true;
         }
         return false;

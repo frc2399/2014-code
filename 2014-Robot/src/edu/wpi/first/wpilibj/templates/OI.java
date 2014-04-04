@@ -100,7 +100,7 @@ public class OI {
         shutdownButt.whenPressed(piShutdown);
 
         //claw buttons
-        clawCatchButt.whenPressed(clawCatch);
+        clawCatchButt.whileHeld(clawCatch);
         clawOpenButt.whenPressed(clawOpen);
         clawCloseButt.whenPressed(clawClose);
         manButt.toggleWhenPressed(manClaw);
