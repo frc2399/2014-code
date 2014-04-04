@@ -30,7 +30,7 @@ public class ClawPitch extends Subsystem {
     public final double TOLERANCE;
 
     public ClawPitch() {
-        DOWN_POSITION = 0.095; //this is pick up position 
+        DOWN_POSITION = 0.101; //this is pick up position 
         UP_POSITION = 0.333; //TODO get values for these 
         TOLERANCE = 0.04; // TODO this is the tolerance for position will be changed most likely 
 
