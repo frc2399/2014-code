@@ -19,13 +19,13 @@ public class Autonomous extends CommandGroup {
     ///look for target
     //if hot or past 5 seconds, shoot
                 
-    addSequential(new AutoPosition(135), 2);
+    addSequential(new AutoPosition(108), 2);
     addSequential(new ResetKicker2(), 1);
     addSequential( new ClawCatch(), 1);
     addParallel(new ClawOpen());
     addSequential(new Kick()); //shoot
     //addParallel(new ResetKicker2()); //this will execute and run in time with subsequent commands 
-    addSequential(new DriveForward(), 1.5);
+    addSequential(new DriveForward(), 1.3);
     }
     
 }

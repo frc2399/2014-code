@@ -55,7 +55,7 @@ public class OI {
     Button manKickerBackwardButt = new JoystickButton(extremeStick, 12); //TODO actual values
 
     //comand objects
-    AutoPosition autoPosition = new AutoPosition(135); //not final number
+    AutoPosition autoPosition = new AutoPosition(108); //not final number
     ClawCatch clawCatch = new ClawCatch();
     ClawClose clawClose = new ClawClose();
     ClawOpen clawOpen = new ClawOpen();

@@ -74,6 +74,7 @@ public class RobotTemplate extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("distance", Vision.getDistance());
         SmartDashboard.putBoolean("pressure switch", c.getPressureSwitchValue());
+        //SmartDashboard.putNumber("kick voltage", 
 
         String hot;
         if(Vision.isHot()){
