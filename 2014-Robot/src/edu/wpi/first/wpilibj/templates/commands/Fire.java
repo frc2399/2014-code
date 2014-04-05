@@ -15,9 +15,9 @@ public class Fire extends CommandGroup{
     
     public Fire(){
         
-        addSequential(new ResetKicker2(), 1);
-        addSequential(new ClawCatch(), 1);
-        addParallel(new ClawOpen(), 2);
+        addSequential(new ResetKicker2(), 0.5);
+        addSequential(new ClawCatch(), 0.5);
+        addParallel(new ClawOpen(), 0.5);
         addSequential(new Kick());
         
     }
