@@ -7,6 +7,7 @@
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Command;
@@ -29,6 +30,7 @@ public class RobotTemplate extends IterativeRobot {
 
     Autonomous autonomous;
     Compressor c;
+    DigitalInput ioTest;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -41,8 +43,10 @@ public class RobotTemplate extends IterativeRobot {
         CommandBase.init();
         autonomous = new Autonomous();
         
-        c = new Compressor (RobotMap.spikeRelay, RobotMap.pressureSwitch);
+        c = new Compressor (RobotMap.pressureSwitch, RobotMap.spikeRelay);
         c.start();
+        
+        ioTest = new DigitalInput(2);
         
     }
 
@@ -74,6 +78,7 @@ public class RobotTemplate extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("distance", Vision.getDistance());
         SmartDashboard.putBoolean("pressure switch", c.getPressureSwitchValue());
+        SmartDashboard.putBoolean("ioTest", ioTest.get());
         //SmartDashboard.putNumber("kick voltage", 
 
         String hot;
