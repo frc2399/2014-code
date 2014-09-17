@@ -40,7 +40,7 @@ public class RobotMap {
     public static int spikeRelay = 1;
     
     //compressor pressure switch (compressor input port)
-    public static int pressureSwitch = 2;
+    public static int pressureSwitch = 1;
     
     //ultrasonic sensor port
     public static final int ultrasonic = 2;
